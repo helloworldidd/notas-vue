@@ -1,18 +1,23 @@
-# 😎 GUIA Vue.js
+# GUÍA Vue.js
 
 
+**Repos**
+- Directivas y sass: https://github.com/helloworldidd/p67-app-demo
+- Rutas: https://github.com/helloworldidd/p68-vue-rutas
 
-## 1. Inicialización
-## 2. Enlace de Datos  (data binding)
-## 3. Pinia (Guardar datos Globales)
-## 4. Prettier (formatear code)
-## 5. EsLint(corregir codigo)
-## 6. Bootstrap (Estilo css)
-## 7. Bootstrap Icons
-## 8. Animate
-## 9. SASS
-## 10. Rourter (Rutas)
-## 11. Formularios
+**Indice**
+
+1. Inicialización
+2. Enlace de Datos  (data binding)
+3. Pinia (Guardar datos Globales)
+4. Prettier (formatear code)
+5. EsLint(corregir código)
+6. Bootstrap (Estilo css)
+7. Bootstrap Icons
+8. Animate
+9. SASS
+10. Rourter (Rutas)
+11. Formularios
 
 
 
@@ -548,7 +553,7 @@ Preferences: Open User Settings (JSON)
 
 
 ---
-## 5. EsLint(corregir codigo)
+## 5. EsLint(corregir código)
 
 ```sh
 npm install -D eslint
