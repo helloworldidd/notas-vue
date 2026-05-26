@@ -4,7 +4,8 @@
 **Repos**
 - Directivas y sass: https://github.com/helloworldidd/p67-app-demo
 - Rutas: https://github.com/helloworldidd/p68-vue-rutas
-
+- Estructura: https://github.com/helloworldidd/p69-vue-base
+  
 **Indice**
 
 1. Inicialización
