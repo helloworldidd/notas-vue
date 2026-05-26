@@ -6,8 +6,9 @@
 - Rutas: https://github.com/helloworldidd/p68-vue-rutas
 - Estructura: https://github.com/helloworldidd/p69-vue-base
 
+
 **Ejemplos**
-https://github.com/helloworldidd/e-m6-l1
+- https://github.com/helloworldidd/e-m6-l1
 
 
 **Indice**
