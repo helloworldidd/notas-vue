@@ -5,7 +5,7 @@
 - Directivas y sass: https://github.com/helloworldidd/p67-app-demo
 - Rutas: https://github.com/helloworldidd/p68-vue-rutas
 - Estructura: https://github.com/helloworldidd/p69-vue-base
-
+- Props, Forms, Event Sumit y Click https://github.com/helloworldidd/p70-vue-form-events
 
 **Ejemplos**
 - https://github.com/helloworldidd/e-m6-l1
