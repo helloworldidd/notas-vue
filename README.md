@@ -2,30 +2,35 @@
 
 
 **Repos**
-- Directivas y sass: https://github.com/helloworldidd/p67-app-demo
-- Rutas: https://github.com/helloworldidd/p68-vue-rutas
-- Estructura: https://github.com/helloworldidd/p69-vue-base
-- Props, v-if, v-for, v-model, Forms, @sumit y @click: https://github.com/helloworldidd/p70-vue-form-events
-- Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit: https://github.com/helloworldidd/p71-vue-events
-- Eventos, Modificadores y ejercicio M6-L4 parcial https://github.com/helloworldidd/p72-vue-events-modifiers
 
-
-**Ejemplos**
-- https://github.com/helloworldidd/e-m6-l1
+| Descripcion                                                    | url repositorio                                           |
+|----------------------------------------------------------------| ----------------------------------------------------------|
+| Directivas y sass                                              | https://github.com/helloworldidd/p67-app-demo             |
+| Rutas                                                          | https://github.com/helloworldidd/p68-vue-rutas            |
+| Estructura                                                     | https://github.com/helloworldidd/p69-vue-base             |
+| Props, v-if, v-for, v-model, Forms, @sumit y @click            | https://github.com/helloworldidd/p70-vue-form-events      |
+| Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit | https://github.com/helloworldidd/p71-vue-events           |
+| Ejercicio **M6-L1**                                            | https://github.com/helloworldidd/e-m6-l1                  |
+| Eventos, Modificadores y ejercicio **M6-L4 parcial**           | https://github.com/helloworldidd/p72-vue-events-modifiers |
 
 
 **Indice**
 
 1. Inicialización
-2. Enlace de Datos  (data binding)
+2. Enlace de Datos (data binding)
 3. Pinia (Guardar datos Globales)
+
 4. Prettier (formatear code)
 5. EsLint(corregir código)
+
 6. Bootstrap (Estilo css)
 7. Bootstrap Icons
 8. Animate
+
 9. SASS
+
 10. Rourter (Rutas)
+
 11. Formularios
 
 
