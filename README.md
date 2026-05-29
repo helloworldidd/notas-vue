@@ -7,6 +7,8 @@
 - Estructura: https://github.com/helloworldidd/p69-vue-base
 - Props, v-if, v-for, v-model, Forms, @sumit y @click: https://github.com/helloworldidd/p70-vue-form-events
 - Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit: https://github.com/helloworldidd/p71-vue-events
+- Eventos, Modificadores y ejercicio M6-L4 parcial https://github.com/helloworldidd/p72-vue-events-modifiers
+
 
 **Ejemplos**
 - https://github.com/helloworldidd/e-m6-l1
