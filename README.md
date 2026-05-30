@@ -12,7 +12,7 @@
 | Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit | https://github.com/helloworldidd/p71-vue-events           |
 | Ejercicio **M6-L1**                                            | https://github.com/helloworldidd/e-m6-l1                  |
 | Eventos, Modificadores y ejercicio **M6-L4 parcial**           | https://github.com/helloworldidd/p72-vue-events-modifiers |
-
+| Rutas + imagen logo y cangrejo                                 | https://github.com/helloworldidd/p73-vue-routes           |
 
 **Indice**
 
