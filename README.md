@@ -720,8 +720,11 @@ Crear src/views/HomeView.vue
 <template>
   <h1>Home</h1>
 </template>
+```
 
 Crear src/views/AboutView.vue
+
+```js
 <template>
   <h1>About</h1>
 </template>
