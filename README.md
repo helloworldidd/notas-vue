@@ -911,13 +911,13 @@ En vez de leer con `useRoute()`, puedes pasar parámetros como props.
 
 ```js
 {
-  path: "/productos/:id",
-  component: ProductoView,
+  path: "/product/:id",
+  component: ProductView,
   props: true
 }
 ```
 
-En `ProductoView.vue`:
+En `ProductView.vue`:
 
 ```vue
 <script setup>
