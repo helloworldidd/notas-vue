@@ -15,8 +15,8 @@
 | Rutas + imagen logo y cangrejo                                 | https://github.com/helloworldidd/p73-vue-routes           |
 
 **Indice**
-
-1. [Inicialización](#Inicialización)
+[demo](#demo)
+1. Inicialización
 2. Enlace de Datos (data binding)
 3. Pinia (Guardar datos Globales)
 
@@ -35,6 +35,7 @@
 
 
 
+## demo
 
 
 ---
