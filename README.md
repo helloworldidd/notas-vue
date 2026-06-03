@@ -16,7 +16,7 @@
 
 **Indice**
 
-1. Inicialización
+1. [Inicialización](#Inicialización)
 2. Enlace de Datos (data binding)
 3. Pinia (Guardar datos Globales)
 
