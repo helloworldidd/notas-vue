@@ -14,7 +14,7 @@
 | Eventos, Modificadores y **Ejercicio M6-L4 parcial**           | https://github.com/helloworldidd/p72-vue-events-modifiers |
 | Rutas + imagen logo y cangrejo                                 | https://github.com/helloworldidd/p73-vue-routes           |
 | Componetización + Props                                        | https://github.com/helloworldidd/p75-vue-components       |
-| **Ejercicios M6-L1, M6-L2, M6-L3, M6-L4, M6-L5**               | https://github.com/helloworldidd/p75-vue-components       |
+| **Ejercicios M6-L1 M6-L2 M6-L3 M6-L4 M6-L5**                   | https://github.com/helloworldidd/p75-vue-components       |
 
 
 **Indice**
