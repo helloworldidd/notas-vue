@@ -1,21 +1,5 @@
 # Crear Snipets Propios
 
---- 
-
-## Indíce
-
-- []()
-<style>*{scroll-behavior: smooth}</style>
-
-
-
---- 
-
-## 
-
-
-
-
 
 1. presionar: **Ctrl + Shift + P**
 

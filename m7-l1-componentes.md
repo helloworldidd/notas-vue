@@ -35,6 +35,8 @@
 • Cuándo usar los hooks 
 • Tipos de hooks y su función 
 
+
+
 • Aplicar estilo a un componente 
 • Usando la etiqueta style 
 • Class binding 
@@ -1586,6 +1588,168 @@ y esos dos cubren la mayoría de los casos reales. 🚀
 
 
 
+
+
+
+
+## onBeforeMount()
+
+Preparar datos antes de mostrar el componente.
+
+```vue
+<script setup>
+import { ref, onBeforeMount } from "vue";
+
+const mensaje = ref("");
+
+onBeforeMount(() => {
+  mensaje.value = "Cargando aplicación...";
+});
+</script>
+
+<template>
+  <h2>{{ mensaje }}</h2>
+</template>
+```
+
+---
+
+## onMounted()
+
+Consumir una API cuando el componente ya está en pantalla.
+
+```vue
+<script setup>
+import { ref, onMounted } from "vue";
+
+const pokemon = ref(null);
+
+onMounted(async () => {
+  const res = await fetch(
+    "https://pokeapi.co/api/v2/pokemon/pikachu"
+  );
+
+  pokemon.value = await res.json();
+});
+</script>
+
+<template>
+  <h2 v-if="pokemon">
+    {{ pokemon.name }}
+  </h2>
+</template>
+```
+
+---
+
+## onBeforeUpdate()
+
+Guardar el valor anterior antes de actualizar.
+
+```vue
+<script setup>
+import { ref, onBeforeUpdate } from "vue";
+
+const contador = ref(0);
+
+onBeforeUpdate(() => {
+  console.log(
+    "Valor antes de actualizar:",
+    contador.value
+  );
+});
+</script>
+
+<template>
+  <h2>{{ contador }}</h2>
+
+  <button @click="contador++">
+    Incrementar
+  </button>
+</template>
+```
+
+---
+
+## onUpdated()
+
+Saber cuándo terminó el render.
+
+```vue
+<script setup>
+import { ref, onUpdated } from "vue";
+
+const contador = ref(0);
+
+onUpdated(() => {
+  console.log("DOM actualizado");
+});
+</script>
+
+<template>
+  <h2>{{ contador }}</h2>
+
+  <button @click="contador++">
+    Incrementar
+  </button>
+</template>
+```
+
+---
+
+## onBeforeUnmount()
+
+Guardar cambios antes de salir.
+
+```vue
+<script setup>
+import { onBeforeUnmount } from "vue";
+
+onBeforeUnmount(() => {
+  localStorage.setItem(
+    "borrador",
+    "Texto pendiente"
+  );
+});
+</script>
+
+<template>
+  <h2>Editor de texto</h2>
+</template>
+```
+
+---
+
+## onUnmounted()
+
+Limpiar un intervalo al destruir el componente.
+
+```vue
+<script setup>
+import {
+  onMounted,
+  onUnmounted
+} from "vue";
+
+let intervalo;
+
+onMounted(() => {
+  intervalo = setInterval(() => {
+    console.log("tick");
+  }, 1000);
+});
+
+onUnmounted(() => {
+  clearInterval(intervalo);
+
+  console.log("Intervalo eliminado");
+});
+</script>
+
+<template>
+  <h2>Reloj</h2>
+</template>
+```
 
 
 

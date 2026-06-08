@@ -1,7 +1,7 @@
 # GUÍA Vue.js
 
 
-<hr>
+---
 
 ## Repos
 
@@ -18,70 +18,47 @@
 | Componetización + Props                                        | https://github.com/helloworldidd/p75-vue-components       |
 | **Ejercicios M6-L1 M6-L2 M6-L3 M6-L4 M6-L5**                   | https://github.com/helloworldidd/p75-vue-components       |
 
-<hr>
+
+---
 
 ## Indice
+1. [m6-l1-componentes.md](./m6-l1-componentes.md)
+1. [m6-l2-templates-binding.md](./m6-l2-templates-binding.md)
+1. [m6-l3-formularios.md](./m6-l3-formularios.md)
+1. [m6-l4-eventos.md](./m6-l4-eventos.md)
+1. [m6-l5-rutas.md](./m6-l5-rutas.md)
 
-1. [m6-base-convencion-nombres.md](./m6-base-convencion-nombres.md)
-1. [m6-base-images.md](./m6-base-images.md)
-1. [m6-base-metodologias.md](./m6-base-metodologias.md)
-1. [m6-extra-snippets.md](./m6-extra-snippets.md)
-<br>
-
-<hr>
-
-1. [m6 l1 componentes](m6-l1-componentes.md)
-1. [m6 l1 vue-base-arquitecturas.md](./m6-l1-vue-base-arquitecturas.md)
-<br>
-
-1. [m6 l2 templates-binding.md](./m6-l2-templates-binding.md)
-1. [m6 l3 formularios.md](./m6-l3-formularios.md)
-1. [m6 l4 eventos.md](./m6-l4-eventos.md)
-1. [m6 l5 rutas.md](./m6-l5-rutas.md)
 <br>
 
 1. [m7-l1-componentes.md](./m7-l1-componentes.md)
-1. [m7-l1-vue-animate.md](./m7-l1-vue-animate.md)
-1. [m7-l1-vue-compositionAPI.md](./m7-l1-vue-compositionAPI.md)
-1. [m7-l1-vue-css-bootstrap.md](./m7-l1-vue-css-bootstrap.md)
-1. [m7-l1-vue-css-bootstrap-icons.md](./m7-l1-vue-css-bootstrap-icons.md)
-1. [m7-l1-vue-css-tailwind.md](./m7-l1-vue-css-tailwind.md)
-1. [m7-l1-vue-css-vuetify.md](./m7-l1-vue-css-vuetify.md)
-1. [m7-l1-vue-prettier-eslint.md](./m7-l1-vue-prettier-eslint.md)
-1. [m7-l1-vue-sass.md](./m7-l1-vue-sass.md)
-<br>
-
 1. [m7-l2-api.md](./m7-l2-api.md)
 1. [m7-l3-datos-globales.md](./m7-l3-datos-globales.md)
 1. [m7-l4-pruebas.md](./m7-l4-pruebas.md)
+
 <br>
 
 1. [m8-l1-despliegue.md](./m8-l1-despliegue.md)
 
-<!-- 1. [Inicialización](#1-inicialización)
-2. Enlace de Datos (data binding)
-3. Pinia (Guardar datos Globales)
+---
 
-4. Prettier (formatear code)
-5. EsLint(corregir código)
+1. [otros-base-arquitecturas.md](./otros-base-arquitecturas.md)
+1. [otros-base-compositionAPI.md](./otros-base-compositionAPI.md)
+1. [otros-base-convencion-nombres.md](./otros-base-convencion-nombres.md)
+1. [otros-base-images.md](./otros-base-images.md)
+1. [otros-base-metodologias.md](./otros-base-metodologias.md)
 
-6. Bootstrap (Estilo css)
-7. Bootstrap Icons
-8. Animate
+---
 
-9. SASS
+1. [otros-config-prettier-eslint.md](./otros-config-prettier-eslint.md)
+1. [otros-config-snippets.md](./otros-config-snippets.md)
 
-10. Router (Rutas)
+---
 
-11. Formularios
-
- -->
-
-
-
-
-
-
+1. [otros-css-animate.md](./otros-css-animate.md)
+1. [otros-css-bootstrap.md](./otros-css-bootstrap.md)
+1. [otros-css-sass.md](./otros-css-sass.md)
+1. [otros-css-tailwind.md](./otros-css-tailwind.md)
+1. [otros-css-vuetify.md](./otros-css-vuetify.md)
 
 
 

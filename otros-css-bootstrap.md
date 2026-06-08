@@ -5,14 +5,24 @@
 
 ## Indíce
 
-- []()
+- [Indíce](#indice)
+- [Intro](#intro)
+- [Instalación](#instalacion)
+- [Estructura básica](#estructura-basica)
+- [Grid responsive](#grid-responsive)
+- [Breakpoints](#breakpoints)
+- [Componentes](#componentes)
+- [Utilidades CSS](#utilidades-css)
+- [Directivas Vue](#directivas-vue)
+- [Lo más usado](#lo-mas-usado)
+
 <style>*{scroll-behavior: smooth}</style>
 
 
 
 --- 
 
-## 
+## Intro
 
 
 
@@ -20,39 +30,6 @@ https://getbootstrap.com/
 
 **Bootstrap** es un framework CSS para crear interfaces responsive usando clases listas para usar.
 
----
-
-## Índice
-
-- Instalación
-- Estructura básica
-- Grid responsive
-- Breakpoints
-
-- Componentes
-  - Botones
-  - Cards
-  - Inputs
-  - Imágenes
-  - Iconos
-  - Modales
-  - Barra superior
-  - Menú lateral
-
-- Utilidades CSS
-  - Colores
-  - Padding / Margin
-  - Texto centrado
-  - Flex
-  - Espaciado / Gap
-
-- Directivas Vue
-  - Ciclos
-  - Condicionales
-
-- Lo más usado
-
----
 
 
 

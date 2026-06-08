@@ -1,8 +1,21 @@
 # SASS
 
+
+---
+
+## Instalación
+
 ```sh
 npm install -D sass
 ```
+
+
+
+
+
+---
+
+## Código para crear carpetas
 
 ```sh
 mkdir src/assets/sass/abstracts,
@@ -22,6 +35,8 @@ src/assets/sass/theme/_dark.scss,
 src/assets/sass/vendors/_bootstrap.scss
 src/assets/sass/vendors/_animate.scss
 ```
+
+estructura 
 
 ```sh
 src/

@@ -1,11 +1,20 @@
 # Prettier y ESLint
 
+
+
+
+
+
+
+---
+
 ## Diferencia simple
 
 ```text
 Prettier -> cómo se VE el código
 ESLint   -> calidad y reglas JavaScript/Vue
 ```
+
 
 ---
 
