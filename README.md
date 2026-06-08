@@ -31,11 +31,13 @@
 <hr>
 
 1. [m6 l1 componentes](m6-l1-componentes.md)
-1. [m6-l1-vue-base-arquitecturas.md](./m6-l1-vue-base-arquitecturas.md)
-1. [m6-l2-templates-binding.md](./m6-l2-templates-binding.md)
-1. [m6-l3-formularios.md](./m6-l3-formularios.md)
-1. [m6-l4-eventos.md](./m6-l4-eventos.md)
-1. [m6-l5-rutas.md](./m6-l5-rutas.md)
+1. [m6 l1 vue-base-arquitecturas.md](./m6-l1-vue-base-arquitecturas.md)
+<br>
+
+1. [m6 l2 templates-binding.md](./m6-l2-templates-binding.md)
+1. [m6 l3 formularios.md](./m6-l3-formularios.md)
+1. [m6 l4 eventos.md](./m6-l4-eventos.md)
+1. [m6 l5 rutas.md](./m6-l5-rutas.md)
 <br>
 
 1. [m7-l1-componentes.md](./m7-l1-componentes.md)
