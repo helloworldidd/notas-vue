@@ -14,7 +14,6 @@
 - [Directivas](#directivas)
 - [Lo más usado](#lo-mas-usado)
 
-<style>*{scroll-behavior: smooth}</style>
 
 
 

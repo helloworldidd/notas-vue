@@ -3,28 +3,10 @@
 
 --- 
 
-## Indíce
-
-- []()
-<style>*{scroll-behavior: smooth}</style>
-
-
-
---- 
-
-## 
-
-
-
-Los eventos permiten reaccionar a acciones del usuario como clics, escritura en inputs, movimientos del mouse o envío de formularios.
-
-
----
-
 ## Índice
 
-- Estructura básica
-- Eventos básicos
+- [Estructura básica](#estructura-basica)
+- [Eventos básicos](#eventos-básicos)
     - Click
     - Doble Click
     - Mouse Enter
@@ -32,13 +14,13 @@ Los eventos permiten reaccionar a acciones del usuario como clics, escritura en 
     - Mouse Over
     - Mouse Out
     - Wheel
-- Eventos de formularios
+- [Eventos de formularios](#eventos-de-formularios)
     - Input
     - Change
     - Focus
     - Blur
     - Submit
-- Eventos de teclado
+- [Eventos de teclado](#eventos-de-teclado)
     - Keydown
     - Keyup
     - Enter
@@ -47,30 +29,30 @@ Los eventos permiten reaccionar a acciones del usuario como clics, escritura en 
     - SPACE
     - DELETE
     - Flechas
-- Teclas modificadoras
+- [Teclas modificadoras](#teclas-modificadoras)
     - CTRL
     - SHIFT
     - ALT
     - META
-- Combinaciones de teclas
+- [Combinaciones de teclas](#combinaciones-de-teclas)
     - CTRL + K
     - CTRL + ENTER
     - SHIFT + ENTER
     - ALT + ENTER
     - CTRL + SHIFT + K
-- Modificadores de eventos
+- [Modificadores de eventos](#modificadores-de-eventos)
     - .prevent
     - .stop
     - .once
     - .capture
     - .self
     - .passive
-- Eventos especiales del mouse
+- [Eventos especiales del mouse](#eventos-especiales-del-mouse)
     - Click izquierdo
     - Click derecho
     - Click rueda del mouse
     - Context Menu
-- Resumen rápido
+- [Resumen rápido](#resumen-rápido)
     - Eventos más usados
     - Teclas más usadas
     - Modificadores más usados
@@ -82,6 +64,9 @@ Los eventos permiten reaccionar a acciones del usuario como clics, escritura en 
 ---
 
 ## Estructura básica
+
+Los eventos permiten reaccionar a acciones del usuario como clics, escritura en inputs, movimientos del mouse o envío de formularios.
+
 
 Forma larga:
 

@@ -5,7 +5,6 @@
 ## Indíce
 
 - []()
-<style>*{scroll-behavior: smooth}</style>
 
 
 

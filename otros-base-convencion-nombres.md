@@ -6,7 +6,6 @@
 
 - [Guía](#guía)
 - [Resumen Convención](#resumen-convención)
-<style>*{scroll-behavior: smooth}</style>
 ---
 
 ## Guía

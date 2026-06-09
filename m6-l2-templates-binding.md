@@ -1,18 +1,36 @@
 #  Enlace de Datos  (data binding)
 
+---
+## indice
+
+- [Interpolación](#interpolación)
+- Directivas:
+  - [v-bind](#directiva-v-bind)
+  - [v-model](#directiva-v-model)
+  - [v-for](#directiva-v-for)
+  - [v-if](#directiva-v-if)
+  - [v-show](#directiva-v-show)
+  - [v-on](#directiva-v-on)
+  - [v-text](#directiva-v-text)
+  - [v-html](#directiva-v-html)
+  - [v-cloak](#directiva-v-cloak)
+  - [v-once](#directiva-v-once)
+
+
 
 ---
 
-##  One-way 
+##  Interpolación
 
 ```vue
+<script setup>
+const mensaje = "Hola 😎";
+</script>
+
 <template>
   <p>{{ mensaje }}</p>
 </template>
 
-<script setup>
-const mensaje = "Hola 😎";
-</script>
 ```
 
 
@@ -20,36 +38,38 @@ const mensaje = "Hola 😎";
 
 ---
 
-## Directiva v-bind
+## Directiva `v-bind`
 
 ```vue
+<script setup>
+	const imagen = "https://picsum.photos/200"
+</script>
+
 <template>
   <img :src="imagen">
 </template>
 
-<script setup>
-	const imagen = "https://picsum.photos/200"
-</script>
 ```
 
 
 
 ---
 
-## Directiva v-model
+## Directiva `v-model`
 (Two-way binding)
 
 
 ```vue
+<script setup>
+import { ref } from 'vue';
+const mensaje = ref("Hola");
+</script>
+
 <template>
   <input v-model="mensaje">
   <p>{{ mensaje }}</p>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-const mensaje = ref("Hola");
-</script>
 ```
 
 
@@ -62,16 +82,9 @@ const mensaje = ref("Hola");
 
 ---
 
-## Directiva v-for
-```vue
-<template>
-  <ul>
-    <li v-for="fruta in frutas">
-      {{ fruta }}
-    </li>
-  </ul>
-</template>
+## Directiva `v-for`
 
+```vue
 <script setup>
 const frutas = [
   "Manzana",
@@ -80,6 +93,14 @@ const frutas = [
   "Frutilla"
 ]
 </script>
+
+<template>
+  <ul>
+    <li v-for="fruta in frutas">
+      {{ fruta }}
+    </li>
+  </ul>
+</template>
 ```
 
 
@@ -87,19 +108,19 @@ const frutas = [
 
 ---
 
-## Directiva v-if
+## Directiva `v-if`
 mostrar o ocultar HTML según una condición 🚀
 
 ```vue
+<script setup>
+const mostrar = true
+</script>
 <template>
+
 <h1 v-if="mostrar">
     Hola Vue 😎
 </h1>
 </template>
-
-<script setup>
-const mostrar = true
-</script>
 ```
 
 
@@ -124,48 +145,22 @@ const mostrar = true
 También muestra u oculta elementos.
 La diferencia es que: v-show usa CSS
 
-<template>
-<h1 v-show="mostrar">
-    Hola Vue 🚀
-</h1>
-</template>
-
+```vue
 <script setup>
 const mostrar = true
 </script>
 
-
-
-
-
----
-
-## Directiva `v-model`
-Hace: Two-way binding
-
 <template>
-<input v-model="mensaje">
-<p>{{ mensaje }}</p>
+<h1 v-show="mostrar">
+  Hola Vue 🚀
+</h1>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-const mensaje = ref("Hola :)")
-</script>
+```
 
 
----
 
-## Directiva `v-bind`
-Conecta atributos HTML.
 
-<template>
-<img :src="imagen">
-</template>
 
-<script setup>
-const imagen = "https://picsum.photos/200"
-</script>
 
 
 
@@ -173,7 +168,7 @@ const imagen = "https://picsum.photos/200"
 
 ---
 
-## Directiva `v-on` 😎
+## Directiva `v-on`
 Escucha eventos.
 
 <template>
@@ -184,7 +179,7 @@ Escucha eventos.
 
 <script setup>
 function saludar() {
-alert("Hola Vue 🚀")
+  alert("Hola Vue 🚀")
 }
 </script>
 
@@ -194,7 +189,7 @@ alert("Hola Vue 🚀")
 
 ---
 
-## Directiva `v-text` :)
+## Directiva `v-text`
 Inserta texto.
 
 <template>

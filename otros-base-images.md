@@ -7,7 +7,6 @@
 - [¿Dónde van las imágenes?](#dónde-van-las-imágenes)
 - [Ejemplo con JSON](#ejemplo-con-json)
 - [Optimizar imágenes](#optimizar-imágenes)
-<style>*{scroll-behavior: smooth}</style>
 
 
 ---

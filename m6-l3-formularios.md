@@ -1,5 +1,9 @@
 # Formularios
 
+---
+- [Formulario Simple](#formulario-simple)
+- [Formulario Objeto](#formulario-objeto)
+- [Formulario Object Full](#formulario-object-full)
 
 ---
 
@@ -74,7 +78,7 @@ const enviarFormulario = () => {
 
 ---
 
-## Formularios Object Full
+## Formulario Object Full
 
 ```vue
 <script setup>

@@ -6,7 +6,6 @@
 
 - [Qué son las Metodologías](#qué-son-las-metodologías)
 - [Ejemplos de Metodologías](#ejemplos-de-metodologías)
-<style>*{scroll-behavior: smooth}</style>
 
 
 ---

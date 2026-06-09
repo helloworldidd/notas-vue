@@ -1,14 +1,45 @@
 # Router (Rutas)
 
+
+
+---
+
+## Indíce
+
+- [Instalación](#instalación)
+- [Crear router](#crear-router)
+- [Crear vistas](#crear-vistas)
+- [Conectar en main.js](#conectar-en-mainjs)
+- [Crear menú en App.vue](#crear-menú-en-appvue)
+- [Rutas estáticas](#rutas-estáticas)
+- [Rutas dinámicas](#rutas-dinámicas)
+- [Rutas anidadas](#rutas-anidadas)
+- [Pasar props según ruta](#pasar-props-según-ruta)
+- [Redirecciones](#redirecciones)
+- [Alias](#alias)
+- [Transiciones entre rutas](#transiciones-entre-rutas)
+- [Transiciones para rutas dinámicas](#transiciones-para-rutas-dinámicas)
+- [Transiciones por ruta](#transicionesd-por-ruta)
+- [Usando Animate.css](#usando-animatecss)
+- [Ruta 404](#ruta-404)
+- [1. Scroll suave a una sección](#1-scroll-suave-a-una-sección)
+- [2. Menú lateral simple](#2-menú-lateral-simple)
+
+
+
+---
+
+## Instalación
+
 Vue Router permite crear navegación entre páginas dentro de una SPA.
 
 ```sh
 npm install vue-router
-````
+```
 
 ---
 
-### Crear router
+## Crear router
 
 Crear:
 
@@ -43,7 +74,7 @@ export default router;
 
 ---
 
-### Crear vistas
+## Crear vistas
 
 ```txt
 src/views/HomeView.vue
@@ -67,7 +98,7 @@ src/views/AboutView.vue
 
 ---
 
-### Conectar en main.js
+## Conectar en main.js
 
 ```js
 import { createApp } from "vue";
@@ -82,7 +113,7 @@ createApp(App)
 
 ---
 
-### Crear menú en App.vue
+## Crear menú en App.vue
 
 ```vue
 <template>
@@ -98,7 +129,7 @@ createApp(App)
 
 ---
 
-### Rutas estáticas
+## Rutas estáticas
 
 Son rutas fijas.
 
@@ -120,7 +151,7 @@ Ejemplos:
 
 ---
 
-### Rutas dinámicas
+## Rutas dinámicas
 
 Sirven cuando una parte de la URL cambia.
 
@@ -180,7 +211,7 @@ o
 
 ---
 
-### Rutas anidadas
+## Rutas anidadas
 
 Sirven para tener rutas dentro de otras rutas.
 
@@ -228,7 +259,7 @@ En `DashboardView.vue` debe ir:
 
 ---
 
-### Pasar props según ruta
+## Pasar props según ruta
 
 En vez de leer con `useRoute()`, puedes pasar parámetros como props.
 
@@ -258,7 +289,7 @@ Esto es más limpio porque el componente no depende directamente del router.
 
 ---
 
-### Redirecciones
+## Redirecciones
 
 Sirven para mandar una ruta a otra.
 
@@ -283,7 +314,7 @@ Vue lo manda a:
 
 ---
 
-### Alias
+## Alias
 
 Sirve para que una misma ruta tenga otro nombre.
 
@@ -304,7 +335,7 @@ Entonces estas dos URLs muestran lo mismo:
 
 ---
 
-### Transiciones entre rutas
+## Transiciones entre rutas
 Las transiciones permiten animar el cambio entre páginas de una SPA.
 
 
@@ -564,7 +595,7 @@ Gira mientras aparece
 
 
 
-### Transiciones para rutas dinámicas
+## Transiciones para rutas dinámicas
 
 Problema:
 
@@ -584,9 +615,9 @@ Vue reutiliza el componente.
 
 Por eso la transición puede no ejecutarse.
 
----
 
-## Solución
+
+### Solución
 
 ```vue
 <router-view
@@ -627,7 +658,7 @@ La animación vuelve a ejecutarse.
 
 
 
-### Transiciones por ruta
+## Transiciones por ruta
 
 Router:
 
@@ -675,7 +706,7 @@ Resultado:
 
 
 
-### Usando Animate.css
+## Usando Animate.css
 
 Instalación:`npm i animate.css`
 
@@ -710,7 +741,7 @@ Uso:
 
 
 
-### Ruta 404
+## Ruta 404
 
 Sirve para páginas no encontradas.
 

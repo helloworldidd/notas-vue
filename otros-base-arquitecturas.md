@@ -6,7 +6,6 @@
 
 - [Qué son las arquitecturas](#qué-son-las-arquitecturas)
 - [Ejemplos de Arquitecturas](#ejemplos-de-arquitecturas)
-<style>*{scroll-behavior: smooth}</style>
 
 ---
 
