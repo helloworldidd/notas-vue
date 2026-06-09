@@ -11,17 +11,25 @@
 - [Crear vistas](#crear-vistas)
 - [Conectar en main.js](#conectar-en-mainjs)
 - [Crear menú en App.vue](#crear-menú-en-appvue)
+<br>
+
 - [Rutas estáticas](#rutas-estáticas)
 - [Rutas dinámicas](#rutas-dinámicas)
 - [Rutas anidadas](#rutas-anidadas)
+<br>
+
 - [Pasar props según ruta](#pasar-props-según-ruta)
 - [Redirecciones](#redirecciones)
 - [Alias](#alias)
+- [Ruta 404](#ruta-404)
+<br>
+
 - [Transiciones entre rutas](#transiciones-entre-rutas)
 - [Transiciones para rutas dinámicas](#transiciones-para-rutas-dinámicas)
 - [Transiciones por ruta](#transicionesd-por-ruta)
 - [Usando Animate.css](#usando-animatecss)
-- [Ruta 404](#ruta-404)
+<br>
+
 - [1. Scroll suave a una sección](#1-scroll-suave-a-una-sección)
 - [2. Menú lateral simple](#2-menú-lateral-simple)
 
@@ -332,6 +340,86 @@ Entonces estas dos URLs muestran lo mismo:
 /about
 /sobre-nosotros
 ```
+
+
+
+
+
+
+---
+
+## Ruta 404
+
+Sirve para páginas no encontradas.
+
+```js
+{
+  path: "/:pathMatch(.*)*",
+  component: NotFoundView
+}
+```
+
+Crear:
+
+```txt
+src/views/NotFoundView.vue
+```
+
+```vue
+<template>
+  <h1>404</h1>
+  <p>Página no encontrada</p>
+</template>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
@@ -741,29 +829,11 @@ Uso:
 
 
 
-## Ruta 404
 
-Sirve para páginas no encontradas.
 
-```js
-{
-  path: "/:pathMatch(.*)*",
-  component: NotFoundView
-}
-```
 
-Crear:
 
-```txt
-src/views/NotFoundView.vue
-```
 
-```vue
-<template>
-  <h1>404</h1>
-  <p>Página no encontrada</p>
-</template>
-```
 
 
 
@@ -812,117 +882,6 @@ src/views/NotFoundView.vue
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-v-slot="{ Component }
-
-
-<component :is="Component" />
-
-
-
-<transition name="slide-up" mode="out-in">
-
-
-
-    
-
-/* ACTIVE */
-
-.slide-up-enter-active {
-  transition: opacity 0.5s ease;
-}
-
-.slide-up-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-
-/* ENTER */
-.slide-up-enter-from {
-  opacity: 0;
-}
-
-.slide-up-enter-to {
-}
-
-
-/* LEAVE */
-.slide-up-leave-from {
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-<router-view v-slot="{ Component }">
-  <transition name="fade">
-    <component
-      :is="Component"
-      :key="$route.fullPath"
-      class="route-page"
-    />
-  </transition>
-</router-view>
-
-
-
-.router-container {
-  position: relative;
-  min-height: 80vh;
-}
-
-.route-page {
-  width: 100%;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s ease;
-  position: absolute;
-  width: 100%;
-}
-
-.fade-enter-from {
-  opacity: 0;
-}
-
-.fade-enter-to {
-  opacity: 1;
-}
-
-.fade-leave-from {
-  opacity: 1;
-}
-
-.fade-leave-to {
-  opacity: 0;
-}
 
 
 
@@ -1101,7 +1060,6 @@ nav a.anidacion{
 
 
 
-Sí, totalmente 😎 Con Vue puedes hacer las dos cosas:
 
 ## 1. Scroll suave a una sección
 

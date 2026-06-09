@@ -4,7 +4,49 @@
 
 ## Indíce
 
-- []()
+- [1. ref()](#1-ref)
+<br>
+
+- [2. reactive()](#2-reactive)
+<br>
+
+- [3. computed()](#3-computed)
+  - [Computed para totales](#computed-para-totales)
+  - [Computed para búsquedas](#computed-para-búsquedas)
+  - [Computed para datos derivados](#computed-para-datos-derivados)
+  - [Derivar un estado](#derivar-un-estado)
+  - [Derivar clases CSS](#derivar-clases-css)
+<br>
+
+- [4. watch()](#4-watch)
+  - [Llamar una API cuando cambia algo](#llamar-una-api-cuando-cambia-algo)
+  - [Validar formularios](#validar-formularios)
+  - [Guardar en LocalStorage](#guardar-en-localstorage)
+  - [Ejecutar acciones cuando cambia un dato](#ejecutar-acciones-cuando-cambia-un-dato)
+<br>
+
+- [5. onMounted()](#5-onmounted)
+<br>
+
+- [6. defineProps()](#6-defineprops)
+  - [Ejemplo 1: Tarjeta de producto](#ejemplo-1-tarjeta-de-producto)
+  - [Ejemplo 2: Avatar de usuario](#ejemplo-2-avatar-de-usuario)
+  - [Ejemplo 3: Lista con v-for](#ejemplo-3-lista-con-v-for)
+  - [Ejemplo 4: Boolean](#ejemplo-4-boolean)
+  - [Ejemplo 5: Pasar un objeto completo](#ejemplo-5-pasar-un-objeto-completo)
+  - [Ejemplo 6: Pasar un array](#ejemplo-6-pasar-un-array)
+<br>
+
+- [7. defineEmits()](#7-defineemits)
+  - [Ejemplo 1: Saludar](#ejemplo-1-saludar)
+  - [Ejemplo 2: Contador](#ejemplo-2-contador)
+  - [Ejemplo 3: Eliminar producto](#ejemplo-3-eliminar-producto)
+  - [Ejemplo 4: Formulario Login](#ejemplo-4-formulario-login)
+  - [Ejemplo 5: Cerrar modal](#ejemplo-5-cerrar-modal)
+  - [Ejemplo 6: Emitir varios datos](#ejemplo-6-emitir-varios-datos)
+<br>
+
+- [Resumen](#resumen)
 
 
 
@@ -148,7 +190,8 @@ const nombreCompleto = computed(() => {
 
 
 
-**Computed para filtros** Filtrar una lista de productos por categoría.
+### Computed para filtros
+Filtrar una lista de productos por categoría.
 
 ```vue
 <script setup>
@@ -195,7 +238,8 @@ const productosFiltrados = computed(() => {
 
 
 
-**Computed para totales** Calcular el total de un carrito.
+### Computed para totales
+Calcular el total de un carrito.
 
 ```vue
 <script setup>
@@ -243,7 +287,8 @@ const total = computed(() => {
 
 
 
-**Computed para búsquedas** Buscar por texto.
+### Computed para búsquedas
+Buscar por texto.
 
 ```vue
 <script setup>
@@ -284,7 +329,8 @@ const usuariosFiltrados = computed(() => {
 
 
 
-**Computed para datos derivados** Generar información a partir de otros datos.
+### Computed para datos derivados
+Generar información a partir de otros datos.
 
 ```vue
 <script setup>
@@ -304,7 +350,7 @@ const nombreCompleto = computed(() => {
 </template>
 ```
 
-**Derivar un estado**
+### Derivar un estado
 
 ```vue
 <script setup>
@@ -330,7 +376,7 @@ const esMayorDeEdad = computed(() => {
 
 
 
-**Derivar clases CSS**
+### Derivar clases CSS
 
 ```vue
 <script setup>
@@ -496,7 +542,7 @@ watch(busqueda, (nuevo) => {
 
 
 
-**Llamar una API cuando cambia algo**
+### Llamar una API cuando cambia algo
 
 ```vue
 <script setup>
@@ -528,7 +574,7 @@ watch(id, async (nuevoId) => {
 
 
 
-**Validar formularios**
+### Validar formularios
 
 ```vue
 <script setup>
@@ -554,7 +600,7 @@ watch(email, (nuevo) => {
 
 
 
-**Guardar en LocalStorage**
+### Guardar en LocalStorage
 
 ```vue
 <script setup>
@@ -595,7 +641,7 @@ watch(tema, (nuevo) => {
 
 
 
-**Ejecutar acciones cuando cambia un dato**
+### Ejecutar acciones cuando cambia un dato
 
 ```vue
 <script setup>
@@ -767,7 +813,7 @@ onMounted(() => {
 
 Recibe datos desde el componente padre.
 
-### Padre
+**Padre**
 
 ```vue
 <script setup>
@@ -781,7 +827,7 @@ import Hijo from "./Hijo.vue";
 
 ```
 
-### Hijo
+**Hijo**
 
 ```vue
 <script setup>
@@ -813,7 +859,7 @@ Hijo
 
 
 
-**Ejemplo 1: Tarjeta de producto**
+### Ejemplo 1: Tarjeta de producto
 
 **Padre**
 
@@ -850,7 +896,7 @@ const props = defineProps({
 
 
 
-**Ejemplo 2: Avatar de usuario**
+### Ejemplo 2: Avatar de usuario
 
 **Padre**
 
@@ -886,7 +932,7 @@ const props = defineProps({
 
 
 
-**Ejemplo 3: Lista con v-for**
+### Ejemplo 3: Lista con v-for
 
 **Padre**
 
@@ -926,7 +972,7 @@ const props = defineProps({
 
 
 
-**Ejemplo 4: Boolean**
+### Ejemplo 4: Boolean
 
 **Padre**
 
@@ -968,7 +1014,7 @@ const props = defineProps({
 
 
 
-**Ejemplo 5: Pasar un objeto completo**
+### Ejemplo 5: Pasar un objeto completo
 
 **Padre**
 
@@ -1007,7 +1053,7 @@ const props = defineProps({
 
 
 
-**Ejemplo 6: Pasar un array**
+### Ejemplo 6: Pasar un array
 
 Padre
 
@@ -1111,9 +1157,9 @@ Padre ← Emits ← Hijo
 
 
 
-**Ejemplo 1: Saludar**
+### Ejemplo 1: Saludar
 
-### Hijo
+**Hijo**
 
 ```vue
 <script setup>
@@ -1131,7 +1177,7 @@ const enviarSaludo = () => {
 </template>
 ```
 
-### Padre
+**Padre**
 
 ```vue
 <script setup>
@@ -1149,9 +1195,9 @@ const recibirSaludo = (nombre) => {
 
 ---
 
-**Ejemplo 2: Contador**
+### Ejemplo 2: Contador
 
-### Hijo
+**Hijo**
 
 ```vue
 <script setup>
@@ -1169,7 +1215,7 @@ const sumar = () => {
 </template>
 ```
 
-### Padre
+**Padre**
 
 ```vue
 <script setup>
@@ -1194,9 +1240,9 @@ const incrementar = () => {
 
 ---
 
-**Ejemplo 3: Eliminar producto**
+### Ejemplo 3: Eliminar producto
 
-### Hijo
+**Hijo**
 
 ```vue
 <script setup>
@@ -1218,7 +1264,7 @@ const borrar = () => {
 </template>
 ```
 
-### Padre
+**Padre**
 
 ```vue
 <script setup>
@@ -1237,9 +1283,9 @@ const eliminarProducto = (id) => {
 
 ---
 
-**Ejemplo 4: Formulario Login**
+### Ejemplo 4: Formulario Login
 
-### Hijo
+**Hijo**
 
 ```vue
 <script setup>
@@ -1263,7 +1309,7 @@ const enviar = () => {
 </template>
 ```
 
-### Padre
+**Padre**
 
 ```vue
 <script setup>
@@ -1284,9 +1330,9 @@ const login = (email) => {
 
 
 
-**Ejemplo 5: Cerrar modal**
+### Ejemplo 5: Cerrar modal
 
-### Hijo
+**Hijo**
 
 ```vue
 <script setup>
@@ -1300,7 +1346,7 @@ const emit = defineEmits(["cerrar"]);
 </template>
 ```
 
-### Padre
+**Padre**
 
 ```vue
 <script setup>
@@ -1323,7 +1369,7 @@ const mostrarModal = ref(true);
 
 
 
-**Ejemplo 6: Emitir varios datos**
+### Ejemplo 6: Emitir varios datos
 
 **Hijo**
 
@@ -1427,13 +1473,13 @@ const guardarUsuario = (usuario) => {
 💡 Regla fácil para recordar:
 
 ```text
-ref        → guardar datos
-reactive   → guardar objetos
-computed   → calcular datos
-watch      → observar cambios
-onMounted  → iniciar algo al cargar
-defineProps→ bajar datos
-defineEmits→ subir eventos
+ref         → guardar datos
+reactive    → guardar objetos
+computed    → calcular datos
+watch       → observar cambios
+onMounted   → iniciar algo al cargar
+defineProps → bajar datos
+defineEmits → subir eventos
 ```
 
 Con estas 7 herramientas ya puedes construir la mayoría de las aplicaciones Vue que se hacen en un bootcamp y gran parte de los proyectos reales.
