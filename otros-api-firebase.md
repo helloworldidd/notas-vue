@@ -6,13 +6,13 @@ Qué vamos a usar realmente?
 Firebase tiene muchos servicios:
 
 Firebase
-├─ Authentication
-├─ Firestore Database   ← vamos a usar este
-├─ Storage
-├─ Hosting
-├─ Analytics
-├─ Functions
-└─ Messaging
+- Authentication
+- **Firestore Database**   ← vamos a usar este
+- Storage
+- Hosting
+- Analytics
+- Functions
+- Messaging
 
 
 
