@@ -5,22 +5,29 @@
 
 ## Repos
 
-| Descripcion                                                    | url repositorio                                           |
-|----------------------------------------------------------------| ----------------------------------------------------------|
-| Directivas y sass                                              | https://github.com/helloworldidd/p67-app-demo             |
-| Rutas                                                          | https://github.com/helloworldidd/p68-vue-rutas            |
-| Estructura                                                     | https://github.com/helloworldidd/p69-vue-base             |
-| Props, v-if, v-for, v-model, Forms, @sumit y @click            | https://github.com/helloworldidd/p70-vue-form-events      |
-| Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit | https://github.com/helloworldidd/p71-vue-events           |
-| **Ejercicio M6-L1**                                            | https://github.com/helloworldidd/e-m6-l1                  |
-| Eventos, Modificadores y **Ejercicio M6-L4 parcial**           | https://github.com/helloworldidd/p72-vue-events-modifiers |
-| Rutas + imagen logo y cangrejo                                 | https://github.com/helloworldidd/p73-vue-routes           |
+| Descripcion                                                       | url repositorio                                           |
+| ----------------------------------------------------------------- | --------------------------------------------------------- |
+| Directivas y sass                                                 | https://github.com/helloworldidd/p67-app-demo             |
+| Rutas                                                             | https://github.com/helloworldidd/p68-vue-rutas            |
+| Estructura                                                        | https://github.com/helloworldidd/p69-vue-base             |
+| Props, v-if, v-for, v-model, Forms, @sumit y @click               | https://github.com/helloworldidd/p70-vue-form-events      |
+| Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit    | https://github.com/helloworldidd/p71-vue-events           |
+| **Ejercicio M6-L1**                                               | https://github.com/helloworldidd/e-m6-l1                  |
+| Eventos, Modificadores y **Ejercicio M6-L4 parcial**              | https://github.com/helloworldidd/p72-vue-events-modifiers |
+| Rutas + imagen logo y cangrejo                                    | https://github.com/helloworldidd/p73-vue-routes           |
 | Componetización + Props                                           | https://github.com/helloworldidd/p75-vue-components       |
 | **Ejercicios M6-L1 M6-L2 M6-L3 M6-L4 M6-L5**                      | https://github.com/helloworldidd/p76-vue-ejercicios-m6    |
 | Formato, Ref, Reactive, Computed, Watch, DefineProps, DefineEmits | https://github.com/helloworldidd/p77-vue-components       |
+| slots y component                                                 | https://github.com/helloworldidd/p78                      |
+| Web General (prettier lint router)                                | https://github.com/helloworldidd/p79-vue-general          |
+| Formulario firebase                                               | https://github.com/helloworldidd/p80-vue-firebase         |
+| **Ejercicios M7-L1 M7-L2**                                        | https://github.com/helloworldidd/p81-vue-ejercicios-m7    |
 
 
----
+---p78 Public
+
+
+
 
 ## Indice
 1. [m6-l1-componentes.md](./m6-l1-componentes.md)
