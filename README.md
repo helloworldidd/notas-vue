@@ -22,7 +22,7 @@
 | Web General (prettier lint router)                                | https://github.com/helloworldidd/p79-vue-general          |
 | Formulario firebase                                               | https://github.com/helloworldidd/p80-vue-firebase         |
 | **Ejercicios M7-L1 M7-L2**                                        | https://github.com/helloworldidd/p81-vue-ejercicios-m7    |
-
+| Rutas y detalles                                                  | https://github.com/helloworldidd/p82-vue-rutas-detalles   |
 
 ---p78 Public
 
