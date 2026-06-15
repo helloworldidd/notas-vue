@@ -24,8 +24,6 @@
 | **Ejercicios M7-L1 M7-L2**                                        | https://github.com/helloworldidd/p81-vue-ejercicios-m7    |
 | Rutas y detalles                                                  | https://github.com/helloworldidd/p82-vue-rutas-detalles   |
 
----p78 Public
-
 
 
 
