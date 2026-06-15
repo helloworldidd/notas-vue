@@ -18,28 +18,6 @@
 
 
 
-Almacenamiento de estado en Vuex 
-Qué es Vuex
-Almacenamiento de estado en Vuex
-
-Cuándo conviene utilizarlo
-
-Estructura de la aplicación
-
-Conceptos claves:
-- State
-- Mutation
-- Action
-- Module
-
-Usos clásicos:
-- Manejo de formularios
-- Manejo de la autenticación
-- Utilizando Vuex y Axios
-
-
-
-
 
 
 
@@ -297,7 +275,583 @@ const userStore = useUserStore();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### contador base
+
+
+
+Crear carpeta stores
+
+```txt
+src/
+├─ stores/
+│  └─ counterStore.js
+```
+
+Crear el store `counterStore.js`
+
+```js
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+
+export const useCounterStore = defineStore(
+  'counter',
+  () => {
+    const count = ref(0)
+
+    return {
+      count
+    }
+  }
+)
+```
+
+
+
+
+App.vue
+
+```vue
+<script setup>
+import { useCounterStore } from './stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <h1>{{ counterStore.count }}</h1>
+</template>
+```
+
+Verás:
+
+```txt
+0
+```
+
+
+
+
+
+
+Modificar el estado desde el template
+
+```vue
+<script setup>
+import { useCounterStore } from './stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <h1>{{ counterStore.count }}</h1>
+
+  <button
+    @click="counterStore.count++"
+  >
+    +
+  </button>
+</template>
+```
+
+
+
+
+
+La gracia aparece cuando tienes varios componentes.
+
+src/components/CounterDisplay.vue
+
+```vue
+<script setup>
+import { useCounterStore } from '@/stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <h2>{{ counterStore.count }}</h2>
+</template>
+```
+
+src/components/CounterButton.vue
+
+```vue
+<script setup>
+import { useCounterStore } from '@/stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <button
+    @click="counterStore.count++"
+  >
+    Incrementar
+  </button>
+</template>
+```
+
+App.vue
+
+```vue
+<script setup>
+import CounterDisplay from './components/CounterDisplay.vue'
+import CounterButton from './components/CounterButton.vue'
+</script>
+
+<template>
+  <CounterDisplay />
+  <CounterButton />
+</template>
+```
+- No hay:
+  - props
+  - emit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### State, Actions y Getters
+
+
+**State** Son los datos.
+
+```js
+const count = ref(0)
+const user = ref(null)
+const products = ref([])
+```
+
+
+
+**Actions** Son funciones que modifican el estado o ejecutan lógica.
+
+```js
+function increment() {
+  count.value++
+}
+
+function login(userData) {
+  user.value = userData
+}
+```
+
+
+**Getters** Son valores calculados a partir del state. En Vue equivalen casi a un `computed`.
+
+```js
+const doubleCount = computed(() => {
+  return count.value * 2
+})
+```
+
+o
+
+```js
+const isLogged = computed(() => {
+  return user.value !== null
+})
+```
+
+
+
+
+
+```js
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+
+export const useCounterStore = defineStore(
+  'counter',
+  () => {
+    const count = ref(0)
+
+    const doubleCount = computed(() => {
+      return count.value * 2
+    })
+
+    function increment() {
+      count.value++
+    }
+
+    return {
+      count,
+      doubleCount,
+      increment
+    }
+  }
+)
+```
+
+Y en el componente:
+
+```vue
+<template>
+  <h2>{{ counterStore.count }}</h2>
+  <h2>{{ counterStore.doubleCount }}</h2>
+
+  <button @click="counterStore.increment">
+    +
+  </button>
+</template>
+```
+
+
+resumen
+```js
+const products = ref([])      // State
+
+const total = computed(...)   // Getter
+
+function addProduct() {}      // Action
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Store completo
+
+`stores/counterStore.js`
+
+```js
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
+
+export const useCounterStore = defineStore('counter', () => {
+  // State
+  const count = ref(0)
+
+  // Getter
+  const doubleCount = computed(() => {
+    return count.value * 2
+  })
+
+  // Actions
+  function increment() {
+    count.value++
+  }
+
+  function decrement() {
+    count.value--
+  }
+
+  function reset() {
+    count.value = 0
+  }
+
+  return {
+    count,
+    doubleCount,
+    increment,
+    decrement,
+    reset,
+  }
+})
+```
+
+`components/CounterDisplay.vue` Este componente solo muestra datos.
+
+```vue
+<script setup>
+import { useCounterStore } from '@/stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <section>
+    <h2>Contador: {{ counterStore.count }}</h2>
+    <p>Doble: {{ counterStore.doubleCount }}</p>
+  </section>
+</template>
+```
+
+
+`components/CounterActions.vue` Este componente solo ejecuta acciones.
+
+```vue
+<script setup>
+import { useCounterStore } from '@/stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <section>
+    <button @click="counterStore.decrement">
+      -
+    </button>
+
+    <button @click="counterStore.increment">
+      +
+    </button>
+
+    <button @click="counterStore.reset">
+      Reset
+    </button>
+  </section>
+</template>
+```
+
+
+
+`App.vue` App solo arma la pantalla.
+
+```vue
+<script setup>
+import CounterDisplay from '@/components/CounterDisplay.vue'
+import CounterActions from '@/components/CounterActions.vue'
+</script>
+
+<template>
+  <main>
+    <h1>Ejemplo Pinia</h1>
+
+    <CounterDisplay />
+    <CounterActions />
+  </main>
+</template>
+```
+resumen
+```txt
+CounterDisplay  → lee el state/getter
+CounterActions  → ejecuta actions
+counterStore    → guarda y modifica el estado
+App.vue         → junta los componentes
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 ## EJEMPLOS
+
+
+- Usuario autenticado
+- Tema Dark / Light
+- Carrito de compras
+- Favoritos
+- Configuraciones globales
+- Manejo de Formularios
+- Utilizando Pinia y Axios
+
+
+| Caso                 | State               | Actions            | Getters           |
+| -------------------- | ------------------- | ------------------ | ----------------- |
+| Contador             | `count`             | `increment()`      | `doubleCount`     |
+| Dark / Light         | `theme`             | `toggleTheme()`    | `isDark`          |
+| Favoritos            | `favorites[]`       | `addFavorite()`    | `totalFavorites`  |
+| Carrito              | `cart[]`            | `addProduct()`     | `totalPrice`      |
+| Usuario autenticado  | `user`              | `login()`          | `isAuthenticated` |
+| Configuración global | `language`, `theme` | `changeLanguage()` | `currentLanguage` |
+| Formularios          | `formData`          | `saveForm()`       | `isValid`         |
+| Axios/API            | `products[]`        | `fetchProducts()`  | `productCount`    |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usnado getters actions y setters yvue router vamos a hacer estos 
+- Usuario autenticado
+- Tema Dark / Light
+- Carrito de compras
+- Favoritos
+- Configuraciones globales
+- Manejo de Formularios
+- Utilizando Pinia y Axios
+
+
+
+
+
+
+
+
+
+
 
 
 
