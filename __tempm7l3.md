@@ -1,8 +1,3 @@
-
-
-
-
-
 oo   oo  ooooooo           oo         oooooooo  
 ooo ooo      oo            oo              ooo  
 ooooooo     oo             oo         oooooooo  
@@ -143,7 +138,7 @@ export const useFrameworksStore = defineStore(
 
 src/router/index.js
 
-````js
+```js
 import { createRouter, createWebHistory } from 'vue-router'
 
 import AppLogin from '@/views/AppLogin.vue'
@@ -259,7 +254,7 @@ const enviarLogin = async () => {
 
 
 src/views/UserDashboard.vue
-```
+```vue
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -338,7 +333,7 @@ App.vue
 db.json
 En la raíz del proyecto, al lado de package.json
 
-```
+```json
 {
   "frameworks": [
     {

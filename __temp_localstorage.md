@@ -1,7 +1,3 @@
-Claro. Antes de mezclarlo con Pinia, yo enseñaría primero **LocalStorage puro con Vue**.
-
----
-
 # Guardar en LocalStorage
 
 Supongamos un input para guardar el nombre.
@@ -303,5 +299,3 @@ JSON.stringify()
 Recuperar objeto
 JSON.parse()
 ```
-
-Y después de entender esto, el siguiente paso es mostrar cómo hacer que **Pinia guarde automáticamente en LocalStorage** para que el carrito, favoritos o usuario sobrevivan al F5. Ahí es donde ambos se combinan muy bien. 🚀

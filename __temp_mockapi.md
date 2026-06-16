@@ -1,6 +1,18 @@
+# Mockapi
 
 
-### api mockapi
+
+
+
+
+
+
+
+
+
+## Server
+
+
 
 json-server es una herramienta que convierte un archivo JSON en una API REST completa.
 
@@ -229,7 +241,7 @@ Respuesta:
 
 
 
-### crud con mockapi
+## crud con mockapi
 
 
 ```txt
@@ -243,15 +255,15 @@ src/
     └── ProductForm.vue
 ```
 
-## 1. Instalar Axios
+### 1. Instalar Axios
 
 ```bash
 npm install axios
 ```
 
----
 
-## 2. Store de productos
+
+### 2. Store de productos
 
 `src/stores/productStore.js`
 
@@ -329,9 +341,9 @@ export const useProductStore = defineStore('product', () => {
 })
 ```
 
----
 
-## 3. Formulario para crear productos
+
+### 3. Formulario para crear productos
 
 `src/components/ProductForm.vue`
 
@@ -390,9 +402,9 @@ async function handleSubmit() {
 </template>
 ```
 
----
 
-## 4. Lista de productos
+
+### 4. Lista de productos
 
 `src/components/ProductList.vue`
 
@@ -442,9 +454,9 @@ onMounted(() => {
 </template>
 ```
 
----
 
-## 5. App.vue
+
+### 5. App.vue
 
 ```vue
 <script setup>
@@ -463,9 +475,9 @@ import ProductList from '@/components/ProductList.vue'
 </template>
 ```
 
----
 
-## 6. Terminales abiertas
+
+### 6. Terminales abiertas
 
 Una para Vue:
 
@@ -478,20 +490,4 @@ Otra para la API:
 ```bash
 npx json-server db.json
 ```
-
----
-
-Con esto ya tienes:
-
-```txt
-GET     → fetchProducts()
-POST    → createProduct()
-PUT     → updateProduct()
-DELETE  → deleteProduct()
-```
-
-Primero hagamos funcionar `GET`, `POST` y `DELETE`. Después agregamos el botón de **editar**, porque ahí entra un poquito más de lógica.
-
-
-
 

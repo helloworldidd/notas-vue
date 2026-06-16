@@ -1,8 +1,3 @@
-
-
-
-
-
 oo   oo  ooooooo           oo       ooooooo  
 ooo ooo      oo            oo       oo   oo  
 ooooooo     oo             oo          ooo   
@@ -10,7 +5,6 @@ oo   oo   oo               oo        ooo
 oo   oo  oo                ooooooo  ooooooo  
 
 
-m7 l2
 
 
 

@@ -1,9 +1,7 @@
-
-
-
-### FIND
+# .find()
 
 ```js
+
 const data = [
   {
     id: 1,
@@ -26,9 +24,6 @@ const data = [
 const producto = data.find(item => item.id === 2);
 
 ```
-
-
-
 
 
 

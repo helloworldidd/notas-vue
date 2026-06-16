@@ -1,14 +1,8 @@
-
 oo   oo  ooooooo           oo       ooooo  
 ooo ooo      oo            oo         ooo  
 ooooooo     oo             oo         ooo  
 oo   oo   oo               oo         ooo  
 oo   oo  oo                ooooooo    ooo  
-
-
-M7 L1
-
-
 
 
 

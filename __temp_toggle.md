@@ -1,6 +1,4 @@
-
-
-### TOGGLE
+# Boton Toggle
 
 ```vue
 <script setup>

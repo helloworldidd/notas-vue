@@ -1,6 +1,4 @@
-
-
-### CICLO DE VIDA
+# Ciclo de vida
 
 
 

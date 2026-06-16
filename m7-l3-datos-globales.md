@@ -2472,3 +2472,350 @@ onMounted(() => {
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Rutas Protegidas
+
+
+
+
+src/stores/authStore.js
+
+```js
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+
+export const useAuthStore = defineStore(
+  'auth',
+  () => {
+
+    // STATE
+
+    const usuario = ref(null)
+    const token = ref(null)
+    const autenticado = ref(false)
+
+    // GETTERS
+
+    const isLogged = computed(() => {
+      return autenticado.value
+    })
+
+    // ACTIONS
+
+    const login = (
+      email,
+      password
+    ) => {
+
+      if (
+        email === 'admin@test.com' &&
+        password === '123456'
+      ) {
+
+        usuario.value = {
+          id: 1,
+          nombre: 'Administrador',
+          email
+        }
+
+        token.value = 'abc123token'
+
+        autenticado.value = true
+
+        return true
+
+      }
+
+      return false
+
+    }
+
+    const logout = () => {
+
+      usuario.value = null
+      token.value = null
+      autenticado.value = false
+
+    }
+
+    return {
+      usuario,
+      token,
+      autenticado,
+
+      isLogged,
+
+      login,
+      logout
+    }
+
+  }
+)
+```
+
+
+
+src/views/DashboardView.vue
+
+```vue
+<script setup>
+import { useAuthStore }
+from '@/stores/authStore'
+
+const authStore =
+  useAuthStore()
+</script>
+
+<template>
+
+  <h1>
+    Dashboard
+  </h1>
+
+  <h2>
+    Bienvenido
+    {{ authStore.usuario.nombre }}
+  </h2>
+
+</template>
+```
+
+src/router/index.js
+
+```js
+import {
+  createRouter,
+  createWebHistory
+}
+from 'vue-router'
+
+import LoginView
+from '@/views/LoginView.vue'
+
+import DashboardView
+from '@/views/DashboardView.vue'
+
+import { useAuthStore }
+from '@/stores/authStore'
+
+const routes = [
+
+  {
+    path: '/',
+    name: 'login',
+    component: LoginView
+  },
+
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardView,
+
+    meta: {
+      requiresAuth: true
+    }
+  }
+
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+router.beforeEach((to) => {
+
+  const authStore =
+    useAuthStore()
+
+  const requiereAuth =
+    to.matched.some(
+      route => route.meta.requiresAuth
+    )
+
+  if (
+    requiereAuth &&
+    !authStore.isLogged
+  ) {
+
+    return {
+      name: 'login'
+    }
+
+  }
+
+})
+
+export default router
+```
+
+src/views/LoginView.vue
+
+Después del login exitoso:
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+import { useRouter }
+from 'vue-router'
+
+import { useAuthStore }
+from '@/stores/authStore'
+
+const router =
+  useRouter()
+
+const authStore =
+  useAuthStore()
+
+const email =
+  ref('')
+
+const password =
+  ref('')
+
+const iniciarSesion = () => {
+
+  const resultado =
+    authStore.login(
+      email.value,
+      password.value
+    )
+
+  if (resultado) {
+
+    router.push({
+      name: 'dashboard'
+    })
+
+  } else {
+
+    alert(
+      'Credenciales incorrectas'
+    )
+
+  }
+
+}
+</script>
+```
+
+
+
+
+
+
+App.vue
+
+```vue
+<script setup>
+import { useAuthStore } from '@/stores/authStore'
+
+const authStore = useAuthStore()
+</script>
+
+<template>
+  <nav>
+    <router-link to="/">
+      Home
+    </router-link>
+
+    <router-link
+      v-if="!authStore.isAutenticado"
+      to="/login"
+    >
+      Login
+    </router-link>
+
+    <router-link
+      v-if="authStore.isAutenticado"
+      to="/dashboard"
+    >
+      Dashboard
+    </router-link>
+  </nav>
+</template>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
