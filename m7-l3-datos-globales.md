@@ -8,9 +8,21 @@
 
 
 
---- 
+---
 
-## 
+## Qué es Pinia
+
+Pinia es la librería oficial y moderna para manejar estado global en aplicaciones Vue.
+
+Sirve para guardar datos compartidos entre varios componentes, como:
+
+- usuario logueado
+- carrito de compras
+- favoritos
+- productos
+- configuraciones
+- formularios largos
+- datos traídos desde una API
 
 
 
@@ -21,48 +33,53 @@
 
 
 
-# Almacenamiento de Estado Global con Pinia
 
-## Pinia
 
-Pinia es el gestor de estado oficial para Vue 3.
+---
 
-Permite compartir datos entre componentes sin necesidad de pasar Props constantemente.
+## Pinia vs Vuex
 
-```text
-Navbar
-   ↓
- Pinia
-   ↑
-Home
+| Vuex | Pinia | ¿Para qué sirve? |
+|-------|-------|------------------|
+| State | State | Almacena los datos globales de la aplicación. |
+| Getters | Getters | Obtienen datos calculados o derivados del state. Son similares a `computed`. |
+| Mutations | ❌ No existen | En Vuex modificaban el state. Pinia las elimina para simplificar el flujo. |
+| Actions | Actions | Contienen la lógica de la aplicación y modifican el state. También pueden ser asíncronas. |
+| Modules | Stores | Permiten organizar la aplicación en diferentes áreas o responsabilidades. |
+
+
+Ejemplo de equivalencia
+
+| Vuex | Pinia |
+|-------|-------|
+| `store.state.usuario` | `authStore.usuario` |
+| `store.getters.isLogged` | `authStore.isLogged` |
+| `store.commit('login')` | `authStore.login()` |
+| `store.dispatch('cargarUsuarios')` | `userStore.cargarUsuarios()` |
+| `modules/auth.js` | `stores/authStore.js` |
+
+
+
+```
+FLUJO PINIA           FLUJO VUEX
+
+Componente            Componente
+   ↓                      ↓
+Action                 dispatch()
+   ↓                      ↓
+State                   Action
+   ↓                      ↓
+Getter                 commit()
+   ↓                      ↓
+Vista                  Mutation
+                          ↓
+                        State
+                          ↓
+                        Getter
+                          ↓
+                        Vista
 ```
 
----
-
-## Reemplazo a Vuex
-
-Vuex fue el gestor oficial de Vue 2.
-
-Pinia simplifica:
-
-- Menos código
-- Mejor TypeScript
-- Más intuitivo
-- Mejor integración con Composition API
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -70,167 +87,56 @@ Pinia simplifica:
 
 
 ---
-## Cuándo utilizarlo
 
-No usar Pinia para todo.
+## Instalar Pinia
 
-Úsalo cuando varios componentes necesitan compartir datos.
+```bash
+npm install pinia
+```
 
-Ejemplos:
+Conectar Pinia a Vue `src/main.js`
 
-- Usuario autenticado
-- Tema Dark / Light
-- Carrito de compras
-- Favoritos
-- Configuraciones globales
+```js
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')
+```
 
 
 
+Estructura recomendada
 
-
-## Estructura de la aplicación
-## Estructura de una Store
-
-
-## Estructura de la aplicación con Pinia
-
-Una aplicación Vue 3 con Pinia normalmente separa:
-
-```sh
+```txt
 src/
-├── main.js
-├── App.vue
+├── api/
+│   └── api.js
+│
+├── stores/
+│   ├── counterStore.js
+│   ├── authStore.js
+│   ├── productStore.js
+│   ├── formStore.js
+│   └── frameworksStore.js
+│
 ├── router/
 │   └── index.js
-├── stores/
-│   ├── userStore.js
-│   ├── productStore.js
-│   └── cartStore.js
+│
 ├── views/
-│   ├── HomeView.vue
-│   ├── LoginView.vue
-│   └── ProductsView.vue
-└── components/
-    ├── Navbar.vue
-    ├── ProductCard.vue
-    └── CartItem.vue
-```
-
-
-Instalar
-```
-npm i pinia
-```
-
-
-
-
-main.js
-
-```js
-import { createApp } from 'vue';
-import { createPinia } from 'pinia';
-
-import App from './App.vue';
-import router from './router';
-
-const app = createApp(App);
-
-app.use(createPinia());
-app.use(router);
-
-app.mount('#app');
-```
-
-
-
-
-Carpeta stores/
-
-La carpeta stores/ guarda los estados globales de la aplicación.
-
-```
-stores/
-├── userStore.js
-├── productStore.js
-└── cartStore.js
-```
-
-
-
-
-
-
-
-userStore.js
-```js
-import { defineStore } from 'pinia';
-
-export const useUserStore = defineStore('user', {
-  state: () => ({
-    usuario: null,
-    token: null,
-  }),
-
-  actions: {
-    login(usuario, token) {
-      this.usuario = usuario;
-      this.token = token;
-    },
-
-    logout() {
-      this.usuario = null;
-      this.token = null;
-    },
-  },
-});
-```
-
-
-
-
-
-
-
-productStore.js
-
-```js
-import { defineStore } from 'pinia';
-
-export const useProductStore = defineStore('products', {
-  state: () => ({
-    productos: [],
-  }),
-
-  actions: {
-    setProductos(productos) {
-      this.productos = productos;
-    },
-  },
-});
-```
-
-
-
-USO
-```js
-<script setup>
-import { useUserStore } from '@/stores/userStore';
-
-const userStore = useUserStore();
-</script>
-
-<template>
-  <div>
-    <p v-if="userStore.usuario">
-      Hola {{ userStore.usuario.nombre }}
-    </p>
-
-    <p v-else>
-      No has iniciado sesión
-    </p>
-  </div>
-</template>
+│   ├── AppLogin.vue
+│   ├── UserDashboard.vue
+│   └── FrameworksView.vue
+│
+├── App.vue
+└── main.js
 ```
 
 
@@ -290,179 +196,15 @@ const userStore = useUserStore();
 
 
 
+---
 
+## State, Actions y Getters
 
+En Pinia tenemos tres conceptos básicos:
 
-
-
-
-
-
-
-
-
-
-### contador base
-
-
-
-Crear carpeta stores
-
-```txt
-src/
-├─ stores/
-│  └─ counterStore.js
-```
-
-Crear el store `counterStore.js`
-
-```js
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
-
-export const useCounterStore = defineStore(
-  'counter',
-  () => {
-    const count = ref(0)
-
-    return {
-      count
-    }
-  }
-)
-```
-
-
-
-
-App.vue
-
-```vue
-<script setup>
-import { useCounterStore } from './stores/counterStore'
-
-const counterStore = useCounterStore()
-</script>
-
-<template>
-  <h1>{{ counterStore.count }}</h1>
-</template>
-```
-
-Verás:
-
-```txt
-0
-```
-
-
-
-
-
-
-Modificar el estado desde el template
-
-```vue
-<script setup>
-import { useCounterStore } from './stores/counterStore'
-
-const counterStore = useCounterStore()
-</script>
-
-<template>
-  <h1>{{ counterStore.count }}</h1>
-
-  <button
-    @click="counterStore.count++"
-  >
-    +
-  </button>
-</template>
-```
-
-
-
-
-
-La gracia aparece cuando tienes varios componentes.
-
-src/components/CounterDisplay.vue
-
-```vue
-<script setup>
-import { useCounterStore } from '@/stores/counterStore'
-
-const counterStore = useCounterStore()
-</script>
-
-<template>
-  <h2>{{ counterStore.count }}</h2>
-</template>
-```
-
-src/components/CounterButton.vue
-
-```vue
-<script setup>
-import { useCounterStore } from '@/stores/counterStore'
-
-const counterStore = useCounterStore()
-</script>
-
-<template>
-  <button
-    @click="counterStore.count++"
-  >
-    Incrementar
-  </button>
-</template>
-```
-
-App.vue
-
-```vue
-<script setup>
-import CounterDisplay from './components/CounterDisplay.vue'
-import CounterButton from './components/CounterButton.vue'
-</script>
-
-<template>
-  <CounterDisplay />
-  <CounterButton />
-</template>
-```
-- No hay:
-  - props
-  - emit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### State, Actions y Getters
+- **State**: almacena la información de la aplicación.
+- **Getters**: obtienen o calculan información a partir del state.
+- **Actions**: ejecutan lógica y modifican el state.
 
 
 **State** Son los datos.
@@ -583,10 +325,9 @@ function addProduct() {}      // Action
 
 
 
+### Ejemplo con los 3 conceptos
 
-## Store completo
-
-`stores/counterStore.js`
+#### `stores/counterStore.js`
 
 ```js
 import { defineStore } from 'pinia'
@@ -624,7 +365,7 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-`components/CounterDisplay.vue` Este componente solo muestra datos.
+#### `components/CounterDisplay.vue` Este componente solo muestra datos.
 
 ```vue
 <script setup>
@@ -642,7 +383,7 @@ const counterStore = useCounterStore()
 ```
 
 
-`components/CounterActions.vue` Este componente solo ejecuta acciones.
+#### `components/CounterActions.vue` Este componente solo ejecuta acciones.
 
 ```vue
 <script setup>
@@ -670,7 +411,7 @@ const counterStore = useCounterStore()
 
 
 
-`App.vue` App solo arma la pantalla.
+#### `App.vue` App solo arma la pantalla.
 
 ```vue
 <script setup>
@@ -764,8 +505,207 @@ App.vue         → junta los componentes
 
 
 
+
+---
+
+## Ejemplos Simples
+
+
+
+
+
+### contador base
+
+
+
+carpeta stores
+
+```txt
+src/
+├─ stores/
+│  └─ counterStore.js
+```
+
+src/stores/counterStore.js
+
+```js
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+
+export const useCounterStore = defineStore(
+  'counter',
+  () => {
+    const count = ref(0)
+
+    return {
+      count
+    }
+  }
+)
+```
+
+
+
+
+App.vue
+
+```vue
+<script setup>
+import { useCounterStore } from './stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <h1>{{ counterStore.count }}</h1>
+
+  <button
+    @click="counterStore.count++"
+  >
+    +
+  </button>
+</template>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### varios Componentes
+
+src/components/CounterDisplay.vue
+
+```vue
+<script setup>
+import { useCounterStore } from '@/stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <h2>{{ counterStore.count }}</h2>
+</template>
+```
+
+src/components/CounterButton.vue
+
+```vue
+<script setup>
+import { useCounterStore } from '@/stores/counterStore'
+
+const counterStore = useCounterStore()
+</script>
+
+<template>
+  <button
+    @click="counterStore.count++"
+  >
+    Incrementar
+  </button>
+</template>
+```
+
+App.vue
+
+```vue
+<script setup>
+import CounterDisplay from './components/CounterDisplay.vue'
+import CounterButton from './components/CounterButton.vue'
+</script>
+
+<template>
+  <CounterDisplay />
+  <CounterButton />
+</template>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-## EJEMPLOS
+## Ejemplos Aplicados
 
 
 - Usuario autenticado
@@ -805,167 +745,194 @@ App.vue         → junta los componentes
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-usnado getters actions y setters yvue router vamos a hacer estos 
-- Usuario autenticado
-- Tema Dark / Light
-- Carrito de compras
-- Favoritos
-- Configuraciones globales
-- Manejo de Formularios
-- Utilizando Pinia y Axios
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Usuario autenticado
 
-Guardar el usuario y el token cuando inicia sesión.
 
-stores/authStore.js
+src/store/authStore.js
 
 ```js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore('auth', () => {
 
-  state: () => ({
-    usuario: null,
-    token: null,
-    autenticado: false
-  }),
+  // STATE
 
-  actions: {
+  const usuario = ref(null)
+  const token = ref(null)
+  const autenticado = ref(false)
 
-    login(usuario, token) {
+  // GETTERS
 
-      this.usuario = usuario;
-      this.token = token;
-      this.autenticado = true;
+  const isAutenticado = computed(
+    () => autenticado.value
+  )
 
-    },
+  const nombreUsuario = computed(() => {
 
-    logout() {
+    return usuario.value
+      ? usuario.value.nombre
+      : 'Invitado'
 
-      this.usuario = null;
-      this.token = null;
-      this.autenticado = false;
+  })
+
+  // ACTIONS
+
+  const login = (
+    email,
+    password
+  ) => {
+
+    if (
+      email === 'admin@test.com' &&
+      password === '123456'
+    ) {
+
+      usuario.value = {
+        id: 1,
+        nombre: 'Administrador',
+        email
+      }
+
+      token.value = 'abc123token'
+
+      autenticado.value = true
+
+      return true
 
     }
 
+    return false
+
   }
 
-});
-````
+  const logout = () => {
 
-Componente Login
+    usuario.value = null
+    token.value = null
+    autenticado.value = false
+
+  }
+
+  return {
+    usuario,
+    token,
+    autenticado,
+
+    isAutenticado,
+    nombreUsuario,
+
+    login,
+    logout
+  }
+
+})
+```
+
+
+src/views/LoginView.vue
 
 ```vue
 <script setup>
+import { ref } from 'vue'
+
+import UserAuth
+from '@/components/UserAuth.vue'
+
 import { useAuthStore }
-from '@/stores/authStore';
+from '@/stores/authStore'
 
 const authStore =
-  useAuthStore();
+  useAuthStore()
 
-const usuario = {
-  id: 1,
-  nombre: 'Patricio',
-  email: 'patricio@test.com'
-};
-
-const token =
-  'abc123token';
+const email = ref('')
+const password = ref('')
 
 const iniciarSesion = () => {
 
-  authStore.login(
-    usuario,
-    token
-  );
+  const resultado =
+    authStore.login(
+      email.value,
+      password.value
+    )
 
-};
+  if (!resultado) {
 
-const cerrarSesion = () => {
+    alert(
+      'Usuario o contraseña incorrectos'
+    )
 
-  authStore.logout();
+  }
 
-};
+}
 </script>
 
 <template>
 
-  <button @click="iniciarSesion">
-    Iniciar sesión
-  </button>
+  <UserAuth />
 
-  <button @click="cerrarSesion">
+  <h1>Login</h1>
+
+  <form
+    @submit.prevent="iniciarSesion"
+  >
+
+    <input
+      v-model="email"
+      type="email"
+      placeholder="Email"
+    >
+
+    <input
+      v-model="password"
+      type="password"
+      placeholder="Contraseña"
+    >
+
+    <button>
+      Iniciar sesión
+    </button>
+
+  </form>
+
+  <button
+    @click="authStore.logout"
+  >
     Cerrar sesión
   </button>
 
 </template>
 ```
 
-Ver usuario autenticado
+src/components/UserAuth.vue
 
 ```vue
 <script setup>
 import { useAuthStore }
-from '@/stores/authStore';
+from '@/stores/authStore'
 
 const authStore =
-  useAuthStore();
+  useAuthStore()
 </script>
 
 <template>
 
-  <div v-if="authStore.autenticado">
+  <div
+    v-if="authStore.isAutenticado"
+  >
 
     <h2>
-      Bienvenido {{ authStore.usuario.nombre }}
+      Bienvenido
+      {{ authStore.nombreUsuario }}
     </h2>
 
     <p>
       {{ authStore.usuario.email }}
+    </p>
+
+    <p>
+      Token:
+      {{ authStore.token }}
     </p>
 
   </div>
@@ -981,21 +948,12 @@ const authStore =
 </template>
 ```
 
-Flujo
 
-```text
-Click iniciar sesión
-      ↓
-authStore.login(usuario, token)
-      ↓
-Guarda usuario
-      ↓
-Guarda token
-      ↓
-autenticado = true
-      ↓
-Los componentes muestran la sesión activa
-```
+**Credenciales para probar**
+
+Email: admin@test.com
+Contraseña: 123456
+
 
 
 
@@ -1023,139 +981,153 @@ Los componentes muestran la sesión activa
 
 ### Tema Dark / Light
 
-Permite cambiar entre tema claro y oscuro desde cualquier componente.
 
-stores/themeStore.js
+src/stores/themeStore.js
 
 ```js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
-export const useThemeStore = defineStore('theme', {
+export const useThemeStore = defineStore('theme', () => {
 
-  state: () => ({
-    dark: false
-  }),
+  // STATE
+  const dark = ref(
+    localStorage.getItem('dark') === 'true'
+  )
 
-  actions: {
+  // GETTERS
+  const isDark = computed(() => dark.value)
 
-    toggleTheme() {
+  const themeText = computed(() => {
+    return dark.value
+      ? '☀️ Light'
+      : '🌙 Dark'
+  })
 
-      this.dark = !this.dark;
+  const themeClass = computed(() => {
+    return dark.value
+      ? 'dark'
+      : 'light'
+  })
 
-    }
+  // ACTIONS
+  const toggleTheme = () => {
+    dark.value = !dark.value
 
+    localStorage.setItem(
+      'dark',
+      dark.value
+    )
   }
 
-});
+  const setDark = () => {
+    dark.value = true
+
+    localStorage.setItem(
+      'dark',
+      true
+    )
+  }
+
+  const setLight = () => {
+    dark.value = false
+
+    localStorage.setItem(
+      'dark',
+      false
+    )
+  }
+
+  return {
+    dark,
+
+    isDark,
+    themeText,
+    themeClass,
+
+    toggleTheme,
+    setDark,
+    setLight
+  }
+
+})
 ```
 
-Componente Botón Tema
+src/components/ButtonTheme.vue
 
 ```vue
 <script setup>
 import { useThemeStore }
-from '@/stores/themeStore';
+from '@/stores/themeStore'
 
 const themeStore =
-  useThemeStore();
+  useThemeStore()
 </script>
 
 <template>
 
   <button
-    @click="themeStore.toggleTheme()"
+    @click="themeStore.toggleTheme"
   >
-    {{ themeStore.dark
-      ? '☀️ Light'
-      : '🌙 Dark'
-    }}
+    {{ themeStore.themeText }}
   </button>
 
 </template>
 ```
 
-Aplicar tema
 
+App.vue
 ```vue
 <script setup>
 import { useThemeStore }
-from '@/stores/themeStore';
+from '@/stores/themeStore'
+
+import ButtonTheme
+from '@/components/ButtonTheme.vue'
 
 const themeStore =
-  useThemeStore();
+  useThemeStore()
 </script>
 
 <template>
 
   <div
-    :class="{
-      dark: themeStore.dark
-    }"
+    class="app"
+    :class="themeStore.themeClass"
   >
 
-    Aplicación
+    <ButtonTheme />
+
+    <h1>
+      Aplicación
+    </h1>
+
+    <p>
+      Tema actual:
+      {{ themeStore.isDark ? 'Dark' : 'Light' }}
+    </p>
 
   </div>
 
 </template>
 
 <style scoped>
+.app {
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.light {
+  background-color: white;
+  color: #222;
+}
 
 .dark {
   background-color: #222;
   color: white;
 }
-
 </style>
 ```
-
-Flujo
-
-```text
-Click botón
-      ↓
-toggleTheme()
-      ↓
-dark = true
-      ↓
-Se aplica clase dark
-      ↓
-Toda la aplicación cambia de tema
-```
-
-
-💡 En una aplicación real normalmente el estado se guarda en `localStorage` para recordar el tema:
-
-```js
-toggleTheme() {
-
-  this.dark = !this.dark;
-
-  localStorage.setItem(
-    'dark',
-    this.dark
-  );
-
-}
-```
-
-y al iniciar la app:
-
-```js
-state: () => ({
-  dark:
-    localStorage.getItem('dark')
-    === 'true'
-})
-```
-
-Así el usuario mantiene su tema incluso después de cerrar el navegador. 😎
-
-
-
-
-
-
 
 
 
@@ -1188,169 +1160,142 @@ Así el usuario mantiene su tema incluso después de cerrar el navegador. 😎
 
 ### Carrito de compras
 
-Guardar productos en un carrito, aumentar cantidades y eliminar productos.
-
-stores/cartStore.js
+src/stores/cartStore.js
 
 ```js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
-export const useCartStore = defineStore('cart', {
 
-  state: () => ({
-    carrito: []
-  }),
 
-  actions: {
+export const useCartStore = defineStore('cart', () => {
+    
+    // STATE, GETTERS, ACTIONS
 
-    agregarAlCarrito(producto) {
 
-      const item =
-        this.carrito.find(
-          p => p.id === producto.id
-        );
+    // STATE - datos
+    const carrito = ref([])
 
-      if (item) {
 
-        item.cantidad++;
-
-      } else {
-
-        this.carrito.push({
-          ...producto,
-          cantidad: 1
-        });
-
-      }
-
-    },
-
-    quitarDelCarrito(producto) {
-
-      this.carrito =
-        this.carrito.filter(
-          p => p.id !== producto.id
-        );
-
-    },
-
-    vaciarCarrito() {
-
-      this.carrito = [];
-
+    //GETTERS - calculos
+    const total = computed(() => {
+        return carrito.value.reduce(
+            (acumulador, producto) => acumulador + producto.precio,
+            0
+        )
+        
+    })
+     
+    // ACTIONS - funciones
+    const addToCart = (producto) => {
+        carrito.value.push(producto)
     }
 
-  }
+    const removeFromCart = (index) => {
+        carrito.value = carrito.value.filter(
+            (producto, indexEnrrito) => indexEnrrito !== index
+        )
+    }
 
-});
+    return {
+        carrito,
+        addToCart,
+        removeFromCart,
+        total
+    }
+
+
+})
 ```
 
-Componente Producto
 
+
+
+src/views/ProductsView.vue
 ```vue
 <script setup>
-import { useCartStore }
-from '@/stores/cartStore';
+import CounterDisplay from '@/components/CounterDisplay.vue';
+import CounterButton from '@/components/CounterButton.vue';
+import {productos} from '../data/products'
 
-const cartStore =
-  useCartStore();
+import { useCartStore } from '@/stores/cartStore'
+const cartStore = useCartStore()
 
-const producto = {
-  id: 1,
-  nombre: 'Pastel de Chocolate',
-  precio: 5000
-};
+const comprar = (producto) => {
+  cartStore.addToCart(producto)
+}
+
+
 </script>
 
 <template>
+  <div>
+    <h1>Productos</h1>
+  
+    <CounterDisplay />
+    <CounterButton />
 
-  <h2>
-    {{ producto.nombre }}
-  </h2>
+    <ul>
+      <li v-for="producto in productos" :key="producto.id">
+        {{ producto.nombre }} - {{ producto.precio }}
 
-  <p>
-    ${{ producto.precio }}
-  </p>
+        <button @click="comprar(producto)">Agregar a carrito</button>
+      </li>
+    </ul>
 
-  <button
-    @click="
-      cartStore.agregarAlCarrito(
-        producto
-      )
-    "
-  >
-    🛒 Agregar al carrito
-  </button>
-
+  </div>
 </template>
+
+<style scoped>
+
+li{
+  list-style: none;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+</style>
 ```
 
-Ver carrito
-
+src/views/CartView.vue
 ```vue
 <script setup>
-import { useCartStore }
-from '@/stores/cartStore';
 
-const cartStore =
-  useCartStore();
+import { useCartStore } from '@/stores/cartStore'
+
+const cartStore = useCartStore()
+
+
 </script>
 
 <template>
+  <div>
+    <h1>Carrito</h1>
+    
+    <ul>
+      <li v-for="(item, index) in cartStore.carrito"
+        :key="item.id">
+        {{ item.nombre }} - {{ item.precio }}
 
-  <h2>
-    Carrito
-  </h2>
 
-  <ul>
+        <button @click="cartStore.removeFromCart(index)">
+            Eliminar
+        </button>
+      </li>
+    </ul>
 
-    <li
-      v-for="item in cartStore.carrito"
-      :key="item.id"
-    >
-      {{ item.nombre }}
-      -
-      ${{ item.precio }}
-      -
-      Cantidad: {{ item.cantidad }}
+    <h2>Total: {{ cartStore.total }}</h2>
 
-      <button
-        @click="
-          cartStore.quitarDelCarrito(
-            item
-          )
-        "
-      >
-        Eliminar
-      </button>
-    </li>
 
-  </ul>
-
-  <button
-    @click="cartStore.vaciarCarrito()"
-  >
-    Vaciar carrito
-  </button>
-
+  </div>
 </template>
+
+<style scoped>
+
+</style>
 ```
-
-Flujo
-
-```text
-Click agregar al carrito
-      ↓
-agregarAlCarrito(producto)
-      ↓
-Si no existe, lo agrega con cantidad 1
-      ↓
-Si ya existe, aumenta cantidad
-      ↓
-Todos los componentes actualizan el carrito
-```
-
-
 
 
 
@@ -1393,68 +1338,79 @@ Todos los componentes actualizan el carrito
 
 ### Favoritos
 
-Permite guardar o quitar productos favoritos desde cualquier componente usando Pinia.
-
 stores/favoriteStore.js
 
 ```js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
-export const useFavoriteStore = defineStore('favorites', {
+export const useFavoriteStore = defineStore(
+  'favorites',
+  () => {
 
-  state: () => ({
-    favoritos: []
-  }),
+    // STATE
+    const favoritos = ref([])
 
-  actions: {
+    // GETTERS
+    const totalFavoritos = computed(() => {
+      return favoritos.value.length
+    })
 
-    toggleFavorito(producto) {
+    const isFavorite = (id) => {
+      return favoritos.value.some(
+        producto => producto.id === id
+      )
+    }
+
+    // ACTIONS
+    const toggleFavorito = (producto) => {
 
       const index =
-        this.favoritos.findIndex(
+        favoritos.value.findIndex(
           p => p.id === producto.id
-        );
+        )
 
       if (index >= 0) {
 
-        this.favoritos.splice(index, 1);
+        favoritos.value.splice(
+          index,
+          1
+        )
 
       } else {
 
-        this.favoritos.push(producto);
+        favoritos.value.push(
+          producto
+        )
 
       }
 
     }
 
-  }
+    return {
+      favoritos,
+      totalFavoritos,
+      isFavorite,
+      toggleFavorito
+    }
 
-});
+  }
+)
 ```
 
-Componente Producto
 
-```vue
-<script setup>
+
+
+src/views/Products.vue en script
+```js
 import { useFavoriteStore }
-from '@/stores/favoriteStore';
+from '@/stores/favoriteStore'
 
-const favoriteStore =
-  useFavoriteStore();
+const favoriteStore = useFavoriteStore()
+```
+src/views/Products.vue en TEMPLATE EN v-for
 
-const producto = {
-  id: 1,
-  nombre: 'Pastel de Chocolate',
-  precio: 5000
-};
-</script>
-
-<template>
-
-  <h2>
-    {{ producto.nombre }}
-  </h2>
-
+```html
   <button
     @click="
       favoriteStore.toggleFavorito(
@@ -1462,57 +1418,49 @@ const producto = {
       )
     "
   >
-    ❤️ Favorito
+    {{
+      favoriteStore.isFavorite(
+        producto.id
+      )
+        ? '❤️ Quitar'
+        : '🤍 Favorito'
+    }}
   </button>
-
-</template>
 ```
 
-Ver Favoritos
-
+src/views/FavoritesView.vue
 ```vue
 <script setup>
 import { useFavoriteStore }
-from '@/stores/favoriteStore';
+from '@/stores/favoriteStore'
 
 const favoriteStore =
-  useFavoriteStore();
+  useFavoriteStore()
 </script>
 
 <template>
 
-  <h2>
+  <h1>
     Mis Favoritos
-  </h2>
+  </h1>
 
   <ul>
 
     <li
-      v-for="item in favoriteStore.favoritos"
-      :key="item.id"
+      v-for="
+        producto
+        in favoriteStore.favoritos
+      "
+      :key="producto.id"
     >
-      {{ item.nombre }}
+
+      {{ producto.nombre }}
+
     </li>
 
   </ul>
 
 </template>
-```
-
-Flujo
-
-```text
-Click botón
-      ↓
-toggleFavorito(producto)
-      ↓
-Pinia Store
-      ↓
-Si existe lo elimina
-      ↓
-Si no existe lo agrega
-      ↓
-Todos los componentes se actualizan
 ```
 
 
@@ -1560,155 +1508,256 @@ Todos los componentes se actualizan
 
 ### Configuraciones globales
 
-Permite guardar configuraciones utilizadas por toda la aplicación.
 
-Ejemplos:
-
-```text
-Idioma
-
-Moneda
-
-Tema
-
-Notificaciones
-
-Cantidad de productos por página
-```
-
-stores/settingsStore.js
+src/stores/settingsStore.js
 
 ```js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
-export const useSettingsStore = defineStore('settings', {
+export const useSettingsStore = defineStore(
+  'settings',
+  () => {
 
-  state: () => ({
-    idioma: 'es',
-    moneda: 'CLP',
-    notificaciones: true
-  }),
+    // STATE
+    const idioma = ref('es')
+    const moneda = ref('CLP')
+    const notificaciones = ref(true)
+    const productosPorPagina = ref(10)
 
-  actions: {
+    // GETTERS
+    const idiomaActual = computed(() => {
+      return idioma.value === 'es'
+        ? 'Español'
+        : 'Inglés'
+    })
 
-    cambiarIdioma(idioma) {
+    const monedaActual = computed(() => {
+      return moneda.value
+    })
 
-      this.idioma = idioma;
+    const notificacionesTexto = computed(() => {
+      return notificaciones.value
+        ? 'Activadas'
+        : 'Desactivadas'
+    })
 
-    },
+    const resumenConfiguracion = computed(() => {
+      return `
+        Idioma: ${idiomaActual.value},
+        Moneda: ${moneda.value},
+        Notificaciones: ${notificacionesTexto.value},
+        Productos por página: ${productosPorPagina.value}
+      `
+    })
 
-    cambiarMoneda(moneda) {
+    // ACTIONS
+    const cambiarIdioma = (nuevoIdioma) => {
+      idioma.value = nuevoIdioma
+    }
 
-      this.moneda = moneda;
+    const cambiarMoneda = (nuevaMoneda) => {
+      moneda.value = nuevaMoneda
+    }
 
-    },
+    const toggleNotificaciones = () => {
+      notificaciones.value =
+        !notificaciones.value
+    }
 
-    toggleNotificaciones() {
+    const cambiarProductosPorPagina = (cantidad) => {
+      productosPorPagina.value = cantidad
+    }
 
-      this.notificaciones =
-        !this.notificaciones;
+    return {
+      // state
+      idioma,
+      moneda,
+      notificaciones,
+      productosPorPagina,
 
+      // getters
+      idiomaActual,
+      monedaActual,
+      notificacionesTexto,
+      resumenConfiguracion,
+
+      // actions
+      cambiarIdioma,
+      cambiarMoneda,
+      toggleNotificaciones,
+      cambiarProductosPorPagina
     }
 
   }
-
-});
+)
 ```
 
-Componente Configuración
 
+src/components/SettingsPanel.vue
 ```vue
 <script setup>
 import { useSettingsStore }
-from '@/stores/settingsStore';
+from '@/stores/settingsStore'
 
 const settingsStore =
-  useSettingsStore();
+  useSettingsStore()
 </script>
 
 <template>
 
-  <h2>
-    Configuración
-  </h2>
+  <section>
+    <h2>
+      Configuración
+    </h2>
 
-  <button
-    @click="
-      settingsStore.cambiarIdioma(
-        'en'
-      )
-    "
-  >
-    Inglés
-  </button>
+    <h3>
+      Idioma
+    </h3>
 
-  <button
-    @click="
-      settingsStore.cambiarIdioma(
-        'es'
-      )
-    "
-  >
-    Español
-  </button>
+    <button
+      @click="
+        settingsStore.cambiarIdioma('es')
+      "
+    >
+      Español
+    </button>
 
-  <button
-    @click="
-      settingsStore.toggleNotificaciones()
-    "
-  >
-    Notificaciones
-  </button>
+    <button
+      @click="
+        settingsStore.cambiarIdioma('en')
+      "
+    >
+      Inglés
+    </button>
+
+    <h3>
+      Moneda
+    </h3>
+
+    <button
+      @click="
+        settingsStore.cambiarMoneda('CLP')
+      "
+    >
+      CLP
+    </button>
+
+    <button
+      @click="
+        settingsStore.cambiarMoneda('USD')
+      "
+    >
+      USD
+    </button>
+
+    <h3>
+      Notificaciones
+    </h3>
+
+    <button
+      @click="
+        settingsStore.toggleNotificaciones()
+      "
+    >
+      Cambiar notificaciones
+    </button>
+
+    <h3>
+      Productos por página
+    </h3>
+
+    <button
+      @click="
+        settingsStore.cambiarProductosPorPagina(10)
+      "
+    >
+      10
+    </button>
+
+    <button
+      @click="
+        settingsStore.cambiarProductosPorPagina(20)
+      "
+    >
+      20
+    </button>
+
+  </section>
 
 </template>
 ```
 
-Usar configuración
 
+src/components/SettingsDisplay.vue
 ```vue
 <script setup>
 import { useSettingsStore }
-from '@/stores/settingsStore';
+from '@/stores/settingsStore'
 
 const settingsStore =
-  useSettingsStore();
+  useSettingsStore()
 </script>
 
 <template>
 
-  <p>
-    Idioma:
-    {{ settingsStore.idioma }}
-  </p>
+  <section>
+    <h2>
+      Configuración actual
+    </h2>
 
-  <p>
-    Moneda:
-    {{ settingsStore.moneda }}
-  </p>
+    <p>
+      Idioma:
+      {{ settingsStore.idiomaActual }}
+    </p>
 
-  <p>
-    Notificaciones:
-    {{ settingsStore.notificaciones }}
-  </p>
+    <p>
+      Moneda:
+      {{ settingsStore.monedaActual }}
+    </p>
+
+    <p>
+      Notificaciones:
+      {{ settingsStore.notificacionesTexto }}
+    </p>
+
+    <p>
+      Productos por página:
+      {{ settingsStore.productosPorPagina }}
+    </p>
+
+  </section>
 
 </template>
 ```
 
-Flujo
 
-```text
-Usuario cambia configuración
-            ↓
-settingsStore
-            ↓
-Actualiza estado global
-            ↓
-Todos los componentes
-ven la nueva configuración
+views/SettingsView.vue
+```vue
+<script setup>
+import SettingsPanel
+from '@/components/SettingsPanel.vue'
+
+import SettingsDisplay
+from '@/components/SettingsDisplay.vue'
+</script>
+
+<template>
+
+  <main>
+    <h1>
+      Configuraciones globales
+    </h1>
+
+    <SettingsPanel />
+
+    <hr>
+
+    <SettingsDisplay />
+  </main>
+
+</template>
 ```
-
-
-
 
 
 
@@ -1731,141 +1780,219 @@ ven la nueva configuración
 
 ### Manejo de Formularios
 
-Permite compartir los datos de un formulario entre varios componentes utilizando Pinia.
 
-Ejemplo:
 
-```text
-Formulario de registro
-
-Formulario de contacto
-
-Checkout
-
-Perfil de usuario
-```
-
-stores/formStore.js
+src/stores/formStore.js
 
 ```js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
-export const useFormStore = defineStore('form', {
+export const useFormStore = defineStore(
+  'form',
+  () => {
 
-  state: () => ({
-    nombre: '',
-    email: '',
-    mensaje: ''
-  }),
+    // STATE
+    const nombre = ref('')
+    const email = ref('')
+    const mensaje = ref('')
 
-  actions: {
+    // GETTERS
+    const formularioCompleto = computed(() => {
+      return (
+        nombre.value.trim() !== '' &&
+        email.value.trim() !== '' &&
+        mensaje.value.trim() !== ''
+      )
+    })
 
-    actualizarFormulario(datos) {
+    const resumenFormulario = computed(() => {
+      return {
+        nombre: nombre.value,
+        email: email.value,
+        mensaje: mensaje.value
+      }
+    })
 
-      this.nombre = datos.nombre;
-      this.email = datos.email;
-      this.mensaje = datos.mensaje;
+    const cantidadCaracteres = computed(() => {
+      return mensaje.value.length
+    })
 
-    },
+    // ACTIONS
+    const actualizarFormulario = (datos) => {
+      nombre.value = datos.nombre
+      email.value = datos.email
+      mensaje.value = datos.mensaje
+    }
 
-    limpiarFormulario() {
+    const limpiarFormulario = () => {
+      nombre.value = ''
+      email.value = ''
+      mensaje.value = ''
+    }
 
-      this.nombre = '';
-      this.email = '';
-      this.mensaje = '';
+    const enviarFormulario = () => {
+      if (!formularioCompleto.value) {
+        alert('Completa todos los campos')
+        return
+      }
 
+      console.log('Formulario enviado:', {
+        nombre: nombre.value,
+        email: email.value,
+        mensaje: mensaje.value
+      })
+
+      limpiarFormulario()
+    }
+
+    return {
+      // state
+      nombre,
+      email,
+      mensaje,
+
+      // getters
+      formularioCompleto,
+      resumenFormulario,
+      cantidadCaracteres,
+
+      // actions
+      actualizarFormulario,
+      limpiarFormulario,
+      enviarFormulario
     }
 
   }
-
-});
+)
 ```
 
-Componente Formulario
+src/components/FormContact.vue
 
 ```vue
 <script setup>
 import { useFormStore }
-from '@/stores/formStore';
+from '@/stores/formStore'
 
 const formStore =
-  useFormStore();
+  useFormStore()
 </script>
 
 <template>
 
-  <input
-    v-model="formStore.nombre"
-    placeholder="Nombre"
-  >
+  <section>
+    <h2>
+      Formulario de contacto
+    </h2>
 
-  <input
-    v-model="formStore.email"
-    placeholder="Email"
-  >
+    <input
+      v-model="formStore.nombre"
+      placeholder="Nombre"
+    >
 
-  <textarea
-    v-model="formStore.mensaje"
-    placeholder="Mensaje"
-  />
+    <input
+      v-model="formStore.email"
+      type="email"
+      placeholder="Email"
+    >
 
-  <button
-    @click="formStore.limpiarFormulario()"
-  >
-    Limpiar
-  </button>
+    <textarea
+      v-model="formStore.mensaje"
+      placeholder="Mensaje"
+    />
+
+    <p>
+      Caracteres:
+      {{ formStore.cantidadCaracteres }}
+    </p>
+
+    <button
+      @click="formStore.enviarFormulario"
+      :disabled="!formStore.formularioCompleto"
+    >
+      Enviar
+    </button>
+
+    <button
+      @click="formStore.limpiarFormulario"
+    >
+      Limpiar
+    </button>
+
+  </section>
 
 </template>
 ```
 
-Ver datos del formulario
+src/components/FormPreview.vue
 
 ```vue
 <script setup>
 import { useFormStore }
-from '@/stores/formStore';
+from '@/stores/formStore'
 
 const formStore =
-  useFormStore();
+  useFormStore()
 </script>
 
 <template>
 
-  <h2>
-    Vista previa
-  </h2>
+  <section>
+    <h2>
+      Vista previa
+    </h2>
 
-  <p>
-    Nombre:
-    {{ formStore.nombre }}
-  </p>
+    <p>
+      Nombre:
+      {{ formStore.nombre }}
+    </p>
 
-  <p>
-    Email:
-    {{ formStore.email }}
-  </p>
+    <p>
+      Email:
+      {{ formStore.email }}
+    </p>
 
-  <p>
-    Mensaje:
-    {{ formStore.mensaje }}
-  </p>
+    <p>
+      Mensaje:
+      {{ formStore.mensaje }}
+    </p>
+
+    <p>
+      ¿Formulario completo?
+      {{ formStore.formularioCompleto ? 'Sí' : 'No' }}
+    </p>
+
+  </section>
 
 </template>
 ```
 
-Flujo
+src/views/FormView.vue
 
-```text
-Usuario escribe
-        ↓
-v-model
-        ↓
-Pinia Store
-        ↓
-Actualiza el estado global
-        ↓
-Otros componentes ven los cambios
-en tiempo real
+```vue
+<script setup>
+import FormContact
+from '@/components/FormContact.vue'
+
+import FormPreview
+from '@/components/FormPreview.vue'
+</script>
+
+<template>
+
+  <main>
+    <h1>
+      Manejo de formularios con Pinia
+    </h1>
+
+    <FormContact />
+
+    <hr>
+
+    <FormPreview />
+  </main>
+
+</template>
 ```
 
 
@@ -1921,241 +2048,176 @@ en tiempo real
 
 ### Utilizando Pinia y Axios
 
-Permite consumir datos desde una API y guardarlos en una store global.
+- Instalar Axios `npm install axios`
 
-stores/userStore.js
+<br>
+
+src/stores/userStore.js
 
 ```js
-import { defineStore } from 'pinia';
-import axios from 'axios';
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+import axios from 'axios'
 
-export const useUserStore = defineStore('users', {
+export const useUserStore = defineStore(
+  'users',
+  () => {
 
-  state: () => ({
-    usuarios: [],
-    cargando: false,
-    error: null
-  }),
+    // STATE
+    const usuarios = ref([])
+    const cargando = ref(false)
+    const error = ref(null)
 
-  actions: {
+    // GETTERS
+    const totalUsuarios = computed(() => {
+      return usuarios.value.length
+    })
 
-    async cargarUsuarios() {
+    const hayUsuarios = computed(() => {
+      return usuarios.value.length > 0
+    })
 
-      this.cargando = true;
-      this.error = null;
+    const nombresUsuarios = computed(() => {
+      return usuarios.value.map(
+        usuario => usuario.name
+      )
+    })
+
+    // ACTIONS
+    const cargarUsuarios = async () => {
+
+      cargando.value = true
+      error.value = null
 
       try {
 
         const { data } =
           await axios.get(
             'https://jsonplaceholder.typicode.com/users'
-          );
+          )
 
-        this.usuarios = data;
+        usuarios.value = data
 
-      } catch (error) {
+      } catch (err) {
 
-        this.error =
-          'Error al cargar usuarios';
+        error.value =
+          'Error al cargar usuarios'
+
+        console.error(err)
 
       } finally {
 
-        this.cargando = false;
+        cargando.value = false
 
       }
 
     }
 
-  }
+    const limpiarUsuarios = () => {
+      usuarios.value = []
+    }
 
-});
+    return {
+      // state
+      usuarios,
+      cargando,
+      error,
+
+      // getters
+      totalUsuarios,
+      hayUsuarios,
+      nombresUsuarios,
+
+      // actions
+      cargarUsuarios,
+      limpiarUsuarios
+    }
+
+  }
+)
 ```
 
-Componente Usuarios
+src/components/UserList.vue
 
 ```vue
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
 import { useUserStore }
-from '@/stores/userStore';
+from '@/stores/userStore'
 
 const userStore =
-  useUserStore();
+  useUserStore()
 
 onMounted(() => {
-
-  userStore.cargarUsuarios();
-
-});
+  userStore.cargarUsuarios()
+})
 </script>
 
 <template>
 
-  <h2>
-    Usuarios
-  </h2>
+  <section>
+    <h2>
+      Usuarios
+    </h2>
 
-  <p v-if="userStore.cargando">
-    Cargando...
-  </p>
+    <p>
+      Total:
+      {{ userStore.totalUsuarios }}
+    </p>
 
-  <p v-if="userStore.error">
-    {{ userStore.error }}
-  </p>
+    <p v-if="userStore.cargando">
+      Cargando...
+    </p>
 
-  <ul v-else>
+    <p v-else-if="userStore.error">
+      {{ userStore.error }}
+    </p>
 
-    <li
-      v-for="usuario in userStore.usuarios"
-      :key="usuario.id"
+    <ul v-else>
+
+      <li
+        v-for="usuario in userStore.usuarios"
+        :key="usuario.id"
+      >
+        {{ usuario.name }}
+        -
+        {{ usuario.email }}
+      </li>
+
+    </ul>
+
+    <button
+      @click="userStore.limpiarUsuarios"
     >
-      {{ usuario.name }}
-    </li>
+      Limpiar usuarios
+    </button>
 
-  </ul>
+  </section>
 
 </template>
 ```
 
-Flujo
+src/views/UsersView.vue
 
-```text
-Componente se monta
-        ↓
-onMounted()
-        ↓
-userStore.cargarUsuarios()
-        ↓
-Axios consulta la API
-        ↓
-Pinia guarda los datos
-        ↓
-El componente muestra los usuarios
+```vue
+<script setup>
+import UserList
+from '@/components/UserList.vue'
+</script>
+
+<template>
+
+  <main>
+    <h1>
+      Pinia + Axios
+    </h1>
+
+    <UserList />
+  </main>
+
+</template>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### ### ### EJERCICIO ### ### ### ### 
-### ### ### ### EJERCICIO ### ### ### ### 
-### ### ### ### EJERCICIO ### ### ### ### 
-
-
-Objetivos
-Construir una mini-app con login y un dashboard que lista datos desde una API, aplicando Vuex para
-centralizar estado y Vue Router para proteger rutas.
-
-Requisitos previos
-- Vue 3
-- Vuex 4
-- Vue Router 4
-- Axios.
-
-• Una API simple. Si no tienes, prepara un json-server con un recurso frameworks (GET lista).
-
-Instrucciones
-
-1. Estructura del proyecto
-• Crea un proyecto Vue 3.
-• Añade carpetas/archivos:
-    src/api/
-    src/store/
-    src/store/modules/
-    src/router/
-    src/views/
-
-• Conecta store y router a la app antes de montar.
-
-
-2. Instancia única de Axios
-• Crea src/api/api.js con una instancia configurada (baseURL y timeout).
-• Nota: si después agregas autenticación, aquí irá el Authorization.
-
-
-3. Módulo Vuex: auth (sesión)
-• State mínimo: auth (boolean), username (string), loading, error.
-• Getters: isAuthenticated (deriva de auth).
-• Mutations: doLogin, doLogout, setLoading, setError.
-• Actions:
-o doLogin({ username, password }): valida mínimamente, manipula loading/error, y al final
-comitea doLogin.
-o doLogout(): limpia sesión.
-• Reglas: toda asincronía aquí; nunca en mutations.
-
-
-
-4. Módulo Vuex: frameworks (datos remotos)
-• State: items (array), loading, error.
-• Mutations: setItems, setLoading, setError.
-• Action: cargar() → hace GET a /frameworks, maneja loading/error y comitea los datos.
-• Extensión (opcional): filtros/paginación vía params.
-
-5. Store principal
-• Registra ambos módulos con namespaced: true.
-• Activa strict en desarrollo.
-
-
-
-6. Conecta el componente en App.vue
-• Rutas: /login (pública) y /dashboard (privada con meta.requiresAuth: true).
-• Guard global beforeEach: si la ruta requiere auth y no hay sesión, redirige a Login.
-
-
-7. Vista AppLogin.vue
-• Formulario local (no en el store) con username y password.
-• Al enviar: despacha auth/doLogin y, si resulta, navega a Dashboard.
-• Muestra loading y error del módulo auth.
-• No uses Axios aquí: solo dispatch.
-
-
-8. Vista UserDashboard.vue
-• Encabezado con saludo: “Hola, {username}”.
-• Botón Salir que despacha auth/doLogout y vuelve a Login.
-• Al montar: despacha frameworks/cargar.
-• Muestra loading, error y la lista de items desde el store.
-• Nada de Axios directo en la vista.
-
-
-
-Entregables
-• Proyecto comprimido (sin node_modules).
-• Archivo Word con capturas:
-1. Login con error mostrado.
-2. Dashboard con saludo y lista cargada.
-3. Intento de acceder a /dashboard sin sesión → redirección a Login.
-• Breve ficha (1 página) explicando: por qué async en actions, mutations sincrónicas, y cómo
-funciona el guard.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
