@@ -1,12 +1,11 @@
-oo   oo  ooooooo           oo         oooooooo  
-ooo ooo      oo            oo              ooo  
-ooooooo     oo             oo         oooooooo  
-oo   oo   oo               oo              ooo  
-oo   oo  oo                ooooooo    oooooooo  
+# Ejemplo M7 L3
 
 
+---
 
+## 1. INstalacion
 
+```
 npm create vue@latest
 
 cd nombre-proyecto
@@ -14,6 +13,7 @@ npm install vue-router
 npm install pinia
 npm install axios
 npm install -D json-server
+```
 
 
 
@@ -28,9 +28,9 @@ npm install -D json-server
 
 
 
+---
 
-
-# 2. Estructura
+## 2. Estructura
 
 ```txt
 src/
@@ -62,12 +62,11 @@ src/
 
 
 
+---
 
-# 3. Crear API falsa
+## 3. Crear API falsa
 
-En la raíz del proyecto crea:
-
-## `db.json`
+En la raíz del proyecto crea **db.json**
 
 ```json
 {
@@ -107,22 +106,27 @@ La API queda en:
 ```txt
 http://localhost:3000/frameworks
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
+## 4. Instancia única de Axios
 
-
-
-
-
-
-
-
-
-
-
-# 4. Instancia única de Axios
-
-## `src/api/api.js`
+src/api/api.js
 
 ```js
 import axios from 'axios'
@@ -135,28 +139,28 @@ const api = axios.create({
 export default api
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
+## 5. Store de autenticación
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 5. Store de autenticación
-
-## `src/stores/authStore.js`
+src/stores/authStore.js`
 
 ```js
 import { defineStore } from 'pinia'
@@ -288,11 +292,12 @@ Contraseña: 123456
 
 
 
+---
 
 
-# 6. Store de frameworks
+## 6. Store de frameworks
 
-## `src/stores/frameworksStore.js`
+src/stores/frameworksStore.js
 
 ```js
 import { defineStore } from 'pinia'
@@ -369,9 +374,9 @@ export const useFrameworksStore = defineStore(
 
 ---
 
-# 7. main.js
+## 7. main.js
 
-## `src/main.js`
+src/main.js
 
 ```js
 import { createApp } from 'vue'
@@ -421,9 +426,9 @@ app.mount('#app')
 
 ---
 
-# 8. Router con ruta protegida
+### 8. Router con ruta protegida
 
-## `src/router/index.js`
+src/router/index.js
 
 ```js
 import {
@@ -510,9 +515,9 @@ export default router
 
 ---
 
-# 9. Vista Login
+## 9. Vista Login
 
-## `src/views/LoginView.vue`
+src/views/LoginView.vue
 
 ```vue
 <script setup>
@@ -625,9 +630,9 @@ const iniciarSesion = async () => {
 
 ---
 
-# 10. Vista Dashboard
+## 10. Vista Dashboard
 
-## `src/views/DashboardView.vue`
+src/views/DashboardView.vue
 
 ```vue
 <script setup>
@@ -740,9 +745,9 @@ const cerrarSesion = () => {
 
 ---
 
-# 11. App.vue
+## 11. App.vue
 
-## `src/App.vue`
+src/App.vue
 
 ```vue
 <script setup>
@@ -800,7 +805,7 @@ const authStore =
 
 ---
 
-# 12. Cómo probar
+## 12. Cómo probar
 
 Primero levantar Vue:
 
@@ -850,9 +855,35 @@ Debe redirigir a:
 /login
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
-# Ficha explicativa breve
+## Ficha explicativa breve
 
 ```txt
 La lógica asincrónica se trabaja en las actions porque allí se concentran los procesos como login, llamadas a APIs o validaciones. De esta forma, las vistas no se llenan de lógica y solo llaman funciones del store.
@@ -863,5 +894,3 @@ El guard de navegación de Vue Router revisa antes de entrar a una ruta si esta 
 
 Las vistas no deberían conectarse directamente a Axios porque eso duplica lógica y hace más difícil mantener el proyecto. Lo correcto es que Axios viva en una instancia única y que las peticiones se manejen desde las actions del store.
 ```
-
-Listo: con esto tienes el ejercicio completo y funcional.

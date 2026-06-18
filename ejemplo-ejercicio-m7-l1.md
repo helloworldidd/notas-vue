@@ -1,16 +1,11 @@
-oo   oo  ooooooo           oo       ooooo  
-ooo ooo      oo            oo         ooo  
-ooooooo     oo             oo         ooo  
-oo   oo   oo               oo         ooo  
-oo   oo  oo                ooooooo    ooo  
+# Ejemplo ejercicio M7 L1
 
 
 
 
+---
 
-# m7l1
-
-## Estructura
+## 1. Estructura
 
 ```txt
 src/
@@ -23,9 +18,15 @@ src/
 └── main.js
 ```
 
+
+
+
+
+
+
 ---
 
-## App.vue
+## 2. App.vue
 
 ```vue
 <script setup>
@@ -44,9 +45,19 @@ const mostrarPadre = ref(true)
 </template>
 ```
 
+
+
+
+
+
+
+
+
+
+
 ---
 
-## Padre.vue
+## 3. Padre.vue
 
 ```vue
 <script setup>
@@ -89,9 +100,19 @@ onBeforeUnmount(() => {
 </template>
 ```
 
+
+
+
+
+
+
+
+
+
+
 ---
 
-## Hijo.vue
+## 4. Hijo.vue
 
 ```vue
 <script setup>
@@ -122,9 +143,21 @@ const enviarRespuesta = () => {
 </template>
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
-# Explicación
+# 6. Explicación
 
 ### ¿Cómo se pasan datos con props?
 
@@ -140,7 +173,6 @@ El componente hijo recibe ese dato mediante `defineProps()`.
 ```
 
 
----
 
 ### ¿Cómo se emiten eventos con emit?
 
@@ -159,13 +191,15 @@ En el padre:
 <Hijo @respuestaHijo="recibirRespuesta" />
 ```
 
----
+
+
+
 
 ### Hooks utilizados
 
-#### onMounted()
 
-Se ejecuta cuando el componente ya fue renderizado en pantalla.
+
+**onMounted()** Se ejecuta cuando el componente ya fue renderizado en pantalla.
 
 ```js
 onMounted(() => {
@@ -173,9 +207,8 @@ onMounted(() => {
 })
 ```
 
-#### onUpdated()
 
-Se ejecuta cada vez que los datos reactivos cambian y el componente se vuelve a renderizar.
+**onUpdated()** Se ejecuta cada vez que los datos reactivos cambian y el componente se vuelve a renderizar.
 
 ```js
 onUpdated(() => {
@@ -183,9 +216,9 @@ onUpdated(() => {
 })
 ```
 
-#### onBeforeUnmount()
 
-Se ejecuta justo antes de que el componente sea eliminado del DOM.
+
+**onBeforeUnmount()** Se ejecuta justo antes de que el componente sea eliminado del DOM.
 
 ```js
 onBeforeUnmount(() => {

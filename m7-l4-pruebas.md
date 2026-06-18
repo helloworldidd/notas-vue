@@ -1,657 +1,1435 @@
-## Pruebas
-
---- 
-
-## Indíce
-
-- []()
-
-
-
---- 
-
-## 
-
-
-
-Características de las pruebas unitarias
-El Desarrollo Dirigido por Test (TDD), en qué consiste y qué importancia tiene
-Setup de herramientas con vue-cli
-El entorno de pruebas Vue Test Utils para Vue
-Herramientas para el testing unitario, ventajas y
-limitaciones de cada uno Jest, Mocha + Chai
-Utilización de objetos simulados (mocks y stubs) En qué consisten y por qué utilizarlos
-Pruebas end-to-end
-
-
- .- Pruebas end-to-end
-.- Características de las pruebas end to end, ventajas y
-    limitaciones, diferencia con pruebas unitarias
-.- Setup de herramientas con vue-cli
-.- Herramientas para el testing end to end, ventajas y
-    limitaciones de cada uno
-.- Cypress
-.- Nightwatch
+# Pruebas
 
 
 
 
-
-
-
-
-Patricio, este tema suele ser uno de los más confusos porque mezclan varios tipos de testing. La forma fácil de entenderlo es:
-
-```text
-Pruebas Unitarias
-↓
-prueban una función o componente
-
-Pruebas Integración
-↓
-prueban varios componentes juntos
-
-Pruebas End To End (E2E)
-↓
-prueban toda la aplicación
-```
 
 ---
 
-# ¿Por qué existen los tests?
+## Introducción
 
-Porque los desarrolladores rompen cosas 😆
+Existen varios **niveles de pruebas**,
+- desde las más pequeñas
+- hasta las más cercanas al usuario final.
 
-Ejemplo:
 
-```js
-const sumar = (a, b) => a + b;
+
+**Resumen rápido**
+
+| Tipo          | Qué prueba                       | Herramientas más usadas 2026      |
+| ------------- | -------------------------------- | --------------------------------- |
+| **Unitarias** | **Una función o método**         | **Vitest**, Jest, Mocha + Chai   |
+| Componentes   | Un componente Vue aislado        | **Vue Test Utils + Vitest**       |
+| Integración   | Varios módulos trabajando juntos | **Vitest + Vue Test Utils + MSW** |
+| Sistema       | Aplicación completa              | Playwright, Cypress               |
+| UAT           | Validación del cliente/usuario   | Manual, TestRail, Jira            |
+| **E2E**       | **Flujo completo del usuario**   | **Playwright**, Cypress, Nightwatch           |
+
+- Uso en **pruebas Unitarias**:
+  - 1er lugar: **Vitest**
+  - 2do lugar: **Jest**
+  - 3er lugar: **Mocha + Chai**
+  <br>
+  
+- en **pruebas E2E**:
+  - 1er lugar: **Playwright**
+  - 2do lugar: **Cypress**
+  - 3er lugar: **Selenium**
+  - 4to lugar: **Nightwatch**
+
+```txt
+         E2E
+          ▲
+          │
+         UAT
+          ▲
+          │
+    Integración
+          ▲
+          │
+Unitarias / Componentes
 ```
 
-Hoy funciona.
+<br>
+<br>
 
-Mañana alguien cambia:
 
-```js
-const sumar = (a, b) => a - b;
-```
+### 1. Pruebas Unitarias (Unit Testing)
 
-y rompe la aplicación.
+Prueban una única unidad de código.
 
-Los tests detectan eso automáticamente.
-
----
-
-# Pruebas Unitarias
-
-Una prueba unitaria verifica una unidad de código.
-
-Normalmente:
-
-```text
-Una función
-Un método
-Un componente
-```
-
----
-
-## Ejemplo
-
-Función:
+Por ejemplo:
 
 ```js
-const sumar = (a, b) => a + b;
+function sumar(a, b) {
+  return a + b
+}
 ```
 
 Test:
 
 ```js
-expect(
-  sumar(2, 3)
-).toBe(5);
+expect(sumar(2, 3)).toBe(5)
 ```
 
----
+✅ Muy rápidas
 
-## Características
+✅ Detectan errores temprano
 
-```text
-Pequeñas
-Rápidas
-Automáticas
-Aisladas
-```
+❌ No validan el sistema completo
 
----
+<br>
 
-# Desarrollo Dirigido por Test (TDD)
 
-Significa:
 
-```text
-Test Driven Development
-```
 
----
+### 2. Pruebas de Componentes
 
-## Flujo tradicional
+Muy usadas en Vue, React y Angular.
 
-```text
-Código
-↓
-Test
-```
+Prueban un componente aislado.
 
----
-
-## Flujo TDD
-
-```text
-Test
-↓
-Código
-```
-
-Primero escribes:
-
-```js
-expect(
-  sumar(2, 3)
-).toBe(5);
-```
-
-Luego haces que funcione.
-
----
-
-## Ciclo TDD
-
-```text
-RED
-↓
-GREEN
-↓
-REFACTOR
-```
-
----
-
-### RED
-
-El test falla.
-
-```text
-❌
-```
-
----
-
-### GREEN
-
-Escribes código mínimo.
-
-```text
-✅
-```
-
----
-
-### REFACTOR
-
-Mejoras el código.
-
-```text
-♻️
-```
-
-sin romper tests.
-
----
-
-# Vue Test Utils
-
-Es la librería oficial para probar componentes Vue.
-
-Permite:
-
-```text
-Montar componentes
-Simular clicks
-Leer HTML
-Verificar props
-```
-
----
-
-## Instalación moderna
-
-```bash
-npm i -D @vue/test-utils
-```
-
----
-
-## Ejemplo
-
-Componente:
+Ejemplo:
 
 ```vue
-<button>
-  Guardar
-</button>
+<Counter />
 ```
 
-Test:
+Validar:
+
+* que renderiza correctamente
+* que un botón incrementa el contador
+* que muestra los datos correctos
 
 ```js
-import { mount }
-from '@vue/test-utils';
+wrapper
+  .find('button')
+  .trigger('click')
 
-const wrapper = mount(
-  MiBoton
-);
-
-expect(
-  wrapper.text()
-).toContain('Guardar');
+expect(wrapper.text())
+  .toContain('1')
 ```
 
----
+Muchos las consideran una variante de las pruebas unitarias.
 
-# Jest
+<br>
 
-Durante años fue el rey.
 
-Creado por:
 
-Meta Platforms
 
----
+### 3. Pruebas de Integración
 
-## Ventajas
-
-```text
-Muy maduro
-Muchísima documentación
-Muchos ejemplos
-```
-
----
-
-## Desventajas
-
-```text
-Más lento
-Configuración pesada
-```
-
----
-
-# Mocha + Chai
-
-Antes muy usado.
-
----
-
-Mocha:
-
-```text
-Runner
-```
-
-Ejecuta tests.
-
----
-
-Chai:
-
-```text
-Assertions
-```
-
-Hace comparaciones.
-
----
+Validan que varios módulos trabajen juntos.
 
 Ejemplo:
 
-```js
-expect(valor)
-  .to.equal(5);
-```
-
----
-
-## Ventajas
-
-```text
-Flexible
-Simple
-```
-
----
-
-## Desventajas
-
-```text
-Configuras más cosas
-Menos integrado
-```
-
----
-
-# ¿Qué se usa hoy?
-
-En 2026 normalmente:
-
-```text
-Vitest ⭐⭐⭐⭐⭐
-Jest ⭐⭐⭐
-Mocha ⭐⭐
-```
-
-Si el curso habla de Jest y Mocha es porque el material es más antiguo.
-
-Actualmente Vue suele usar:
-
-```bash
-npm i -D vitest
-```
-
----
-
-# Mocks
-
-Mock = objeto falso.
-
----
-
-Ejemplo:
-
-La API real:
-
-```text
-Banco
-```
-
----
-
-Mock:
-
-```js
-const api = {
-  obtenerSaldo: () => 100000
-};
-```
-
----
-
-Así pruebas sin llamar al banco real.
-
----
-
-# Stubs
-
-Stub = reemplazo controlado.
-
-Ejemplo:
-
-```js
-vi.fn()
-```
-
-o
-
-```js
-jest.fn()
-```
-
----
-
-Simulas:
-
-```js
-api.login()
-```
-
-sin hacer login real.
-
----
-
-## ¿Por qué usarlos?
-
-```text
-Más rápido
-Más seguro
-No dependes de internet
-No gastas APIs
-```
-
----
-
-# Pruebas End To End (E2E)
-
-Simulan un usuario real.
-
----
-
-Prueba unitaria:
-
-```text
-Botón
-```
-
----
-
-Prueba E2E:
-
-```text
-Abrir página
+```txt
+Formulario
 ↓
-Escribir usuario
+Store Pinia
 ↓
-Escribir contraseña
+API
+```
+
+Para comprobar que la comunicación entre ellos funciona.
+
+No pruebas solo una función.
+
+Pruebas la interacción.
+
+<br>
+
+
+
+
+### 4. Pruebas de Sistema (System Testing)
+
+Prueban la aplicación completa.
+
+Ejemplo:
+
+```txt
+Login
+Dashboard
+Perfil
+Carrito
+Pago
+```
+
+Todo el sistema funcionando junto.
+
+Se realiza en un entorno parecido a producción.
+
+<br>
+
+
+
+
+### 5. UAT (User Acceptance Testing)
+
+Significa: **User Acceptance Testing** o **Pruebas de Aceptación del Usuario**
+
+Aquí prueba el cliente o usuario final.
+
+Ejemplo:
+
+> "Necesito que un usuario pueda registrarse y comprar un producto."
+
+El cliente revisa si realmente el sistema cumple ese requerimiento.
+
+La pregunta es:
+
+👉 ¿Cumple el negocio lo que pidió?
+
+No importa tanto el código.
+
+Importa el resultado.
+
+<br>
+
+
+
+
+### 6. Pruebas End-to-End (E2E)
+
+Simulan a un usuario real usando la aplicación.
+
+Ejemplo con Cypress:
+
+```txt
+Abrir web
+↓
+Ingresar usuario
 ↓
 Login
 ↓
-Entrar al dashboard
-```
-
----
-
-# Diferencia
-
-## Unit Test
-
-```text
-Pequeño
-Muy rápido
-Aislado
-```
-
----
-
-## E2E
-
-```text
-Lento
-Completo
-Realista
-```
-
----
-
-# Cypress
-
-El más popular en frontend.
-
----
-
-Instalación:
-
-```bash
-npm i -D cypress
-```
-
----
-
-Ejemplo:
-
-```js
-describe('Login', () => {
-
-  it('inicia sesión', () => {
-
-    cy.visit('/');
-
-    cy.get('#email')
-      .type('patricio@test.com');
-
-    cy.get('#password')
-      .type('123456');
-
-    cy.get('button')
-      .click();
-
-  });
-
-});
-```
-
----
-
-## Ventajas
-
-```text
-Muy fácil
-Interfaz visual
-Excelente documentación
-```
-
----
-
-## Desventajas
-
-```text
-Más pesado
-Consume más recursos
-```
-
----
-
-# Nightwatch
-
-Alternativa clásica.
-
-Usa:
-
-```text
-Selenium
-```
-
-por debajo.
-
----
-
-## Ventajas
-
-```text
-Maduro
-Compatible con muchos navegadores
-```
-
----
-
-## Desventajas
-
-```text
-Más complejo
-Menos amigable
-```
-
----
-
-# Lo que realmente te pedirán hoy
-
-Si entras a una empresa Vue en 2026:
-
-```text
-Vue Test Utils
-Vitest
-Cypress
-```
-
----
-
-# Resumen Bootcamp
-
-## Unitarias
-
-```text
-Prueban una función o componente
+Agregar producto
+↓
+Comprar
+↓
+Ver confirmación
 ```
 
 Herramientas:
 
-```text
-Vue Test Utils
-Vitest
-Jest
-Mocha + Chai
-```
+* Cypress
+* Playwright
+* Nightwatch
+* Selenium
 
----
 
-## E2E
 
-```text
-Prueban toda la aplicación
-```
 
-Herramientas:
 
-```text
-Cypress
-Nightwatch
-Playwright
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
 ## TDD
 
-```text
-RED
+**Test Driven Development**
+(Desarrollo Dirigido por Pruebas)
+
+Es una metodología donde **primero escribes la prueba y después escribes el código**. 
+
+Beneficios: 
+
+- **Detecta errores antes**
+En lugar de encontrar errores cuando el cliente usa la aplicación.
+- **Facilita mantenimiento**
+Puedes modificar código con confianza.
+- **Facilita trabajo en equipo**
+Si algo se rompe, los tests avisan.
+- **Menos bugs en producción**
+Más calidad del software.
+<br>
+
+
+
+### Proceso
+
+```sh
+Normalmente hacemos:      Con TDD, lo contrario:
+1. Escribo código         1. Escribo la prueba
+2. Lo pruebo              2. La prueba falla
+3. Corrijo errores        3. Escribo el código
+                          4. La prueba pasa
+                          5. Refactorizo
+```
+
+
+Ejemplo quiero crear una función:
+
+```js
+sumar(2, 3)
+```
+
+
+```js
+// Paso 1: escribo el test
+test('suma correctamente', () => {
+  expect(sumar(2, 3)).toBe(5)
+})
+```
+
+
+```js
+// Paso 2: ejecuto el test, falla porque aún no existe:
+sumar()
+```
+
+
+
+```js
+// Paso 3: creo el código mínimo
+function sumar(a, b) {
+  return a + b
+}
+```
+
+```js
+// Paso 4: vuelvo a ejecutar
+✅ Test aprobado
+```
+
+**Ciclo TDD** Se suele resumir como:
+
+1. RED 🔴 La prueba falla.
 ↓
-GREEN
+2. GREEN 🟢 Escribes el mínimo código para que pase.
 ↓
-REFACTOR
+3. REFACTOR 🔵 Mejoras el código sin romper el test.
+
+
+
+<br>
+
+
+
+Ejemplo en Vue
+
+Supongamos que tienes un contador.
+
+Primero escribes el test:
+
+```js
+it('incrementa el contador', async () => {
+  const wrapper = mount(Counter)
+
+  await wrapper
+    .find('button')
+    .trigger('click')
+
+  expect(wrapper.text())
+    .toContain('1')
+})
+```
+
+Después creas el componente para que el test pase.
+
+- **Ventajas**
+  - Detecta errores temprano.
+  - Obliga a pensar los requisitos antes de programar.
+  - Facilita mantenimiento.
+  - Reduce bugs en producción.
+  - Da confianza para refactorizar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Prueba Unitaria
+
+<br>
+
+### Configuracion
+
+
+Instalar dependencias
+`npm install -D vitest`
+
+Si vas a probar componentes Vue:
+`npm install -D vitest @vue/test-utils jsdom`
+
+Opcionalmente,
+para tener mejor integración con Vite:
+`npm install -D vite-node`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+Agregar script en **package.json**
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest"
+  }
+}
+```
+
+o También:
+
+```json
+{
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+Configurar Vite En **vite.config.js**:
+
+```js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue],
+
+  test: {
+    globals: true,
+    environment: 'jsdom'
+  }
+})
+```
+
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+
+
+
+
+
+### Testear una función
+
+
+Supongamos que tenemos una función encargada de calcular el total de un carrito de compras.
+
+```js
+export function calcularTotal(productos) {
+  return productos.reduce(
+    (total, producto) => total + producto.precio,
+    0
+  )
+}
+```
+
+Esta función recibe un arreglo de productos y devuelve la suma de todos sus precios.
+
+
+<br>
+
+**Estructura recomendada**
+
+```txt
+src/
+├─ utils/
+│  ├─ cart.js
+│  └─ cart.test.js
+│
+├─ components/
+│  └─ ShoppingCart.vue
+│
+├─ views/
+├─ stores/
+└─ App.vue
+```
+
+
+**Vitest no crea funciones ni modifica tu aplicación.**
+
+```txt
+cart.js
+↓
+Contiene el código real
+```
+
+```txt
+cart.test.js
+↓
+Verifica que el código funcione correctamente
+```
+
+
+
+
+
+<br>
+
+src/componnets/ShoppingCart.vue
+
+```vue
+<script setup>
+import { ref, computed } from 'vue'
+import { calcularTotal } from '@/utils/cart'
+
+const productos = ref([
+  {
+    id: 1,
+    nombre: 'Aros Cherry',
+    precio: 12000
+  },
+  {
+    id: 2,
+    nombre: 'Collar Luna',
+    precio: 15000
+  }
+])
+
+const total = computed(() =>
+  calcularTotal(productos.value)
+)
+</script>
+
+<template>
+  <section>
+    <h2>Carrito</h2>
+
+    <ul>
+      <li
+        v-for="producto in productos"
+        :key="producto.id"
+      >
+        {{ producto.nombre }}
+        -
+        ${{ producto.precio }}
+      </li>
+    </ul>
+
+    <h3>
+      Total: ${{ total }}
+    </h3>
+  </section>
+</template>
+```
+
+
+src/utils/cart.js
+
+```js
+export function calcularTotal(productos) {
+  return productos.reduce(
+    (total, producto) => total + producto.precio,
+    0
+  )
+}
+```
+
+
+
+
+
+
+
+
+
+src/test/cart.test.js
+
+```js
+import { describe, it, expect } from 'vitest'
+import { calcularTotal } from './cart'
+
+describe('calcularTotal', () => {
+  it('suma correctamente los precios', () => {
+    const productos = [
+      { precio: 12000 },
+      { precio: 15000 },
+      { precio: 10000 }
+    ]
+
+    expect(
+      calcularTotal(productos)
+    ).toBe(37000)
+  })
+})
+```
+
+
+
+
+
+
+
+<br>
+
+**Explicación del test**
+
+**describe()** Agrupa pruebas relacionadas.
+  Se puede leer como:`Pruebas de la función calcularTotal`
+
+```js
+describe('calcularTotal', () => {
+
+})
+```
+
+
+**it()** Representa un caso de prueba específico.
+  Se puede leer como: `Debe sumar correctamente los precios`
+
+```js
+it('suma correctamente los precios', () => {
+
+})
+```
+
+
+
+
+**expect()** Indica el valor que queremos comprobar.
+  Se puede leer como: `Espero que calcularTotal(productos) devuelva el resultado correcto`
+
+```js
+expect(
+  calcularTotal(productos)
+)
+```
+
+
+**toBe()** Compara el resultado obtenido con el esperado.
+  Se puede leer como: `Espero que el resultado sea exactamente 37000`
+
+```js
+expect(
+  calcularTotal(productos)
+).toBe(37000)
+```
+
+
+
+
+
+
+
+
+<br><br><br>
+
+
+
+
+caso de prueba **Carrito vacío**
+
+```js
+it('retorna 0 si el carrito está vacío', () => {
+  expect(
+    calcularTotal([])
+  ).toBe(0)
+})
+```
+
+caso de prueba **Un único producto**
+
+
+```js
+it('calcula el total de un producto', () => {
+  expect(
+    calcularTotal([
+      { precio: 12000 }
+    ])
+  ).toBe(12000)
+})
+```
+
+
+caso de prueba **Varios productos** 
+
+
+```js
+it('calcula el total de varios productos', () => {
+  expect(
+    calcularTotal([
+      { precio: 5000 },
+      { precio: 10000 },
+      { precio: 20000 }
+    ])
+  ).toBe(35000)
+})
+```
+
+
+
+
+
+
+
+
+
+<br><br>
+
+Archivo completo
+
+```js
+import { describe, it, expect } from 'vitest'
+import { calcularTotal } from './cart'
+
+describe('calcularTotal', () => {
+
+  it('suma correctamente los precios', () => {
+    const productos = [
+      { precio: 12000 },
+      { precio: 15000 },
+      { precio: 10000 }
+    ]
+
+    expect(
+      calcularTotal(productos)
+    ).toBe(37000)
+  })
+
+  it('retorna 0 si el carrito está vacío', () => {
+    expect(
+      calcularTotal([])
+    ).toBe(0)
+  })
+
+  it('calcula el total de un producto', () => {
+    expect(
+      calcularTotal([
+        { precio: 12000 }
+      ])
+    ).toBe(12000)
+  })
+
+  it('calcula el total de varios productos', () => {
+    expect(
+      calcularTotal([
+        { precio: 5000 },
+        { precio: 10000 },
+        { precio: 20000 }
+      ])
+    ).toBe(35000)
+  })
+
+})
+```
+
+
+Ejecutar los tests
+
+```bash
+npm run test
+```
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Testear funcion en Componente
+
+
+src/components/AlternativeCart.vue
+
+```vue
+<script setup>
+import { productos } from '@/data/productos'
+
+function calcularTotal(productos) {
+  return productos.reduce(
+    (total, producto) => total + producto.precio,
+    0
+  )
+}
+</script>
+
+<template>
+  <section>
+    <ul>
+      <li
+        v-for="producto in productos"
+        :key="producto.id"
+      >
+        {{ producto.nombre }}
+      </li>
+    </ul>
+
+    <h3>Total: ${{ calcularTotal(productos) }}</h3>
+  </section>
+</template>
+```
+
+
+src/components/AlternativeCart.test.js
+
+```js
+import { describe, it, expect, vi } from 'vitest'
+import { mount } from '@vue/test-utils'
+
+import AlternativeCart from './AlternativeCart.vue'
+
+vi.mock('@/data/productos', () => ({
+  productos: [
+    {
+      id: 1,
+      nombre: 'Producto test 1',
+      precio: 100
+    },
+    {
+      id: 2,
+      nombre: 'Producto test 2',
+      precio: 200
+    }
+  ]
+}))
+
+describe('AlternativeCart', () => {
+  it('muestra el total correcto usando datos mockeados', () => {
+    const wrapper = mount(AlternativeCart)
+
+    expect(wrapper.text()).toContain('300')
+  })
+
+  it('renderiza dos productos', () => {
+    const wrapper = mount(AlternativeCart)
+
+    const items = wrapper.findAll('li')
+
+    expect(items.length).toBe(2)
+  })
+
+  it('muestra los productos mockeados', () => {
+    const wrapper = mount(AlternativeCart)
+
+    expect(wrapper.text()).toContain('Producto test 1')
+    expect(wrapper.text()).toContain('Producto test 2')
+  })
+})
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Alternativas a Vitest
+
+### 1) Jest
+
+Durante muchos años fue la herramienta más utilizada para testing en JavaScript.
+
+Funciones principales:
+
+- Ejecutar tests
+- Crear mocks
+- Crear spies
+- Realizar validaciones
+
+Ejemplo:
+
+```js
+describe('sumar', () => {
+  it('suma dos números', () => {
+    expect(2 + 2).toBe(4)
+  })
+})
+````
+
+Actualmente se encuentra principalmente en proyectos antiguos o proyectos que no utilizan Vite.
+
+---
+
+### 2) Mocha + Chai + Sinon
+
+Antes era una combinación muy popular porque cada librería tenía una responsabilidad específica.
+
+#### Mocha
+
+Ejecuta los tests.
+
+```js
+describe()
+it()
+```
+
+#### Chai
+
+Realiza las validaciones.
+
+```js
+expect(valor).to.equal(10)
+```
+
+#### Sinon
+
+Permite crear:
+
+* Mocks
+* Stubs
+* Spies
+* Funciones simuladas
+
+```js
+const spy = sinon.spy()
 ```
 
 ---
 
-## Mocks y Stubs
+### Comparación rápida
 
-```text
-Objetos falsos
-Para aislar pruebas
-```
+| Herramienta | Función                                   |
+| ----------- | ----------------------------------------- |
+| **Vitest**  | Testing moderno para proyectos con Vite   |
+| **Jest**    | Testing general, muy usado históricamente |
+| **Mocha**   | Ejecuta tests                             |
+| **Chai**    | Validaciones (assertions)                 |
+| **Sinon**   | Mocks, Stubs y Spies                      |
 
 ---
 
-Si te hacen una entrevista Vue Junior, normalmente las preguntas son:
+### Lo más utilizado actualmente (2026)
 
-```text
-¿Qué es una prueba unitaria?
-¿Qué diferencia hay entre unitarias y E2E?
-¿Qué es un mock?
-¿Qué es TDD?
-¿Has usado Cypress?
-¿Qué es Vue Test Utils?
+| Contexto           | Herramienta                 |
+| ------------------ | --------------------------- |
+| Vue 3 + Vite       | **Vitest + Vue Test Utils** |
+| React + Vite       | **Vitest**                  |
+| Proyectos antiguos | **Jest**                    |
+| Legacy JavaScript  | **Mocha + Chai + Sinon**    |
+
+````
+
+Además puedes agregar una observación pedagógica:
+
+```md
+💡 Vitest reúne gran parte de lo que antes se hacía con varias librerías:
+
+Jest
+o
+Mocha + Chai + Sinon
+
+↓
+
+Vitest + Vue Test Utils
+````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Test Doubles
+
+Los **Test Doubles** son objetos o funciones falsas que utilizamos durante las pruebas para reemplazar dependencias reales.
+
+Permiten probar una parte de la aplicación de forma aislada, sin depender de bases de datos, APIs, servicios externos o componentes complejos.
+
+```txt
+Test Double
+├─ Dummy
+├─ Fake
+├─ Stub
+├─ Spy
+└─ Mock
 ```
 
-Con lo de arriba ya puedes responderlas sin problema. 😎
+<br><br>
+
+### Dummy
+
+Es un objeto que existe únicamente porque una función lo necesita como parámetro.
+
+No tiene comportamiento ni lógica.
+
+Ejemplo:
+
+```js
+function saludar(usuario) {
+  return 'Hola'
+}
+
+const usuario = {}
+
+saludar(usuario)
+```
+
+En este caso:
+
+```js
+{}
+```
+
+es un Dummy.
+
+<br><br>
+
+### Fake
+
+Tiene una implementación real pero simplificada.
+
+Se utiliza para reemplazar sistemas complejos durante las pruebas.
+
+Ejemplo:
+
+```js
+class FakeDatabase {
+  usuarios = []
+
+  guardar(usuario) {
+    this.usuarios.push(usuario)
+  }
+}
+```
+
+En lugar de conectarse a una base de datos real:
+
+```txt
+MySQL
+MongoDB
+Firebase
+```
+
+utiliza una versión simple en memoria.
+
+<br><br>
+
+### Stub
+
+Devuelve respuestas controladas.
+
+Permite reemplazar llamadas reales por resultados predefinidos.
+
+Ejemplo:
+
+```js
+const obtenerUsuario = () => ({
+  nombre: 'Patricio'
+})
+```
+
+Siempre devolverá el mismo resultado.
+
+Con Vitest:
+
+```js
+vi.spyOn(api, 'getUser')
+  .mockReturnValue({
+    nombre: 'Patricio'
+  })
+```
+
+<br><br>
+
+### Spy
+
+Observa cómo se utiliza una función.
+
+Permite responder preguntas como:
+
+```txt
+¿Se llamó?
+¿Cuántas veces?
+¿Con qué argumentos?
+```
+
+Ejemplo:
+
+```js
+const spy = vi.fn()
+
+spy()
+spy()
+```
+
+Test:
+
+```js
+expect(spy)
+  .toHaveBeenCalledTimes(2)
+```
+
+<br><br>
+
+### Mock
+
+Es el tipo más utilizado.
+
+Combina características de:
+
+```txt
+Stub
++
+Spy
+```
+
+Puede:
+
+* Devolver valores falsos
+* Registrar llamadas
+* Verificar argumentos
+
+Ejemplo:
+
+```js
+const login = vi.fn()
+
+login.mockReturnValue(true)
+
+login('admin', '123456')
+```
+
+Test:
+
+```js
+expect(login)
+  .toHaveBeenCalledWith(
+    'admin',
+    '123456'
+  )
+```
+
+<br><br>
+
+## Ejemplo en Vue
+
+Supongamos que un componente utiliza Axios:
+
+```js
+import axios from 'axios'
+```
+
+No queremos llamar una API real durante el test.
+
+Mock:
+
+```js
+vi.mock('axios')
+```
+
+Respuesta simulada:
+
+```js
+axios.get.mockResolvedValue({
+  data: [
+    {
+      nombre: 'Aros Cherry'
+    }
+  ]
+})
+```
+
+Ahora el componente cree que recibió datos reales, pero en realidad los datos fueron simulados por el test.
+
+<br><br>
+
+## Resumen rápido
+
+| Tipo  | ¿Qué hace?                      |
+| ----- | ------------------------------- |
+| Dummy | Solo rellena parámetros         |
+| Fake  | Implementación simplificada     |
+| Stub  | Devuelve respuestas controladas |
+| Spy   | Observa llamadas                |
+| Mock  | Stub + Spy                      |
+
+---
+
+## Lo más común en Vue 3 + Vitest
+
+Normalmente utilizarás:
+
+```js
+vi.fn()
+```
+
+para crear Spies o Mocks.
+
+```js
+vi.mock()
+```
+
+para reemplazar APIs, módulos o servicios externos.
+
+Por eso en proyectos Vue modernos escucharás mucho:
+
+```txt
+Mock Axios
+Mock API
+Mock Router
+Spy Function
+vi.fn()
+vi.mock()
+```
 
 
 
@@ -665,74 +1443,6 @@ Con lo de arriba ya puedes responderlas sin problema. 😎
 
 
 
-### ### ### ### EJERCICIO ### ### ### ### 
-### ### ### ### EJERCICIO ### ### ### ### 
-### ### ### ### EJERCICIO ### ### ### ### 
-
-
-
-ejercicio
-
-Objetivo
-Aplicar TDD para construir y probar un componente de formulario sencillo usando Vue Test Utils y un runner de
-unit tests (Jest o Vitest). Practicar mocks/stubs para aislar la unidad bajo prueba.
-Requisitos
-• Proyecto Vue 3 con runner de unit tests configurado:
-o vue-cli + Jest o Vite + Vitest.
-• Vue Test Utils instalado.
-• Editor de texto y terminal.
-
-Enunciado
-Implementa un componente LoginForm.vue que cumpla:
-1. Contiene dos campos: email y password.
-2. El botón “Ingresar” inicia deshabilitado y solo se habilita si:
-• el email tiene formato válido, y
-• el password no está vacío.
-3. Al enviar, el componente emite un evento submit con el payload { email, password } donde email viene
-con trim (sin espacios al inicio/fin).
-4. Si el email es inválido, se muestra un mensaje de error visible/accessible.
-5. Tras emitir, el password se limpia (el email se mantiene).
-El componente no debe llamar APIs ni depender del router. El foco es el comportamiento del componente (UI +
-eventos).
-
-Instrucciones
-1. Prepara el entorno
-• Crea el archivo de pruebas LoginForm.spec.(js|ts) y el componente LoginForm.vue vacío.
-• Asegúrate de poder ejecutar el runner (npm run test:unit o vitest).
-2. Estructura básica del formulario
-• Debe tener dos campos: email y password.
-• Botón “Ingresar” presente y deshabilitado por defecto.
-
-
-
-
-
-3. Reglas de validación
-• El botón se habilita solo si:
-o el email tiene formato válido (p. ej., contiene @ y dominio),
-o el password no está vacío.
-• Si el email es inválido, muestra un mensaje de error visible/legible para el usuario.
-4. Comportamiento al enviar
-Al hacer submit con datos válidos, el componente emite un evento submit con el payload:
-
-{ email: email.trim(), password }
-
-5. Alcance del componente
-• No debe llamar APIs ni usar router. Solo manejar UI y emitir el evento.
-• Usa selectores estables en el markup (p. ej., data-testid="email", data-testid="error").
-6. Pruebas unitarias requeridas
-• Verifica render inicial: ambos inputs y botón deshabilitado.
-• Verifica habilitación del botón con email válido + password no vacío.
-• Verifica que con email inválido se muestra el mensaje de error y el botón queda deshabilitado.
-• Verifica que al enviar:
-o se emite submit con { email: email.trim(), password },
-o el password queda vacío después del envío.
-
-7. Aislamiento (si aplica)
-• Si usas componentes hijos “pesados”, stubléalos en el montaje para centrarte en el comportamiento de
-LoginForm.
-• Si extraes un helper (p. ej., isValidEmail), puedes mockearlo en un test para comprobar que el
-formulario reacciona a su respuesta.
 
 
 
@@ -740,20 +1450,32 @@ formulario reacciona a su respuesta.
 
 
 
-Proyecto comprimido (sin node_modules).
-Archivo Word con capturas:
-1. LoginForm con error mostrado: evidencia visual del mensaje de error por email inválido (puede ser
-la UI renderizada o la vista de DOM del test).
-2. Envío válido de LoginForm: botón habilitado, envío realizado y evidencia de que se emitió submit
-con { email: email.trim(), password }; además, mostrar que el password quedó vacío después del
-envío (captura del test pasando y/o de la UI).
-3. Runner en verde: captura de la ejecución de pruebas (CLI o UI del runner) con todos los tests
-aprobados.
-Breve ficha (1 página) explicando:
-• Qué comportamientos se probaron (render inicial, validación/habilitación, error visible, emisión de
-submit y limpieza de password).
-• Cómo se usó Vue Test Utils (montaje, setValue, trigger, emitted) y por qué se probaron contratos
-observables en lugar de detalles internos.
-• Dónde aplicaste mocks/stubs (si hubo componentes hijos o helpers de validación) y por qué (aislar la
-unidad, tests rápidos y deterministas).
+
+
+
+
+
+---
+
+## E2E
+
+**End To End** o **Prueba de principio a fin.** 
+
+Aquí ya no pruebas una función.
+
+Pruebas el flujo completo.
+
+Ejemplo:
+
+1. Usuario abre la web
+2. Hace login
+3. Agrega producto
+4. Compra
+
+Todo junto.
+
+
+
+
+
 

@@ -27,6 +27,13 @@
 
 
 
+## Ejemplos ejecicios M7
+1. [ejemplo-ejercicio-m7-l1.md](./ejemplo-ejercicio-m7-l1.md)
+1. [ejemplo-ejercicio-m7-l2.md](./ejemplo-ejercicio-m7-l2.md)
+1. [ejemplo-ejercicio-m7-l3.md](./ejemplo-ejercicio-m7-l3.md)
+
+
+
 ## Indice
 1. [m6-l1-componentes.md](./m6-l1-componentes.md)
 1. [m6-l2-templates-binding.md](./m6-l2-templates-binding.md)
