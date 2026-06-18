@@ -3,26 +3,18 @@
 
 ---
 
-## 1. Crear proyecto Vue
+## 1. Crear proyecto Vue e Instalar Axios
 
-Crear un nuevo proyecto Vue:
 
 ```bash
 npm create vue@latest api-practica
-```
 
-
----
-
-## 2. Instalar Axios
-
-```bash
 npm install axios
 ```
 
 ---
 
-## 3. Estructura básica
+## 2. Estructura básica
 
 Crear el componente:
 
@@ -36,10 +28,17 @@ src/
 
 ---
 
-## 4. Consumir la API
+## 3. Consumir la API **ReqRes.in**
 
+1. Antes se podia usar **reqres-free-v1** como apikey
 
-src/components/ApiExample.vue
+2. NUEVO METODO: crear cuenta en **ReqRes** https://reqres.in
+
+3. Ir a **API Playground** https://app.reqres.in/playground
+
+4. **AUTH BAR** es la apikey
+
+5. src/components/ApiExample.vue
 
 ```vue
 <script setup>
@@ -58,7 +57,7 @@ const obtenerUsuarios = async () => {
       'https://reqres.in/api/users?page=1',
       {
         headers: {
-          'x-api-key': 'reqres-free-v1'
+          'x-api-key': 'reqres-free-v1' //
         }
       }
     )
@@ -122,7 +121,8 @@ onMounted(() => {
 
 ---
 
-## Ejemplo alternativo usando JSONPlaceholder
+## 4. Ejemplo alternativo: Consumir la API **JSONPlaceholder**
+
 
 Esta API no requiere API Key.
 

@@ -14,6 +14,133 @@ Existen varios **niveles de pruebas**,
 
 
 
+### Grupo 1: Pruebas de unidades pequeñas
+
+Aquí probarías piezas aisladas e independientes.
+
+* **Test Unitarios**
+
+  * Una función
+  * Un método
+  * Un getter de Pinia
+  * Una utilidad
+
+* **Test de Componentes**
+
+  * Un componente Vue aislado
+  * Sus props
+  * Sus emits
+  * Su renderizado
+
+
+<br>
+<br>
+
+
+### Grupo 2: Pruebas de flujo o integración
+
+Aquí ya importa cómo colaboran varias piezas.
+* Integración = algunas piezas juntas
+* Sistema = toda la aplicación
+* E2E = toda la aplicación desde la mirada del usuario
+
+<br>
+
+
+* **Integración**
+
+  * Componente + Store
+  * Store + API
+  * Router + Vista
+
+* **Sistema**
+
+  * La aplicación completa
+  * Frontend + Backend
+  * Base de datos
+
+* **E2E**
+
+  * Simula al usuario real
+  * Login → Dashboard → Comprar → Logout
+
+
+
+
+<br>
+<br>
+
+
+### Grupo 3: UAT
+
+**UAT (User Acceptance Testing)** no busca encontrar bugs técnicos necesariamente.
+
+Busca responder:
+
+> "¿Esto cumple lo que el cliente pidió?"
+
+Por ejemplo:
+
+- ✓ El usuario puede registrarse
+- ✓ El cliente puede descargar un PDF
+- ✓ El flujo cumple el requerimiento del negocio
+
+
+
+**Muchas veces es manual.**
+
+- Cliente
+- Product Owner
+- Usuario final
+
+
+revisan la aplicación y dicen:
+
+> "Sí, esto es lo que necesitábamos".
+
+---
+
+
+| Grupo                   | Tipo                      |
+| ----------------------- | ------------------------- |
+| Unidades pequeñas       | Unitarias, Componentes    |
+| Procesos y colaboración | Integración, Sistema, E2E |
+| Validación del negocio  | UAT                       |
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 **Resumen rápido**
 
 | Tipo          | Qué prueba                       | Herramientas más usadas 2026      |
