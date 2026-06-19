@@ -62,7 +62,7 @@ const obtenerUsuarios = async () => {
       }
     )
 
-    usuarios.value = response.data.data
+    usuarios.value = response.data
 
     console.log('Usuarios cargados')
     console.table(usuarios.value)
