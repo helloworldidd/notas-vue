@@ -24,7 +24,9 @@
 | **Ejercicios M7-L1 M7-L2**                                        | https://github.com/helloworldidd/p81-vue-ejercicios-m7    |
 | Rutas y detalles                                                  | https://github.com/helloworldidd/p82-vue-rutas-detalles   |
 | Estados Globales                                                  | https://github.com/helloworldidd/p83-vue-estado-global    |
+| CRUD con MockAPI                                                  | https://github.com/helloworldidd/p84-vue-mockapi          |
 | **Ejercicios M7-L3**                                              | https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3  |
+| **Ejercicios M7-L2**                                              | https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2  |
 
 
 
