@@ -5,85 +5,45 @@
 ## Repositorios
 
 **Módulo 6**
-
 1. Directivas y sass
-https://github.com/helloworldidd/p67-app-demo
-<br>
-
+    - https://github.com/helloworldidd/p67-app-demo
 1. Rutas
-https://github.com/helloworldidd/p68-vue-rutas
-<br>
-
+    - https://github.com/helloworldidd/p68-vue-rutas
 1. Estructura
-https://github.com/helloworldidd/p69-vue-base
-<br>
-
+    - https://github.com/helloworldidd/p69-vue-base
 1. Props, v-if, v-for, v-model, forms, @sumit y @click
-https://github.com/helloworldidd/p70-vue-form-events
-<br>
-
+    - https://github.com/helloworldidd/p70-vue-form-events
 1. Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit
-https://github.com/helloworldidd/p71-vue-events
-<br>
-
+    - https://github.com/helloworldidd/p71-vue-events
 1. **Ejercicio M6-L1**
-https://github.com/helloworldidd/e-m6-l1
-<br>
-
+    - https://github.com/helloworldidd/e-m6-l1
 1. Eventos, Modificadores y **Ejercicio M6-L4 parcial**
-https://github.com/helloworldidd/p72-vue-events-modifiers
-<br>
-
+    - https://github.com/helloworldidd/p72-vue-events-modifiers
 1. Rutas + imagen logo y cangrejo
-https://github.com/helloworldidd/p73-vue-routes
-<br>
+    - https://github.com/helloworldidd/p73-vue-routes
 
 **Módulo 7**
 
 1. Componetización + Props
-https://github.com/helloworldidd/p75-vue-components
-<br>
-
+    - https://github.com/helloworldidd/p75-vue-components
 1. **Ejercicios M6-L1 M6-L2 M6-L3 M6-L4 M6-L5**
-https://github.com/helloworldidd/p76-vue-ejercicios-m6
-<br>
-
+    - https://github.com/helloworldidd/p76-vue-ejercicios-m6
 1. Formato, Ref, Reactive, Computed, Watch, DefineProps, DefineEmits
-https://github.com/helloworldidd/p77-vue-components
-<br>
-
+    - https://github.com/helloworldidd/p77-vue-components
 1. Slots y component
-https://github.com/helloworldidd/p78
-<br>
-
+    - https://github.com/helloworldidd/p78
 1. Web General (prettier lint router)
-https://github.com/helloworldidd/p79-vue-general
-<br>
-
+    - https://github.com/helloworldidd/p79-vue-general
 1. Formulario firebase
-https://github.com/helloworldidd/p80-vue-firebase
-<br>
-
+    - https://github.com/helloworldidd/p80-vue-firebase
 1. **Ejercicios M7-L1 M7-L2**
-https://github.com/helloworldidd/p81-vue-ejercicios-m7
-<br>
-
+    - https://github.com/helloworldidd/p81-vue-ejercicios-m7
 1. Rutas y detalles
-https://github.com/helloworldidd/p82-vue-rutas-detalles
-<br>
-
+    - https://github.com/helloworldidd/p82-vue-rutas-detalles
 1. Estados Globales
-https://github.com/helloworldidd/p83-vue-estado-global
-<br>
-
+    - https://github.com/helloworldidd/p83-vue-estado-global
 1. CRUD con MockAPI
-https://github.com/helloworldidd/p84-vue-mockapi
-<br>
-
-
----
-
-
+    - https://github.com/helloworldidd/p84-vue-mockapi
 1. **Ejercicio M7-L3**
     - https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
 1. **Ejercicio M7-L2**
