@@ -126,10 +126,10 @@
 
 1. Meta (Coursera)
    - Meta: Certificado Profesional de Desarrollador Front-End.
-     https://www.coursera.org/professional-certificates/meta-front-end-developer
+        - https://www.coursera.org/professional-certificates/meta-front-end-developer
 
    - Meta: Conceptos Básicos de React.
-     https://www.coursera.org/learn/react-basics
+        - https://www.coursera.org/learn/react-basics
 
    - Meta: React Avanzado.
-     https://www.coursera.org/learn/advanced-react
+        - https://www.coursera.org/learn/advanced-react
