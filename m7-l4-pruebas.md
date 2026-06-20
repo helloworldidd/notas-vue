@@ -547,9 +547,9 @@ import { calcularTotal } from './calcularTotal'
 describe('calcularTotal', () => {
 
   it('debe sumar correctamente los precios', () => {
-
+    
     const productos = [
-      { id: 1, precio: 1000 },
+      { id: 1, precio: 1000 },    
       { id: 2, precio: 2000 },
       { id: 3, precio: 3000 }
     ]

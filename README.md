@@ -88,6 +88,10 @@ https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
 https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
 <br>
 
+1. Test unitario y componente
+https://github.com/helloworldidd/p87-vue-test1
+<br>
+
 **Módulo 8**
 
 
@@ -137,7 +141,6 @@ https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
 1. [otros-config-snippets.md](./otros-config-snippets.md)
 
 <br>
-
 
 1. [otros-css-animate.md](./otros-css-animate.md)
 1. [otros-css-bootstrap.md](./otros-css-bootstrap.md)
