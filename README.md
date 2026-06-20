@@ -84,14 +84,12 @@ https://github.com/helloworldidd/p84-vue-mockapi
 ---
 
 
-- 1. **Ejercicio M7-L3**
-    https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
-
-- 1. **Ejercicio M7-L2**
-    https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
-
-- 1. Test unitario y componente
-    https://github.com/helloworldidd/p87-vue-test1
+1. **Ejercicio M7-L3**
+    - https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
+1. **Ejercicio M7-L2**
+    - https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
+1. Test unitario y componente
+    - https://github.com/helloworldidd/p87-vue-test1
 
 
 **Módulo 8**
