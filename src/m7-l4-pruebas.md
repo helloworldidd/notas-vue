@@ -2,10 +2,70 @@
 
 ---
 
-## Introducción
+## Índice
+
+
+
+<br>
+
+* [Las pruebas](#las-pruebas)
+  + [Grupos](#grupos)
+  + [Herramientas](#herramientas)
+* [Tests](#tests)
+  + [Descripción](#descripcion)
+  + [Test Unitarios](#test-unitarios)
+  + [Test de Componentes](#test-componentes)
+  + [Test de Integración](#test-de-integracion)
+  + [Test de Sistema](#test-de-sistema)
+  + [Test E2E](#test-e2e)
+  + [UAT](#uat)
+* [TDD](#tdd)
+  + [Metodologia TDD](#metodologia-tdd)
+* [Ejemplos](#ejemplos)
+  + [Ejemplo: Test Unitario](#ejemplo-test-unitario)
+  + [Ejemplo: Test de Componente](#ejemplo-test-de-componente)
+  + [Ejemplo: Test de Integracion](#ejemplo-test-de-integracion)
+  + [Ejemplo: Test de Sistema](#ejemplo-test-de-sistema)
+  + [Ejemplo: Test E2E](#ejemplo-test-e2e)
+  + [Ejemplo: UAT](#ejemplo-uat)
+* [Test Doubles](#test-doubles)
+  + [Que son los Test Doubles](#que-son-los-test-doubles)
+  + [Dummy](#dummy)
+  + [Fake](#fake)
+  + [Mock Data](#mock-data)
+  + [Stub](#stub)
+  + [Spy](#spy)
+  + [Mock](#mock)
+* [Ejemplo Test Doubles](#ejemplo-test-doubles)
+  + [Test unitario con Test Doubles](#test-unitario-con-test-doubles)
+
+
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## Las Pruebas
+
+> Las pruebas de software permiten verificar que una aplicación funciona correctamente, detectar errores de forma temprana y asegurar que los cambios futuros no rompan funcionalidades existentes.
+
+<br>
+<br>
+
+### Grupos
+
+> Las pruebas suelen clasificarse según el nivel de alcance que tienen dentro de una aplicación, desde pequeñas unidades de código hasta procesos completos ejecutados por un usuario.
+
+Grupos de Tipos de Pruebas
+
+<br>
 
 Existen varios **niveles de pruebas**,
-
 desde las más pequeñas
 hasta las más cercanas al usuario final.
 
@@ -13,97 +73,74 @@ hasta las más cercanas al usuario final.
 - **Grupo 2: Pruebas de flujo o integración**
 - **Grupo 3: UAT**
 
----
-
-## Grupos
-
 <br>
 <br>
 
-### Grupo 1: Pruebas de unidades pequeñas
-
+**Grupo 1: Pruebas de unidades pequeñas**
 Aquí probarías piezas aisladas e independientes.
 
-- **Test Unitarios**
-  - Una función
-  - Un método
-  - Un getter de Pinia
-  - Una utilidad
+  - **Test Unitarios**
+    - Una función
+    - Un método
+    - Un getter de Pinia
+    - Una utilidad
+  <br>
 
-<br>
+  - **Test de Componentes**
+    - Un componente Vue aislado
+    - Sus props
+    - Sus emits
+    - Su renderizado
+  <br>
+  <br>
 
-- **Test de Componentes**
-  - Un componente Vue aislado
-  - Sus props
-  - Sus emits
-  - Su renderizado
-
-<br>
-<br>
-
-### Grupo 2: Pruebas de flujo o integración
-
+**Grupo 2: Pruebas de flujo o integración**
 Aquí ya importa cómo colaboran varias piezas.
 
-<br>
+  - **Test de Integración** (algunas piezas juntas)
+    - Componente + Store
+    - Store + API
+    - Router + Vista
+  <br>
 
-- **Integración** (algunas piezas juntas)
-  - Componente + Store
-  - Store + API
-  - Router + Vista
+  - **Test de Sistema** (toda la aplicación)
+    - La aplicación completa
+    - Frontend + Backend
+    - Base de datos
+  <br>
 
-<br>
+  - **Test E2E** (toda la aplicación desde la mirada del usuario)
+    - Simula al usuario real
+    - Login → Dashboard → Comprar → Logout
+  <br>
+  <br>
 
-- **Sistema** (toda la aplicación)
-  - La aplicación completa
-  - Frontend + Backend
-  - Base de datos
-
-<br>
-
-- **E2E** (toda la aplicación desde la mirada del usuario)
-  - Simula al usuario real
-  - Login → Dashboard → Comprar → Logout
-
-<br>
-<br>
-
-### Grupo 3: UAT
-
+**Grupo 3: UAT**
 User Acceptance Testing
 (Pruebas de aceptación de usuario)
 
-**no busca** _encontrar bugs técnicos necesariamente._
+    No busca         encontrar bugs técnicos necesariamente.
+    Busca responder: "¿Esto cumple lo que el cliente pidió?"
 
-**Busca responder**: _"¿Esto cumple lo que el cliente pidió?"_
-
-- **Por ejemplo:**
-  - El usuario puede registrarse
-  - El cliente puede descargar un PDF
-  - El flujo cumple el requerimiento del negocio
-
-- **Muchas veces es manual** y se trabaja con el:
-  - Cliente
-  - Product Owner
-  - Usuario final
-
-- Revisan la aplicación y dicen: _"Sí, esto es lo que necesitábamos"._
+    Por ejemplo:
+      - El usuario puede registrarse
+      - El cliente puede descargar un PDF
+      - El flujo cumple el requerimiento del negocio
 
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
----
-
-## Resumen Grupos de Pruebas
+    Muchas veces es manual y se trabaja con el:
+    
+    Cliente, Product Owner, Usuario final
+    
+    Revisan la aplicación y dicen: 
+    "Sí, esto es lo que necesitábamos".
 
 <br>
 <br>
 
-### Grupos
+**Resumen Grupos de Pruebas**
+
 
 | Grupo                   | Tipo                      |
 | ----------------------- | ------------------------- |
@@ -126,7 +163,7 @@ Unitarias / Componentes
 <br>
 <br>
 
-### Uso
+**Resumen Pruebas**
 
 | Tipo          | Qué prueba                       | Herramientas más usadas             |
 | ------------- | -------------------------------- | ----------------------------------- |
@@ -140,7 +177,11 @@ Unitarias / Componentes
 <br>
 <br>
 
-### Herramientas más usadas
+### Herramientas
+
+> Existen distintas herramientas para automatizar pruebas, ejecutar validaciones y generar reportes que facilitan el control de calidad del software.
+
+Herramientas para Pruebas
 
 - Uso en **pruebas Unitarias**:
   - 1er lugar: **Vitest**
@@ -153,6 +194,30 @@ Unitarias / Componentes
   - 3er lugar: **Selenium**
   - 4to lugar: **Nightwatch**
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 <br>
 <br>
@@ -162,12 +227,22 @@ Unitarias / Componentes
 
 ---
 
-## Ejemplos de Pruebas
+## Tests
+
+> Los tests son verificaciones que permiten comprobar si una funcionalidad se comporta según lo esperado bajo determinadas condiciones.
 
 <br>
 <br>
 
-### 1. Pruebas Unitarias (Unit Testing)
+### Descripción
+
+> Antes de estudiar cada tipo de prueba, es importante comprender qué objetivo persigue y qué nivel de la aplicación busca validar.
+
+### Test Unitarios
+> Pruebas Unitarias o Unit Test
+>
+> Los test unitarios verifican pequeñas unidades de código de forma aislada, como funciones, métodos o cálculos específicos.
+
 
 Prueban una única unidad de código.
 
@@ -194,7 +269,9 @@ expect(sumar(2, 3)).toBe(5);
 <br>
 <br>
 
-### 2. Pruebas de Componentes
+### Test de Componentes
+
+> Los test de componentes validan que un componente renderice correctamente, reciba datos y responda adecuadamente a las interacciones del usuario.
 
 Muy usadas en Vue, React y Angular.
 
@@ -223,7 +300,9 @@ Muchos las consideran una variante de las pruebas unitarias.
 <br>
 <br>
 
-### 3. Pruebas de Integración
+### Test de Integración
+
+> Los test de integración comprueban que varios módulos o componentes trabajen correctamente entre sí intercambiando información.
 
 Validan que varios módulos trabajen juntos.
 
@@ -246,7 +325,12 @@ Pruebas la interacción.
 <br>
 <br>
 
-### 4. Pruebas de Sistema (System Testing)
+### Test de Sistema
+
+> System Testing
+> 
+> Los test de sistema validan el funcionamiento completo de la aplicación en un entorno similar al utilizado por los usuarios finales.
+
 
 Prueban la aplicación completa.
 
@@ -267,7 +351,11 @@ Se realiza en un entorno parecido a producción.
 <br>
 <br>
 
-### 5. Pruebas End-to-End (E2E)
+### Test E2E
+
+> End-to-End
+> 
+> Los test End-to-End simulan el comportamiento real de un usuario recorriendo flujos completos dentro de la aplicación.
 
 Simulan a un usuario real usando la aplicación.
 
@@ -297,7 +385,11 @@ Herramientas:
 <br>
 <br>
 
-### 6. UAT (User Acceptance Testing)
+### UAT
+
+> Pruebas UAT o  User Acceptance Testing
+>
+> Las pruebas UAT permiten validar que el sistema cumple las necesidades y expectativas definidas por el cliente o usuario final.
 
 Significa: **User Acceptance Testing** o **Pruebas de Aceptación del Usuario**
 
@@ -317,6 +409,35 @@ No importa tanto el código.
 
 Importa el resultado.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 <br>
 <br>
@@ -329,8 +450,17 @@ Importa el resultado.
 
 ## TDD
 
-**Test Driven Development**
-(Desarrollo Dirigido por Pruebas)
+> Test Driven Development o
+> Desarrollo Dirigido por Pruebas
+>
+> Es una metodología de desarrollo donde las pruebas se escriben antes que la implementación del código.
+
+<br>
+<br>
+
+### Metodologia TDD
+
+> El ciclo de TDD consiste en crear una prueba que falle, desarrollar el código mínimo necesario para aprobarla y luego refactorizar la solución.
 
 Es una metodología donde **primero escribes la prueba y después escribes el código**.
 
@@ -349,7 +479,7 @@ Beneficios:
 <br>
 <br>
 
-### Proceso
+**Proceso**
 
 ```sh
 Normalmente hacemos:      Con TDD, lo contrario:
@@ -364,7 +494,7 @@ Normalmente hacemos:      Con TDD, lo contrario:
 <br>
 <br>
 
-### Ejemplo
+**Ejemplo**
 
 Quiero crear una función:
 
@@ -402,15 +532,14 @@ function sumar(a, b) {
 <br>
 
 
-### Ciclo TDD
+**Ciclo TDD**
+Se suele resumir como:
 
- Se suele resumir como:
-
-1. RED 🔴 La prueba falla.
-   ↓
-2. GREEN 🟢 Escribes el mínimo código para que pase.
-   ↓
-3. REFACTOR 🔵 Mejoras el código sin romper el test.
+    1. RED      🔴 La prueba falla.
+        ↓
+    2. GREEN    🟢 Escribes el mínimo código para que pase.
+        ↓
+    3. REFACTOR 🔵 Mejoras el código sin romper el test.
 
 
 
@@ -418,39 +547,43 @@ function sumar(a, b) {
 <br>
 
 
-### Ejemplo en Vue
+**Ejemplo Un contador**
 
-Supongamos que tienes un contador.
+Pasos:
 
-Primero escribes el test:
+1. Escribir el test.
 
-```js
-it("incrementa el contador", async () => {
-  const wrapper = mount(Counter);
+    ```js
+    it("incrementa el contador", async () => {
+      const wrapper = mount(Counter);
 
-  await wrapper.find("button").trigger("click");
+      await wrapper.find("button").trigger("click");
 
-  expect(wrapper.text()).toContain("1");
-});
-```
+      expect(wrapper.text()).toContain("1");
+    });
+    ```
 
-Después creas el componente para que el test pase.
-
-- **Ventajas**
-  - Detecta errores temprano.
-  - Obliga a pensar los requisitos antes de programar.
-  - Facilita mantenimiento.
-  - Reduce bugs en producción.
-  - Da confianza para refactorizar.
+1. Después creas el componente para que el test pase.
 
 
+<br>
 
-
-
+3. Ventajas
+    - Detecta errores temprano.
+    - Obliga a pensar los requisitos antes de programar.
+    - Facilita mantenimiento.
+    - Reduce bugs en producción.
+    - Da confianza para refactorizar.
 
 
 
 
+
+
+
+
+
+<br>
 <br>
 <br>
 <br>
@@ -458,27 +591,41 @@ Después creas el componente para que el test pase.
 <br>
 
 ---
-## 🧪 Test Unitario
+
+## Ejemplos
+
+> A continuación se presentan ejemplos prácticos para comprender cómo se implementan los distintos tipos de pruebas en proyectos reales.
+
+Ejemplos de Pruebas
+
 
 <br>
 <br>
+<br>
+<br>
 
-### 1. Objetivo
 
+### Ejemplo: Test Unitario
+
+> Ejemplo de una prueba enfocada en validar una función específica de manera aislada, sin depender de otros módulos.
+
+<br>
+
+**Objetivo**
 Verificar que la función `calcularTotal()` sume correctamente los precios de todos los productos entregados como parámetro.
 
 <br>
-<br>
 
-### 2. Preparación e instalación
-
+**Preparación e instalación**
 Instalar Vitest:
 
 ```bash
 npm install -D vitest
 ```
 
-Agregar el script de pruebas en `package.json`:
+<br>
+
+**package.json** aqui agregar el script de pruebas:
 
 ```json
 {
@@ -493,9 +640,7 @@ Agregar el script de pruebas en `package.json`:
 <br>
 <br>
 
-### 3. Código
-
-#### Estructura
+**Estructura**
 
 ```txt
 src/
@@ -505,7 +650,11 @@ src/
     └── calcularTotal.test.js
 ```
 
-#### src/App.vue
+<br>
+
+**Código**
+
+src/App.vue
 
 ```vue
 <script setup>
@@ -528,7 +677,9 @@ const total = computed(() => {
 </template>
 ```
 
-#### src/utils/calcularTotal.js
+<br>
+
+src/utils/calcularTotal.js
 
 ```js
 export function calcularTotal(productos) {
@@ -538,7 +689,9 @@ export function calcularTotal(productos) {
 }
 ```
 
-#### src/utils/calcularTotal.test.js
+<br>
+
+src/utils/calcularTotal.test.js
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -566,9 +719,8 @@ describe('calcularTotal', () => {
 <br>
 <br>
 
-### 4. Ejecución del test
+**Ejecución del test**
 
-Ejecutar cualquiera de los siguientes comandos:
 
 ```bash
 npm run test
@@ -583,7 +735,7 @@ npx vitest
 <br>
 <br>
 
-### 5. Resultado esperado
+**Resultado esperado**
 
 ```txt
 ✓ debe sumar correctamente los precios
@@ -612,22 +764,21 @@ La prueba debe finalizar sin errores y validar que la función retorna el valor 
 
 
 
----
 
-## 🧪 Test Componente
+### Ejemplo: Test de Componente
 
+> Ejemplo de una prueba que verifica la renderización, propiedades e interacciones de un componente Vue.
 
 <br>
 <br>
 
-### 1. Objetivo
-
+**Objetivo**
 Verificar que el componente `ProductCard.vue` muestre correctamente la información de un producto recibido por `props`.
 
 <br>
 <br>
 
-### 2. Preparación e instalación
+**Preparación e instalación**
 
 Instalar Vitest, Vue Test Utils y jsdom:
 
@@ -635,8 +786,9 @@ Instalar Vitest, Vue Test Utils y jsdom:
 npm install -D vitest @vue/test-utils jsdom
 ```
 
-Agregar el script de pruebas en `package.json`:
+<br>
 
+**package.json** aqui agregar script de pruebas:
 ```json
 {
   "scripts": {
@@ -648,7 +800,10 @@ Agregar el script de pruebas en `package.json`:
 }
 ```
 
-Crear o revisar el archivo `vite.config.js`:
+
+<br>
+
+**vite.config.js** aqui agregar laparte de test
 
 ```js
 import { defineConfig } from 'vite'
@@ -665,9 +820,7 @@ export default defineConfig({
 <br>
 <br>
 
-### 3. Código
-
-#### Estructura
+**Estructura**
 
 ```txt
 src/
@@ -677,7 +830,15 @@ src/
     └── ProductCard.test.js
 ```
 
-#### src/App.vue
+
+
+<br>
+<br>
+
+**Código**
+
+<br>
+src/App.vue
 
 ```vue
 <script setup>
@@ -695,7 +856,9 @@ const producto = {
 </template>
 ```
 
-#### src/components/ProductCard.vue
+<br>
+
+src/components/ProductCard.vue
 
 ```vue
 <script setup>
@@ -715,7 +878,9 @@ defineProps({
 </template>
 ```
 
-#### src/components/ProductCard.test.js
+<br>
+
+src/components/ProductCard.test.js
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -766,9 +931,7 @@ describe('ProductCard', () => {
 <br>
 <br>
 
-### 4. Ejecución del test
-
-Ejecutar cualquiera de los siguientes comandos:
+**Ejecución del test**
 
 ```bash
 npm run test
@@ -783,7 +946,7 @@ npx vitest
 <br>
 <br>
 
-### 5. Resultado esperado
+**Resultado esperado**
 
 ```txt
 ✓ debe mostrar el nombre del producto
@@ -820,22 +983,22 @@ La prueba debe finalizar sin errores y validar que el componente renderiza corre
 <br>
 <br>
 
----
 
-## 🧪 Test de Integración
+
+### Ejemplo: Test de Integracion
+
+> Ejemplo donde varios componentes o módulos colaboran entre sí para completar una funcionalidad.
 
 <br>
 <br>
 
-### 1. Objetivo
-
+**Objetivo**
 Verificar que el componente `ProductList.vue` interactúe correctamente con el store de Pinia, agregando productos al carrito y actualizando el total mostrado en pantalla.
 
 <br>
 <br>
 
-### 2. Preparación e instalación
-
+**Preparación e instalación**
 Instalar Vitest, Vue Test Utils y Pinia:
 
 ```bash
@@ -843,7 +1006,9 @@ npm install -D vitest @vue/test-utils jsdom
 npm install pinia
 ```
 
-Agregar el script de pruebas en `package.json`:
+<br>
+
+**package.json** aqui agregar el script de pruebas 
 
 ```json
 {
@@ -859,9 +1024,8 @@ Agregar el script de pruebas en `package.json`:
 <br>
 <br>
 
-### 3. Código
 
-#### Estructura
+**Estructura**
 
 ```txt
 src/
@@ -873,9 +1037,13 @@ src/
     └── cartStore.js
 ```
 
----
+<br>
 
-#### src/stores/cartStore.js
+**Código**
+
+<br>
+
+src/stores/cartStore.js
 
 ```js
 import { defineStore } from 'pinia'
@@ -904,9 +1072,9 @@ export const useCartStore = defineStore('cart', () => {
 })
 ```
 
----
+<br>
 
-#### src/components/ProductList.vue
+src/components/ProductList.vue
 
 ```vue
 <script setup>
@@ -957,9 +1125,10 @@ const products = [
 </template>
 ```
 
----
 
-#### src/components/ProductList.test.js
+<br>
+
+src/components/ProductList.test.js
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -1019,9 +1188,7 @@ describe('ProductList', () => {
 <br>
 <br>
 
-### 4. Ejecución del test
-
-Ejecutar cualquiera de los siguientes comandos:
+**Ejecución del test**
 
 ```bash
 npm run test
@@ -1036,7 +1203,7 @@ npx vitest
 <br>
 <br>
 
-### 5. Resultado esperado
+**Resultado esperado**
 
 ```txt
 ✓ debe agregar un producto al carrito
@@ -1089,13 +1256,15 @@ La prueba debe finalizar sin errores y validar correctamente la integración ent
 <br>
 
 ---
-## 🧪 Test de Sistema
+
+### Ejemplo: Test de Sistema
+
+> Ejemplo orientado a validar una funcionalidad completa considerando todas las capas involucradas.
 
 <br>
 <br>
 
-### 1. Objetivo
-
+**Objetivo**
 Verificar que la aplicación completa funcione correctamente desde la vista del usuario.
 
 El sistema debe permitir:
@@ -1108,7 +1277,7 @@ El sistema debe permitir:
 <br>
 <br>
 
-### 2. Preparación e instalación
+**Preparación e instalación**
 
 Instalar Cypress:
 
@@ -1116,7 +1285,9 @@ Instalar Cypress:
 npm install -D cypress
 ```
 
-Agregar el script en `package.json`:
+<br>
+
+**package.json** aqui agregar el script
 
 ```json
 {
@@ -1130,9 +1301,8 @@ Agregar el script en `package.json`:
 <br>
 <br>
 
-### 3. Código
 
-#### Estructura
+**Estructura**
 
 ```txt
 src/
@@ -1144,7 +1314,14 @@ cypress/
     └── sistema.cy.js
 ```
 
-#### src/App.vue
+
+<br>
+
+**Código**
+
+<br>
+
+src/App.vue
 
 ```vue
 <script setup>
@@ -1175,7 +1352,10 @@ function aumentar() {
 </template>
 ```
 
-#### cypress/e2e/sistema.cy.js
+<br>
+
+
+cypress/e2e/sistema.cy.js
 
 ```js
 describe('Test de sistema - contador', () => {
@@ -1201,7 +1381,7 @@ describe('Test de sistema - contador', () => {
 <br>
 <br>
 
-### 4. Ejecución del test
+**Ejecución del test**
 
 Primero levantar el proyecto:
 
@@ -1209,7 +1389,9 @@ Primero levantar el proyecto:
 npm run dev
 ```
 
-Luego ejecutar Cypress:
+<br>
+
+Luego ejecutar Cypress en otra terminal:
 
 ```bash
 npm run test:e2e
@@ -1224,7 +1406,7 @@ npx cypress open
 <br>
 <br>
 
-### 5. Resultado esperado
+**Resultado esperado**
 
 ```txt
 ✓ debe permitir aumentar el contador desde la interfaz
@@ -1266,13 +1448,16 @@ La prueba debe finalizar sin errores y validar que el sistema completo responde 
 <br>
 
 ---
-## 🧪 Test E2E
+
+### Ejemplo: Test E2E
+
+> Ejemplo que simula el recorrido de un usuario desde el inicio hasta la finalización de una tarea dentro de la aplicación.
+
 
 <br>
 <br>
 
-### 1. Objetivo
-
+**Objetivo**
 Verificar que el usuario pueda realizar un flujo completo dentro de una aplicación Vue.
 
 El test debe comprobar que el usuario pueda:
@@ -1287,7 +1472,7 @@ El test debe comprobar que el usuario pueda:
 <br>
 <br>
 
-### 2. Preparación e instalación
+**Preparación e instalación**
 
 Instalar Cypress:
 
@@ -1295,7 +1480,10 @@ Instalar Cypress:
 npm install -D cypress
 ```
 
-Agregar el script de pruebas en `package.json`:
+
+<br>
+
+**package.json** Aqui agregar el script de pruebas
 
 ```json
 {
@@ -1311,9 +1499,8 @@ Agregar el script de pruebas en `package.json`:
 <br>
 <br>
 
-### 3. Código
 
-#### Estructura
+**Estructura**
 
 ```txt
 src/
@@ -1325,7 +1512,14 @@ cypress/
     └── compra.cy.js
 ```
 
-#### src/App.vue
+<br>
+<br>
+
+**Código**
+
+<br>
+
+src/App.vue
 
 ```vue
 <script setup>
@@ -1419,7 +1613,10 @@ function irAProductos() {
 </template>
 ```
 
-#### cypress/e2e/compra.cy.js
+
+<br>
+
+cypress/e2e/compra.cy.js
 
 ```js
 describe('Test E2E - flujo de compra', () => {
@@ -1472,13 +1669,16 @@ describe('Test E2E - flujo de compra', () => {
 <br>
 <br>
 
-### 4. Ejecución del test
+**Ejecución del test**
 
 Primero levantar el proyecto Vue:
 
 ```bash
 npm run dev
 ```
+
+<br>
+<br>
 
 Luego ejecutar Cypress:
 
@@ -1495,7 +1695,8 @@ npx cypress open
 <br>
 <br>
 
-### 5. Resultado esperado
+
+**Resultado esperado**
 
 ```txt
 ✓ debe permitir agregar productos al carrito y ver el total
@@ -1545,62 +1746,43 @@ La prueba debe finalizar sin errores y validar un flujo completo de usuario: ent
 <br>
 <br>
 
----
 
-## 🧪 Test UAT
 
+### Ejemplo: UAT
+
+> Ejemplo de validación funcional realizada desde la perspectiva del usuario final utilizando criterios de aceptación.
 
 
 <br>
 <br>
 
-### 1. Nombre del test
-
+**1. Nombre del test**
 Test UAT - Visualización de lista de productos
 
 
-
-
-<br>
 <br>
 
-### 2. Objetivo
-
+**2. Objetivo**
 Validar que la página de productos cumple con lo esperado por el usuario final, mostrando correctamente una lista de productos con su información principal.
 
 
-
-
-<br>
 <br>
 
-### 3. Tipo de prueba
-
+**3. Tipo de prueba**
 UAT - User Acceptance Testing.
-
 Esta prueba valida si la funcionalidad cumple con los criterios de aceptación definidos desde el punto de vista del usuario.
 
-
-
-
-<br>
 <br>
 
-### 4. Herramientas necesarias
-
+**4. Herramientas necesarias**
 * Navegador web
 * Aplicación Vue.js funcionando
 * API o json-server activo
 * Planilla Excel o Google Sheets para registrar resultados
 
-
-
-
-<br>
 <br>
 
-### 5. Preparación / instalación
-
+**5. Preparación / instalación**
 Levantar la aplicación Vue:
 
 ```bash
@@ -1628,15 +1810,11 @@ Verificar que existan productos en la API:
 }
 ```
 
-
-
-
-<br>
 <br>
 
-### 6. Planificación del caso
+**6. Planificación del caso**
 
-#### Caso UAT-001
+Caso UAT-001
 
 | Campo             | Descripción                             |
 | ----------------- | --------------------------------------- |
@@ -1647,12 +1825,9 @@ Verificar que existan productos en la API:
 | Condición inicial | La app y la API deben estar funcionando |
 
 
-
-
-<br>
 <br>
 
-### 7. Criterio de aceptación
+**7. Criterio de aceptación**
 
 ```txt
 Dado que el usuario entra a la vista de productos,
@@ -1660,15 +1835,11 @@ cuando la aplicación carga la información desde la API,
 entonces debe mostrarse una lista de productos con nombre, precio y categoría.
 ```
 
-
-
-
-<br>
 <br>
 
-### 8. Ejecución del test
+**8. Ejecución del test**
 
-### Pasos
+Pasos:
 
 1. Abrir la aplicación en el navegador.
 2. Entrar a la vista **Productos**.
@@ -1680,14 +1851,9 @@ entonces debe mostrarse una lista de productos con nombre, precio y categoría.
    * Precio
    * Categoría
 
-
-
-
-<br>
 <br>
 
-### 9. Resultado esperado
-
+**9. Resultado esperado**
 La página debe mostrar los productos correctamente.
 
 Ejemplo:
@@ -1705,11 +1871,9 @@ Además:
 * No debe aparecer un error en consola.
 * La información debe ser clara y legible.
 
-
-<br>
 <br>
 
-### 10. Registro en planilla
+**10. Registro en planilla**
 
 | ID      | Módulo    | Caso de prueba                | Resultado esperado                                | Estado | Observaciones |
 | ------- | --------- | ----------------------------- | ------------------------------------------------- | ------ | ------------- |
@@ -1723,9 +1887,8 @@ Además:
 | UAT-008 | Productos | Consola del navegador         | No existen errores JavaScript                     | ⬜      |               |
 
 <br>
-<br>
 
-### 11. Evidencia
+**11. Evidencia**
 
 Adjuntar evidencia de ejecución:
 
@@ -1735,9 +1898,8 @@ Adjuntar evidencia de ejecución:
 * Video corto de validación (opcional).
 
 <br>
-<br>
 
-### 12. Resumen de ejecución
+**12. Resumen de ejecución**
 
 | Métrica             | Resultado |
 | ------------------- | --------- |
@@ -1748,9 +1910,8 @@ Adjuntar evidencia de ejecución:
 | Porcentaje de éxito |           |
 
 <br>
-<br>
 
-### 13. Estado final
+**13. Estado final**
 
 | Campo              | Resultado                |
 | ------------------ | ------------------------ |
@@ -1760,10 +1921,8 @@ Adjuntar evidencia de ejecución:
 | Resultado global   | ⬜ Aprobado / ⬜ Rechazado |
 
 <br>
-<br>
 
-### 14. Conclusión
-
+**14. Conclusión**
 El objetivo de este UAT fue validar que la funcionalidad de listado de productos cumple con los requerimientos definidos para el usuario final.
 
 La aprobación del caso dependerá de que todos los criterios establecidos en la planilla hayan sido validados satisfactoriamente y sin errores críticos.
@@ -1829,7 +1988,20 @@ La aprobación del caso dependerá de que todos los criterios establecidos en la
 
 ---
 
-## Objetos de prueba (Test Doubles)
+## Test Doubles
+
+> Objetos de prueba
+> 
+> Los Test Doubles son objetos utilizados durante las pruebas para reemplazar dependencias reales y controlar distintos escenarios de ejecución.
+
+
+
+<br>
+<br>
+
+### Que son los Test Doubles
+
+> Permiten aislar el código que se está probando, evitando depender de bases de datos, APIs externas o servicios reales.
 
 Cuando realizamos pruebas unitarias,
 muchas veces necesitamos reemplazar partes de la aplicación
@@ -1853,6 +2025,8 @@ Estos reemplazos reciben el nombre general de **Test Doubles**.
 
 ### Dummy
 
+> Un Dummy es un objeto de relleno que se utiliza únicamente para completar parámetros requeridos, pero nunca participa realmente en la prueba.
+
 Es un objeto que existe únicamente para completar un parámetro requerido.
 
 No participa realmente en la prueba.
@@ -1874,6 +2048,9 @@ const dummyLogger = {}
 
 ### Fake
 
+> Un Fake es una implementación simplificada de un componente real que permite ejecutar pruebas de manera controlada.
+
+
 Es una implementación simplificada de algo real.
 
 Ejemplo:
@@ -1891,6 +2068,8 @@ Simula una base de datos pero funciona solo en memoria.
 
 ### Mock Data
 
+> Mock Data corresponde a datos simulados utilizados para representar información que normalmente provendría de usuarios, APIs o bases de datos.
+
 Son datos ficticios utilizados para probar una función o componente.
 
 Ejemplo:
@@ -1906,6 +2085,8 @@ const productos = [
 <br>
 
 ### Stub
+
+> Un Stub devuelve respuestas predefinidas para controlar el comportamiento de una dependencia durante la ejecución de una prueba.
 
 Reemplaza una función devolviendo una respuesta conocida.
 
@@ -1926,6 +2107,8 @@ No importa qué ocurra realmente, siempre devuelve el mismo resultado.
 
 ### Spy
 
+> Un Spy permite observar cómo se utiliza una función, registrando llamadas, parámetros recibidos y cantidad de ejecuciones.
+
 Permite observar si una función fue llamada.
 
 Ejemplo:
@@ -1945,6 +2128,9 @@ expect(spy).toHaveBeenCalled()
 
 ### Mock
 
+> Un Mock es un objeto simulado que permite definir expectativas sobre cómo debe interactuar el código con una dependencia.
+
+
 Es una simulación completa de una función u objeto.
 
 Permite:
@@ -1959,45 +2145,59 @@ Ejemplo:
 const login = vi.fn()
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 
-## 🧪 Test Unitario usando Test Doubles
+## Ejemplo Test Doubles
+
+> En esta sección veremos casos prácticos que muestran cómo utilizar distintos tipos de Test Doubles para aislar dependencias y controlar escenarios de prueba.
+
+Ejemplo objetos de prueba
 
 <br>
 <br>
 
-### 1. Objetivo
+### Test unitario con Test Doubles
 
+> Ejemplo de una prueba unitaria que utiliza objetos simulados para reemplazar dependencias externas y validar únicamente la lógica de negocio.
+
+Prueba unitaria usando objetos de Prueba
+  
+<br>
+<br>
+
+**Objetivo**
 Verificar que la función `registrarUsuario()` registre correctamente un usuario y utilice distintos **Test Doubles** para reemplazar dependencias externas.
 
 La función debe:
@@ -2009,9 +2209,8 @@ La función debe:
 5. Ejecutar una función al finalizar.
 
 <br>
-<br>
 
-### 2. Preparación e instalación
+**Preparación e instalación**
 
 Instalar Vitest:
 
@@ -2019,7 +2218,9 @@ Instalar Vitest:
 npm install -D vitest
 ```
 
-Agregar el script de pruebas en `package.json`:
+<br>
+
+**package.json** Aqui agregar el script de pruebas
 
 ```json
 {
@@ -2033,11 +2234,8 @@ Agregar el script de pruebas en `package.json`:
 ```
 
 <br>
-<br>
 
-### 3. Código
-
-#### Estructura
+**Estructura**
 
 ```txt
 src/
@@ -2047,8 +2245,14 @@ src/
     └── registrarUsuario.test.js
 ```
 
+<br>
 
-#### src/App.vue
+**Código**
+
+
+<br>
+
+src/App.vue
 
 ```vue
 <script setup>
@@ -2108,7 +2312,9 @@ function crearCuenta() {
 </template>
 ```
 
-#### src/utils/registrarUsuario.js
+<br>
+
+src/utils/registrarUsuario.js
 
 ```js
 export function registrarUsuario(
@@ -2134,7 +2340,9 @@ export function registrarUsuario(
 }
 ```
 
-#### src/utils/registrarUsuario.test.js
+<br>
+
+src/utils/registrarUsuario.test.js
 
 ```js
 import { describe, it, expect, vi } from 'vitest'
@@ -2217,9 +2425,7 @@ describe('registrarUsuario', () => {
 <br>
 <br>
 
-### 4. Ejecución del test
-
-Ejecutar cualquiera de los siguientes comandos:
+**Ejecución del test** Ejecutar cualquiera de los siguientes comandos:
 
 ```bash
 npm run test
@@ -2234,7 +2440,7 @@ npx vitest
 <br>
 <br>
 
-### 5. Resultado esperado
+**Resultado esperado**
 
 ```txt
 ✓ debe registrar un usuario correctamente usando Test Doubles
@@ -2249,7 +2455,7 @@ La prueba debe finalizar sin errores y validar que la función guarda el usuario
 <br>
 
 
-### 6. ¿Dónde aparece cada Test Double?
+**¿Dónde aparece cada Test Double?**
 
 | Tipo      | Ejemplo usado      | Qué hace                              |
 | --------- | ------------------ | ------------------------------------- |
@@ -2264,6 +2470,6 @@ La prueba debe finalizar sin errores y validar que la función guarda el usuario
 <br>
 <br>
 
----
 
-★★★
+
+## ★

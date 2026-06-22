@@ -1,7 +1,12 @@
-#  Enlace de Datos  (data binding)
+#  Enlace de Datos
+
+_(data binding)_
+
+
 
 ---
-## indice
+
+## Índice
 
 - [Interpolación](#interpolación)
 - Directivas:

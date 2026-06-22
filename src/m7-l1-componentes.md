@@ -1,45 +1,32 @@
-## Componentes
+# Componentes
+> Los componentes son la base de Vue. Permiten dividir una aplicación en piezas pequeñas, reutilizables e independientes, facilitando la organización, mantenimiento y escalabilidad del código.
 
 --- 
 
 ## Indíce
 
-- []()
-
-
-
---- 
-
-## 
-
-
-• Componentes y su ciclo de vida en Vue 
-• Componentización 
-• Reutilización de componentes y Modularización 
-• Jerarquía de componentes 
-
-
-• Paso de datos a un componente mediante Props
-• Enviar mensajes al componente padre 
-• Emitir eventos a componente padre 
-
-
-• Distribución de contenido en Slots 
-
-
-• Componentes dinámicos 
-
-
-• Ciclo de vida de un componente 
-• Cuándo usar los hooks 
-• Tipos de hooks y su función 
-
-
-
-• Aplicar estilo a un componente 
-• Usando la etiqueta style 
-• Class binding 
-• Style binding
+* [Componetización](#componetización)
+* [Paso de Datos](#paso-de-datos)
+  + [Props](#props)
+  + [Emits](#emits)
+* [Slots](#slots)
+  + [Slots con Nombre](#slots-con-nombre)
+  + [Slots con BaseLayouts](#slots-con-baselayouts)
+* [Componentes Dinámicos](#componentes-dinámicos)
+  + [Con evento Click](#con-evento-click)
+  + [Con evento Click toggle](#con-evento-click-toggle)
+* [Ciclo de Vida](#ciclo-de-vida)
+  + [Ciclo de vida](#ciclo-de-vida)
+  + [Hijo.vue](#hijovue)
+* [Ejemplos Ciclo de vida](#ejemplos-ciclo-de-vida)
+  + [Los más usados](#los-más-usados)
+  + [Otros Casos](#otros-casos)
+* [Aplicar Estilos](#aplicar-estilos)
+  + [Style normal](#style-normal)
+  + [Style Scoped](#style-scoped)
+  + [Class Binding](#class-binding)
+  + [Varias clases](#varias-clases)
+  + [Style Binding](#style-binding)
 
 
 
@@ -54,15 +41,13 @@
 
 
 
+---
+
+## Componetización
+
+> La componetización consiste en separar una interfaz grande en múltiples componentes con responsabilidades específicas. Esto permite reutilizar código, mejorar la legibilidad y simplificar el desarrollo.
 
 
-
-
-
-
-
-
-## Componentes
 
 En vez de hacer una página gigante: App.vue(1000 líneas)
 
@@ -107,12 +92,26 @@ App.vue
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
+---
 
+## Paso de Datos
 
+> Los componentes suelen necesitar intercambiar información. Vue proporciona mecanismos para enviar datos desde un componente padre a uno hijo y para comunicar eventos desde el hijo hacia el padre.
 
-## Props
+<br>
+<br>
+
+### Props
+
+> Las Props permiten enviar datos desde un componente padre hacia un componente hijo. Son la forma principal de configurar y personalizar componentes reutilizables.
 
 Enviar datos desde el **padre al hijo**.
 
@@ -156,11 +155,14 @@ const props = defineProps({
 
 
 
+<br>
+<br>
+<br>
+<br>
 
+### Emits
 
-
-
-## defineEmits
+> Los Emits permiten que un componente hijo notifique eventos al componente padre. Se utilizan para comunicar acciones o cambios que ocurren dentro del componente hijo.
 
 Enviar datos desde el **Hijo al Padre**.
 
@@ -223,15 +225,22 @@ const recibirSaludo = (valor) => {
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
 
-
+---
 
 ## Slots
 
-Permiten insertar contenido dentro de un componente.
+> Los Slots permiten insertar contenido personalizado dentro de un componente desde el exterior. Son especialmente útiles para crear componentes flexibles y reutilizables.
+
 
 Principal:
 
@@ -274,9 +283,14 @@ Component:
 
 
 
+<br>
+<br>
+
+### Slots con Nombre
+
+> Los Slots con nombre permiten definir múltiples áreas de contenido dentro de un mismo componente, indicando exactamente dónde debe renderizarse cada bloque.
 
 
-## Slots con Nombre
 
 Principal:
 
@@ -333,8 +347,12 @@ Componente:
 
 
 
+<br>
+<br>
 
-## Slots con BaseLayouts
+### Slots con BaseLayouts
+
+> Los Slots pueden utilizarse para construir layouts reutilizables, permitiendo definir estructuras comunes mientras cada página personaliza su contenido.
 
 Pagina:
 
@@ -347,13 +365,13 @@ import BaseLayout from "./BaseLayout.vue";
         <BaseLayout>
 
         <template #header>
-            <h1>Inicio...</h1>
+          <h1>Inicio...</h1>
         </template>
 
         Bienvenido
 
         <template #footer>
-            © 2026
+          © 2026
         </template>
 
         </BaseLayout>
@@ -371,7 +389,7 @@ BaseLayout:
 <template>
 
   <div class="container">
-
+    
     <header class="header">
       <slot name="header"></slot>
     </header>
@@ -435,13 +453,18 @@ BaseLayout:
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+---
 
+## Componentes Dinámicos
 
-
-
-
-# Componentes Dinámicos
+> Los componentes dinámicos permiten cambiar qué componente se muestra en pantalla según una condición, una selección del usuario o el estado de la aplicación.
 
 Permiten cambiar componentes en tiempo real.
 
@@ -469,12 +492,14 @@ const activeComp = CompA;
 
 
 
+<br>
+<br>
 
 
 
+### Con evento Click
 
-# Componentes Dinámicos con evento Click
-
+> Un componente puede reaccionar a la interacción del usuario mediante eventos. El evento click permite ejecutar acciones cuando se hace clic sobre un elemento.
 
 ```vue
 <script setup>
@@ -525,9 +550,12 @@ const mostrarB = () => {
 
 
 
+<br>
+<br>
 
-# Componentes Dinámicos con evento Click toggle
+### Con evento Click toggle
 
+> El patrón toggle permite alternar entre dos estados, como mostrar u ocultar información, activar o desactivar elementos, o cambiar componentes dinámicamente.
 
 ```vue
 <script setup>
@@ -594,14 +622,23 @@ const toggleComp = () => {
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
 
 
+---
 
+## Ciclo de Vida
 
-# Ciclo de Vida de un Componente
+> Los componentes atraviesan distintas etapas desde su creación hasta su destrucción. Vue ofrece hooks que permiten ejecutar código en momentos específicos de ese ciclo.
+
 
 Cada componente pasa por etapas.
 
@@ -615,391 +652,63 @@ Actualización
 Destrucción
 ```
 
----
 
-# Hooks más usados y Orden del ciclo de vida
-// Antes de que el componente aparezca
-onBeforeMount()
-↓
-
-// Cuando el componente ya está visible
-onMounted()
-↓
-
-// Antes de actualizar la vista
-onBeforeUpdate()
-↓
-
-// Después de actualizar la vista
-onUpdated()
-↓
-
-// Antes de eliminar el componente
-onBeforeUnmount()
-↓
-
-// Después de eliminar el componente
-onUnmounted()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Ciclo de vida
-
-vue
-onBeforeMount()    // Antes de mostrar
-onMounted()        // Después de mostrar
-
-onBeforeUpdate()   // Antes de actualizar
-onUpdated()        // Después de actualizar
-
-onBeforeUnmount()  // Antes de destruir
-onUnmounted()      // Después de destruir
-
-
-
-
-
-css
-::before    // Antes del contenido
-::after     // Después del contenido 
-
-
-### ::before → Antes del contenido
-
-```html id="shwl5v"
-<h1 class="titulo">
-  Vue
-</h1>
-```
-
-```css id="8k4t88"
-.titulo::before {
-  content: "⭐ ";
-}
-```
-
-Resultado visual:
-
-```text id="lujlwm"
-⭐ Vue
-```
-
----
-
-### ::after → Después del contenido
-
-```html id="f8v63r"
-<h1 class="titulo">
-  Vue
-</h1>
-```
-
-```css id="v4z4wf"
-.titulo::after {
-  content: " 🚀";
-}
-```
-
-Resultado visual:
-
-```text id="w0zz17"
-Vue 🚀
-```
-
----
-
-### Ejemplo usando ambos
-
-```html id="v86bq3"
-<h1 class="titulo">
-  Vue
-</h1>
-```
-
-```css id="h2sjdf"
-.titulo::before {
-  content: "⭐ ";
-}
-
-.titulo::after {
-  content: " 🚀";
-}
-```
-
-Resultado visual:
-
-```text id="u1t4a9"
-⭐ Vue 🚀
-```
-
----
-
-## Chuleta visual
-
-```text id="vz6m11"
-::before
-    ↓
-⭐
-
-[ CONTENIDO ]
-
-🚀
-    ↑
-::after
-```
-
----
-
-## Equivalencia mental con JS
-
-```css id="i4y2t7"
-::before
-```
-
-≈
-
-```js id="36k6e4"
-prepend()
-```
-
----
-
-```css id="elx15n"
-::after
-```
-
-≈
-
-```js id="zsmql6"
-append()
-```
-
----
-
-### Resumen
-
-```css id="4g4gtg"
-::before    /* Antes del contenido */
-
-::after     /* Después del contenido */
-```
-
-👉 Crean contenido visual sin modificar el HTML. 🚀
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-js
-append()          // Agrega al final
-prepend()         // Agrega al inicio
-before()          // Inserta antes del elemento
-after()           // Inserta después del elemento
-
-
-### append() → Agrega al final
-
-```html
-<div id="contenedor">
-  <p>Uno</p>
-</div>
-```
-
-```js
-const h1 = document.createElement("h1");
-h1.textContent = "Dos";
-
-contenedor.append(h1);
-```
-
-Resultado:
-
-```html
-<div id="contenedor">
-  <p>Uno</p>
-  <h1>Dos</h1>
-</div>
-```
-
----
-
-### prepend() → Agrega al inicio
-
-```html
-<div id="contenedor">
-  <p>Uno</p>
-</div>
-```
-
-```js
-const h1 = document.createElement("h1");
-h1.textContent = "Dos";
-
-contenedor.prepend(h1);
-```
-
-Resultado:
-
-```html
-<div id="contenedor">
-  <h1>Dos</h1>
-  <p>Uno</p>
-</div>
-```
-
----
-
-### before() → Inserta antes del elemento
-
-```html
-<p id="parrafo">Hola</p>
-```
-
-```js
-const h1 = document.createElement("h1");
-h1.textContent = "Título";
-
-parrafo.before(h1);
-```
-
-Resultado:
-
-```html
-<h1>Título</h1>
-
-<p id="parrafo">Hola</p>
-```
-
----
-
-### after() → Inserta después del elemento
-
-```html
-<p id="parrafo">Hola</p>
-```
-
-```js
-const h1 = document.createElement("h1");
-h1.textContent = "Título";
-
-parrafo.after(h1);
-```
-
-Resultado:
-```html
-<p id="parrafo">Hola</p>
-
-<h1>Título</h1>
-```
-
-    insertBefore()    // Inserta antes de un nodo hijo específico
-    replaceWith()     // Reemplaza un elemento
-    replaceChild()    // Reemplaza un hijo
-    remove()          // Elimina el elemento
-    removeChild()     // Elimina un hijo
-    appendChild()     // Agrega un hijo al final
-    insertAdjacentHTML() // Inserta HTML en una posición
-    insertAdjacentElement() // Inserta un elemento en una posición
-    insertAdjacentText() // Inserta texto en una posición
-
-
-
-
-
-
-
----
-
-# onBeforeMount()
-
-Antes de mostrar el HTML.
+<br>
+<br>
+<br>
+<br>
+
+**Ciclo de vida**:
+  
+<br>
+
+- **onBeforeMount()**
+<small>Antes de mostrar</small>
+  - Preparar datos
+  - Revisar configuraciones
+  - Debugging
+- **onMounted()**
+<small>Después de mostrar</small>
+  - Consumir API
+  - Leer LocalStorage
+  - Inicializar gráficos
+  - Inicializar mapas
+  <br>
+
+- **onBeforeUpdate()**
+<small>Antes de actualizar</small>
+  - Guardar valor anterior
+  - Comparar cambios
+  - Debugging
+- **onUpdated()**
+<small> Después de actualizar</small>
+  - Recalcular tamaños
+  - Actualizar plugins externos
+  - Saber cuándo terminó el render
+  <br>
+- **onBeforeUnmount()**
+<small>Antes de destruir</small>
+  - Guardar cambios pendientes
+  - Confirmar salida
+- **onUnmounted()** 
+<small>Después de destruir</small>
+  - Limpiar intervalos
+  - Limpiar eventos
+  - Cerrar WebSockets
+
+
+
+
+<br>
+<br>
+
+
+**Ciclo de vida en código**:
+
+<br>
+<br>
+
+**onBeforeMount()** Antes de mostrar el HTML.
 
 ```vue
 <script setup>
@@ -1008,8 +717,6 @@ import { onBeforeMount } from "vue";
 onBeforeMount(() => {
   console.log("Antes de mostrar");
 });
-
-
 </script>
 
 <template>
@@ -1017,17 +724,10 @@ onBeforeMount(() => {
 </template>
 ```
 
-Consola:
+<br>
+<br>
 
-```text
-Antes de mostrar
-```
-
----
-
-# onMounted()
-
-Después de mostrar el HTML.
+**onMounted()** Después de mostrar el HTML.
 
 ```vue
 <script setup>
@@ -1043,17 +743,18 @@ onMounted(() => {
 </template>
 ```
 
-Consola:
 
-```text
-Ya aparecí
-```
 
----
 
-# onBeforeUpdate()
 
-Antes de actualizar la vista.
+
+
+
+
+<br>
+<br>
+
+**onBeforeUpdate()** Antes de actualizar la vista.
 
 ```vue
 <script setup>
@@ -1078,17 +779,21 @@ onBeforeUpdate(() => {
 </template>
 ```
 
-Click:
 
-```text
-Voy a actualizar
-```
 
----
 
-# onUpdated()
 
-Después de actualizar.
+
+
+
+
+
+
+
+<br>
+<br>
+
+**onUpdated()** Después de actualizar.
 
 ```vue
 <script setup>
@@ -1113,19 +818,16 @@ onUpdated(() => {
 </template>
 ```
 
-Click:
 
-```text
-Actualizado
-```
 
----
 
-# onBeforeUnmount()
 
-Antes de eliminar el componente.
+<br>
+<br>
 
-### App.vue
+**onBeforeUnmount()** Antes de eliminar el componente.
+
+App.vue
 
 ```vue
 <script setup>
@@ -1144,7 +846,7 @@ const mostrar = ref(true);
 </template>
 ```
 
-### Hijo.vue
+Hijo.vue
 
 ```vue
 <script setup>
@@ -1161,19 +863,17 @@ onBeforeUnmount(() => {
 </template>
 ```
 
-Al ocultarlo:
 
-```text
-Me van a eliminar
-```
 
----
 
-# onUnmounted()
 
-Después de eliminarlo.
 
-### Hijo.vue
+<br>
+<br>
+
+**onUnmounted()** Después de eliminarlo.
+
+Hijo.vue
 
 ```vue
 <script setup>
@@ -1189,69 +889,6 @@ onUnmounted(() => {
 </template>
 ```
 
-Al ocultarlo:
-
-```text
-Ya fui eliminado
-```
-
----
-
-# Ejemplo completo para ver el orden
-
-```vue
-<script setup>
-import {
-  ref,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated
-} from "vue";
-
-const contador = ref(0);
-
-onBeforeMount(() => {
-  console.log("1 Antes de mostrar");
-});
-
-onMounted(() => {
-  console.log("2 Ya aparecí");
-});
-
-onBeforeUpdate(() => {
-  console.log("3 Voy a actualizar");
-});
-
-onUpdated(() => {
-  console.log("4 Actualizado");
-});
-</script>
-
-<template>
-  <h2>{{ contador }}</h2>
-
-  <button @click="contador++">
-    Sumar
-  </button>
-</template>
-```
-
-Al cargar:
-
-```text
-1 Antes de mostrar
-2 Ya aparecí
-```
-
-Al hacer click:
-
-```text
-3 Voy a actualizar
-4 Actualizado
-```
-
-Esa demo suele ser la mejor para entender visualmente el ciclo de vida de un componente Vue. 🚀
 
 
 
@@ -1262,237 +899,36 @@ Esa demo suele ser la mejor para entender visualmente el ciclo de vida de un com
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Estilos en Componentes
-
-## Style normal
-
-```vue
-<style>
-h1 {
-  color: red;
-}
-</style>
-```
-
-Afecta toda la aplicación.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
-## Style Scoped
+## Ejemplos Ciclo de vida
 
-```vue
-<style scoped>
-h1 {
-  color: red;
-}
-</style>
-```
+> A continuación veremos ejemplos prácticos para comprender cuándo y por qué utilizar los distintos hooks disponibles en Vue.
 
-Afecta sólo al componente.
 
----
+<br>
+<br>
 
-# Class Binding
+### Los más usados
 
-Permite agregar clases dinámicamente.
+> Estos hooks son los más utilizados en aplicaciones reales para cargar datos, reaccionar a cambios y ejecutar lógica cuando el componente se monta.
 
-```vue
-<div
-  :class="{ activo: estado }"
->
-</div>
-```
 
-Si:
+  - **onMounted()** para Cargar información
+  - **onUnmounted()** para Limpiar información
 
-```js
-estado = true
-```
 
-Resultado:
+<br>
+<br>
 
-```html
-<div class="activo"></div>
-```
-
----
-
-# Varias clases
-
-```vue
-<div
-  :class="[
-    'card',
-    activo ? 'ok' : 'error'
-  ]"
->
-</div>
-```
-
----
-
-# Style Binding
-
-Permite agregar estilos dinámicos.
-
-```vue
-<div
-  :style="{
-    color: 'red'
-  }"
->
-</div>
-```
-
----
-
-Ejemplo reactivo:
-
-```vue
-<script setup>
-import { ref } from 'vue';
-
-const color = ref('blue');
-</script>
-
-<template>
-
-  <div
-    :style="{
-      color: color
-    }"
-  >
-    Hola
-  </div>
-
-</template>
-```
-
----
-
-# Resumen para entrevista
-
-## Comunicación
-
-```text
-Props
-PADRE → HIJO
-
-Emits
-HIJO → PADRE
-```
-
-## Reutilización
-
-```text
-Componentes pequeños
-Responsabilidad única
-```
-
-## Hooks más usados
-
-```js
-onMounted()
-onUpdated()
-onUnmounted()
-```
-
-## Estilos dinámicos
-
-```vue
-:class
-
-:style
-```
-
-## Componentes dinámicos
-
-```vue
-<component :is="Component" />
-```
-
-Si dominas **Props, Emits, Slots, onMounted, class binding y componentes dinámicos**, ya cubres aproximadamente el 80% de las preguntas típicas de Vue 3 en bootcamps y entrevistas junior. 😎
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Perfecto, siguiendo la misma lógica de `::before` y `::after`, pero ahora con **casos prácticos de Vue**.
-
-```js id="xg1t3u"
-onBeforeMount()    // Antes de mostrar
-// Preparar datos
-// Revisar configuraciones
-// Debugging
-
-onMounted()        // Después de mostrar
-// Consumir API
-// Leer LocalStorage
-// Inicializar gráficos
-// Inicializar mapas
-
-onBeforeUpdate()   // Antes de actualizar
-// Guardar valor anterior
-// Comparar cambios
-// Debugging
-
-onUpdated()        // Después de actualizar
-// Recalcular tamaños
-// Actualizar plugins externos
-// Saber cuándo terminó el render
-
-onBeforeUnmount()  // Antes de destruir
-// Guardar cambios pendientes
-// Confirmar salida
-
-onUnmounted()      // Después de destruir
-// Limpiar intervalos
-// Limpiar eventos
-// Cerrar WebSockets
-```
-
----
-
-### Ejemplos típicos
-
-```js id="a7r8k2"
-onMounted()
-```
-
-👉 Cargar productos
+**onMounted()** 👉 Cargar productos
 
 ```js
 onMounted(async () => {
@@ -1500,13 +936,7 @@ onMounted(async () => {
 });
 ```
 
----
-
-```js id="b9m4q1"
-onMounted()
-```
-
-👉 Leer LocalStorage
+**onMounted()** 👉 Leer LocalStorage
 
 ```js
 onMounted(() => {
@@ -1515,13 +945,7 @@ onMounted(() => {
 });
 ```
 
----
-
-```js id="c5n7w3"
-onUnmounted()
-```
-
-👉 Limpiar un timer
+**onUnmounted()** 👉 Limpiar un timer
 
 ```js
 onUnmounted(() => {
@@ -1529,55 +953,6 @@ onUnmounted(() => {
 });
 ```
 
----
-
-### Chuleta rápida
-
-```js id="d2p6e8"
-onBeforeMount()    // Voy a aparecer
-
-onMounted()        // Ya aparecí
-                    // Cargar datos
-
-onBeforeUpdate()   // Voy a actualizarme
-
-onUpdated()        // Ya me actualicé
-
-onBeforeUnmount()  // Me van a eliminar
-
-onUnmounted()      // Ya me eliminaron
-                    // Limpiar recursos
-```
-
-### Lo que más usarás
-
-```text id="f4k9r2"
-onMounted()
-↓
-Cargar información
-
-onUnmounted()
-↓
-Limpiar información
-
-Los otros hooks
-↓
-Casos más específicos
-```
-
-De hecho, en una SPA Vue típica:
-
-```text id="g8m3t5"
-Entrar a la página
-↓
-onMounted()
-
-Salir de la página
-↓
-onUnmounted()
-```
-
-y esos dos cubren la mayoría de los casos reales. 🚀
 
 
 
@@ -1591,9 +966,39 @@ y esos dos cubren la mayoría de los casos reales. 🚀
 
 
 
-## onBeforeMount()
 
-Preparar datos antes de mostrar el componente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Otros Casos
+
+> Vue ofrece hooks adicionales para situaciones más específicas, como optimización, depuración o limpieza de recursos antes de destruir un componente.
+
+
+<br>
+<br>
+
+**onBeforeMount()** 📖Preparar datos antes de mostrar el componente.
 
 ```vue
 <script setup>
@@ -1611,11 +1016,15 @@ onBeforeMount(() => {
 </template>
 ```
 
----
 
-## onMounted()
 
-Consumir una API cuando el componente ya está en pantalla.
+
+
+
+<br>
+<br>
+
+**onMounted()** 🌐Consumir una API cuando el componente ya está en pantalla.
 
 ```vue
 <script setup>
@@ -1639,11 +1048,18 @@ onMounted(async () => {
 </template>
 ```
 
----
 
-## onBeforeUpdate()
 
-Guardar el valor anterior antes de actualizar.
+
+
+
+
+
+
+<br>
+<br>
+
+**onBeforeUpdate()** 💾💾Guardar el valor anterior antes de actualizar.
 
 ```vue
 <script setup>
@@ -1668,11 +1084,17 @@ onBeforeUpdate(() => {
 </template>
 ```
 
----
 
-## onUpdated()
 
-Saber cuándo terminó el render.
+
+
+
+
+
+<br>
+<br>
+
+**onUpdated()** 👁️Saber cuándo terminó el render.
 
 ```vue
 <script setup>
@@ -1694,11 +1116,18 @@ onUpdated(() => {
 </template>
 ```
 
----
 
-## onBeforeUnmount()
 
-Guardar cambios antes de salir.
+
+
+
+
+
+
+<br>
+<br>
+
+**onBeforeUnmount()** 💾Guardar cambios antes de salir.
 
 ```vue
 <script setup>
@@ -1717,11 +1146,18 @@ onBeforeUnmount(() => {
 </template>
 ```
 
----
 
-## onUnmounted()
 
-Limpiar un intervalo al destruir el componente.
+
+
+
+
+
+
+<br>
+<br>
+
+**onUnmounted()** 🧹⌚Limpiar un intervalo al destruir el componente.
 
 ```vue
 <script setup>
@@ -1785,3 +1221,139 @@ onUnmounted(() => {
 
 
 
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## Aplicar Estilos
+
+> Vue permite aplicar estilos utilizando CSS tradicional y también técnicas dinámicas que reaccionan automáticamente al estado de la aplicación.
+
+
+<br>
+<br>
+
+### Style normal
+> Permite aplicar estilos CSS de forma tradicional, afectando a todos los elementos que coincidan con los selectores definidos.
+
+Afecta toda la aplicación.
+
+```vue
+<style>
+h1 {
+  color: red;
+}
+</style>
+```
+
+
+
+<br>
+<br>
+
+
+### Style Scoped
+
+> Los estilos Scoped limitan el alcance del CSS al componente actual, evitando conflictos con estilos de otros componentes.
+
+Afecta sólo al componente.
+
+```vue
+<style scoped>
+h1 {
+  color: red;
+}
+</style>
+```
+
+
+
+<br>
+<br>
+
+### Class Binding
+
+> Class Binding permite agregar o quitar clases CSS dinámicamente según variables, condiciones o estados de la aplicación.
+
+Permite agregar clases dinámicamente.
+
+```vue
+<div
+  :class="{ activo: estado }"
+>
+</div>
+```
+
+Si:`estado = true`
+Resultado:`<div class="activo"></div>`
+
+
+<br>
+<br>
+
+### Varias clases
+
+> Vue permite combinar múltiples clases dinámicamente, facilitando la creación de interfaces más flexibles y adaptables a distintos escenarios.
+
+
+```vue
+<div
+  :class="[
+    'card',
+    activo ? 'ok' : 'error'
+  ]"
+>
+</div>
+```
+
+### Style Binding
+
+> Style Binding permite aplicar estilos CSS directamente desde JavaScript de forma dinámica. Es útil cuando los valores de los estilos dependen de variables, datos o estados del componente.
+
+Permite agregar estilos dinámicos.
+
+```vue
+<div
+  :style="{
+    color: 'red'
+  }"
+>
+</div>
+```
+
+
+
+Ejemplo reactivo:
+
+```vue
+<script setup>
+import { ref } from 'vue';
+
+const color = ref('blue');
+</script>
+
+<template>
+
+  <div
+    :style="{
+      color: color
+    }"
+  >
+    Hola
+  </div>
+
+</template>
+```
+
+
+## ★

@@ -3,7 +3,17 @@
 
 ---
 
-## Inicio
+## Índice
+
+- [Instalación](#instalación)
+- [Extenciones](#extenciones)
+- [Estructura](#estructura)
+
+
+
+---
+
+## Instalación
 
 ```sh
 # opción A
@@ -14,7 +24,7 @@ npm create vue@latest
 
 cd mi-proyecto
 npm i
-nopm run dev
+npm run dev
 ```
 
 

@@ -4,7 +4,23 @@
 
 ## Indíce
 
-- []()
+  * [Qué es Pinia](#que-es-pinia)
+  * [Pinia vs Vuex](#pinia-vs-vuex)
+  * [Instalar Pinia](#instalar-pinia)
+  * [State, Actions y Getters](#state-actions-y-getters)
+    + [Ejemplo con los 3 conceptos](#ejemplo-con-los-3-conceptos)
+  * [Ejemplos Simples](#ejemplos-simples)
+    + [contador base](#contador-base)
+    + [varios Componentes](#varios-componentes)
+  * [Ejemplos Aplicados](#ejemplos-aplicados)
+    + [Usuario autenticado](#usuario-autenticado)
+    + [Tema Dark / Light](#tema-dark--light)
+    + [Carrito de compras](#carrito-de-compras)
+    + [Favoritos](#favoritos)
+    + [Configuraciones globales](#configuraciones-globales)
+    + [Manejo de Formularios](#manejo-de-formularios)
+    + [Utilizando Pinia y Axios](#utilizando-pinia-y-axios)
+  * [Rutas Protegidas](#rutas-protegidas)
 
 
 
@@ -12,7 +28,7 @@
 
 ## Qué es Pinia
 
-Pinia es la librería oficial y moderna para manejar estado global en aplicaciones Vue.
+> Pinia es la librería oficial de gestión de estado para Vue. Permite compartir y administrar datos entre distintos componentes de forma centralizada y organizada.
 
 Sirve para guardar datos compartidos entre varios componentes, como:
 
@@ -32,12 +48,20 @@ Sirve para guardar datos compartidos entre varios componentes, como:
 
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 ---
 
 ## Pinia vs Vuex
+
+> Aunque Vuex fue durante años la solución oficial para manejar estado global, Pinia ofrece una sintaxis más simple, moderna y compatible con Vue 3.
+
 
 | Vuex | Pinia | ¿Para qué sirve? |
 |-------|-------|------------------|
@@ -84,11 +108,18 @@ Vista                  Mutation
 
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
 ## Instalar Pinia
+
+> Antes de utilizar Pinia es necesario instalarla y registrarla dentro de la aplicación para que los stores puedan utilizarse desde cualquier componente.
 
 ```bash
 npm install pinia
@@ -193,6 +224,12 @@ src/
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -200,12 +237,16 @@ src/
 
 ## State, Actions y Getters
 
+> Pinia organiza la información mediante tres conceptos fundamentales: State para almacenar datos, Actions para modificar esos datos y Getters para obtener información derivada.
+
+
 En Pinia tenemos tres conceptos básicos:
 
 - **State**: almacena la información de la aplicación.
 - **Getters**: obtienen o calculan información a partir del state.
 - **Actions**: ejecutan lógica y modifican el state.
 
+<br>
 
 **State** Son los datos.
 
@@ -323,11 +364,18 @@ function addProduct() {}      // Action
 
 
 
-
+<br>
+<br>
 
 ### Ejemplo con los 3 conceptos
 
-#### `stores/counterStore.js`
+> En este ejemplo veremos cómo definir un estado, modificarlo mediante acciones y obtener valores calculados utilizando getters.
+
+
+<br>
+<br>
+
+stores/counterStore.js
 
 ```js
 import { defineStore } from 'pinia'
@@ -365,7 +413,11 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-#### `components/CounterDisplay.vue` Este componente solo muestra datos.
+<br>
+<br>
+
+Este componente solo muestra datos.
+components/CounterDisplay.vue
 
 ```vue
 <script setup>
@@ -383,7 +435,10 @@ const counterStore = useCounterStore()
 ```
 
 
-#### `components/CounterActions.vue` Este componente solo ejecuta acciones.
+<br>
+<br>
+Este componente solo ejecuta acciones.
+components/CounterActions.vue
 
 ```vue
 <script setup>
@@ -410,8 +465,10 @@ const counterStore = useCounterStore()
 ```
 
 
+<br>
 
-#### `App.vue` App solo arma la pantalla.
+App.vue
+App solo arma la pantalla.
 
 ```vue
 <script setup>
@@ -504,18 +561,27 @@ App.vue         → junta los componentes
 
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
 ## Ejemplos Simples
 
+> Comenzaremos con ejemplos básicos para comprender cómo funciona Pinia antes de aplicarlo en escenarios más cercanos a proyectos reales.
 
 
+<br>
+<br>
 
 
-### contador base
+### Contador Base
 
+> Un contador es uno de los ejemplos más simples para entender cómo almacenar y actualizar datos dentro de un store de Pinia.
 
 
 carpeta stores
@@ -577,10 +643,14 @@ const counterStore = useCounterStore()
 
 
 
+<br>
+<br>
 
 
+### Varios Componentes
 
-### varios Componentes
+> Uno de los principales beneficios de Pinia es compartir información entre múltiples componentes sin necesidad de pasar datos manualmente mediante props.
+
 
 src/components/CounterDisplay.vue
 
@@ -702,10 +772,19 @@ import CounterButton from './components/CounterButton.vue'
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-  
+---
+
 ## Ejemplos Aplicados
+
+> A continuación veremos casos prácticos donde Pinia ayuda a centralizar información utilizada por distintas partes de una aplicación.
 
 
 - Usuario autenticado
@@ -743,10 +822,20 @@ import CounterButton from './components/CounterButton.vue'
 
 
 
+<br>
+<br>
 
 
 ### Usuario autenticado
 
+> Permite almacenar información del usuario que ha iniciado sesión y compartirla entre distintas vistas y componentes de la aplicación.
+
+
+Credenciales para probar  
+- Email: admin@test.com
+- Contraseña: 123456
+
+<br>
 
 src/store/authStore.js
 
@@ -949,10 +1038,6 @@ const authStore =
 ```
 
 
-**Credenciales para probar**
-
-Email: admin@test.com
-Contraseña: 123456
 
 
 
@@ -977,10 +1062,18 @@ Contraseña: 123456
 
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 ### Tema Dark / Light
 
+> Un store puede gestionar la apariencia visual de la aplicación, permitiendo cambiar entre modo claro y oscuro desde cualquier componente.
+
+
+<br>
 
 src/stores/themeStore.js
 
@@ -1154,11 +1247,18 @@ const themeStore =
 
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 
 
 ### Carrito de compras
+
+> Pinia facilita la gestión de productos agregados al carrito, cantidades, totales y otras operaciones comunes en aplicaciones de comercio electrónico.
+
 
 src/stores/cartStore.js
 
@@ -1332,11 +1432,18 @@ const cartStore = useCartStore()
 
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 
 
 ### Favoritos
+
+> Permite almacenar elementos marcados como favoritos y acceder a ellos desde distintas secciones de la aplicación.
+
 
 stores/favoriteStore.js
 
@@ -1504,10 +1611,15 @@ const favoriteStore =
 
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 ### Configuraciones globales
 
+> Las configuraciones compartidas, como idioma, preferencias o ajustes de usuario, pueden administrarse de forma centralizada mediante un store.
 
 src/stores/settingsStore.js
 
@@ -1776,11 +1888,16 @@ from '@/components/SettingsDisplay.vue'
 
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 ### Manejo de Formularios
 
 
+> Pinia puede utilizarse para almacenar y sincronizar información de formularios complejos entre distintas vistas o componentes.
 
 src/stores/formStore.js
 
@@ -2044,9 +2161,16 @@ from '@/components/FormPreview.vue'
 
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 ### Utilizando Pinia y Axios
+
+> Es común combinar Pinia con Axios para obtener datos desde APIs y almacenarlos en un estado global accesible desde toda la aplicación.
+
 
 - Instalar Axios `npm install axios`
 
@@ -2319,193 +2443,43 @@ from '@/components/UserList.vue'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 ---
-## 3. Pinia (Guardar datos Globales)
 
-```sh
-npm install pinia
-```
+## Rutas Protegidas
 
-
-
-### 3.1 Pinia: guardar theme
-
-main.js
-```js
-
-import { createPinia } from 'pinia'
-const app = createApp(App)
-app.use(createPinia())
-app.mount('#app')
-
-```
-
-
-
-
-src/stores/themeStore.js
-```js
-import { defineStore } from "pinia";
-import { ref } from "vue";
-
-export const useThemeStore = defineStore("theme", () => {
-  const darkMode = ref(false);
-
-  const toggleTheme = () => {
-    darkMode.value = !darkMode.value;
-  };
-
-  return {
-    darkMode,
-    toggleTheme,
-  };
-});
-
-```
-
-
-App.js
-```js
-<script setup>
-import { useThemeStore } from "./stores/themeStore";
-const themeStore = useThemeStore();
-</script>
-
-
-<template>
-<div :class="{ dark: themeStore.darkMode }">
-
-      <button @click="themeStore.toggleTheme">
-        Cambiar tema
-      </button>
-</template>
-```
-
-
-
-
-
-
-### 3.2 Pinia: guardar datos (Fetch)
-
-src/stores/filmStore.js
-
-```js
-import { defineStore } from "pinia";
-import { ref } from "vue";
-
-export const useFilmStore = defineStore("films", () => {
-  const films = ref([]);
-  const loading = ref(false);
-
-  const getFilms = async () => {
-    loading.value = true;
-
-    try {
-      const response = await fetch(
-        "https://ghibliapi.vercel.app/films"
-      );
-
-      const data = await response.json();
-
-      films.value = data;
-    } catch (error) {
-      console.log(error);
-    } finally {
-      loading.value = false;
-    }
-  };
-
-  return {
-    films,
-    loading,
-    getFilms,
-  };
-});
-
-```
-
-
-
-
-HomeView.vue
-
-```vue
-<script setup>
-import { onMounted } from "vue";
-import { useFilmStore } from "@/stores/filmStore";
-
-const filmStore = useFilmStore();
-
-onMounted(() => {
-  filmStore.getFilms();
-});
-</script>
-
-<template>
-  <div>
-    <h1>Studio Ghibli Films</h1>
-
-    <p v-if="filmStore.loading">
-      Cargando películas...
-    </p>
-
-    <div
-      v-for="film in filmStore.films"
-      :key="film.id"
-      class="card"
-    >
-      <h2>{{ film.title }}</h2>
-
-      <p>{{ film.description }}</p>
-
-      <p>
-        Director:
-        {{ film.director }}
-      </p>
-
-
-    </div>
-  </div>
-</template>
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Rutas Protegidas
-
+> Las rutas protegidas permiten restringir el acceso a determinadas páginas según condiciones específicas, como la autenticación de un usuario almacenada en Pinia.
 
 
 
@@ -2771,51 +2745,4 @@ const authStore = useAuthStore()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## ★
