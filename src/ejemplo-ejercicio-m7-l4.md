@@ -1,6 +1,15 @@
 # Ejemplo M7 L4
 
 
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Estructura
@@ -9,9 +18,12 @@
 src/
 ├── components/
 │   ├── LoginForm.vue
-│   └── LoginForm.spec.js
+│   ├── LoginForm.spec.js
+│   └── BaseInput.vue
+│
+└── utils/
+    └── validarEmail.js
 ```
-
 ---
 
 ## LoginForm.vue

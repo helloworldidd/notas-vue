@@ -79,7 +79,9 @@
 
 ## Lecciones Módulo 8
 
-1. [m8-l1-despliegue.md](./src/m8-l1-despliegue.md)
+1. [m8-l1-portafolio.md](./src/m8-l1-portafolio.md)
+1. [m8-l2-producto.md](./src/m8-l2-producto.md)
+1. [m8-l3-despliegue.md](./src/m8-l3-despliegue.md)
 
 ---
 

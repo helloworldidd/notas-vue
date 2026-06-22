@@ -3,7 +3,11 @@
 
 ---
 
-## 1. Crear proyecto Vue e Instalar Axios
+
+<br>
+<br>
+
+**Crear proyecto Vue e Instalar Axios**
 
 
 ```bash
@@ -12,11 +16,11 @@ npm create vue@latest api-practica
 npm install axios
 ```
 
----
 
-## 2. Estructura básica
+<br>
+<br>
 
-Crear el componente:
+**Estructura básica**
 
 ```txt
 src/
@@ -26,9 +30,17 @@ src/
 └── main.js
 ```
 
----
 
-## 3. Consumir la API **ReqRes.in**
+
+
+
+
+
+
+<br>
+<br>
+
+**Consumir la API ReqRes.in**
 
 1. Antes se podia usar **reqres-free-v1** como apikey
 
@@ -38,7 +50,25 @@ src/
 
 4. **AUTH BAR** es la apikey
 
-5. src/components/ApiExample.vue
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+src/components/ApiExample.vue
 
 ```vue
 <script setup>
@@ -119,12 +149,25 @@ onMounted(() => {
 
 
 
----
 
-## 4. Ejemplo alternativo: Consumir la API **JSONPlaceholder**
+<br>
+<br>
+<br>
+<br>
+<br>
+
+**Ejemplo alternativo: Consumir la API**
+
+**con JSONPlaceholder**
+
+**Esta API NO REQUIERE API Key.**
+
+<br>
+<br>
 
 
-Esta API no requiere API Key.
+
+src/components/ApiExample.vue
 
 ```vue
 <script setup>
@@ -202,10 +245,12 @@ onMounted(() => {
 
 
 
+<br>
+<br>
+<br>
+<br>
 
----
-
-## 5. Conectar el componente en App.vue
+**Conectar el componente en App.vue**
 
 ```vue
 <script setup>
@@ -231,27 +276,37 @@ import ApiExample from './components/ApiExample.vue'
 
 
 
----
-
-## 6. Documento
-
-### Captura de pantalla
-
-Incluir:
-
-* Datos renderizados correctamente.
-* Consola mostrando logs de éxito o errores.
-* Evidencia de funcionamiento de la API.
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-### Archivo Word
+**Explicación**
 
-Responder brevemente:
+
+<br>
+<br>
+
+**Captura de pantalla**
+  - Incluir:
+    * Datos renderizados correctamente.
+    * Consola mostrando logs de éxito o errores.
+    * Evidencia de funcionamiento de la API.
+
+
+<br>
+<br>
+<br>
 
 **¿Cómo se realizó la petición a la API con Axios?**
 
 Se utilizó el método `axios.get()` para realizar una solicitud HTTP GET hacia la API y obtener la información de los usuarios.
 
+
+<br>
+<br>
 
 **¿Cómo se usó la clave API (x-api-key) en la solicitud?**
 
@@ -263,11 +318,18 @@ headers: {
 }
 ```
 
+
+<br>
+<br>
+
 **¿Qué ocurre si no se incluye la clave API?**
 
 La API puede rechazar la solicitud y devolver un error de autorización o acceso denegado.
 
 
+
+<br>
+<br>
 
 **¿Cómo se manejaron errores con try...catch?**
 

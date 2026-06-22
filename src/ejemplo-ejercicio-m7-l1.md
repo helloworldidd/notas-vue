@@ -5,7 +5,11 @@
 
 ---
 
-## 1. Estructura
+
+<br>
+<br>
+
+Estructura
 
 ```txt
 src/
@@ -24,9 +28,15 @@ src/
 
 
 
----
 
-## 2. App.vue
+
+
+
+
+<br>
+<br>
+
+src/App.vue
 
 ```vue
 <script setup>
@@ -55,9 +65,11 @@ const mostrarPadre = ref(true)
 
 
 
----
 
-## 3. Padre.vue
+<br>
+<br>
+
+src/components/Padre.vue
 
 ```vue
 <script setup>
@@ -110,9 +122,14 @@ onBeforeUnmount(() => {
 
 
 
----
 
-## 4. Hijo.vue
+
+
+
+<br>
+<br>
+
+src/components/Hijo.vue
 
 ```vue
 <script setup>
@@ -154,12 +171,20 @@ const enviarRespuesta = () => {
 
 
 
+<br>
+<br>
 
----
+Explicación
 
-# 6. Explicación
 
-### ¿Cómo se pasan datos con props?
+
+
+<br>
+<br>
+<br>
+<br>
+
+**¿Cómo se pasan datos con props?**
 
 Las props permiten que
 un componente padre envíe
@@ -173,8 +198,12 @@ El componente hijo recibe ese dato mediante `defineProps()`.
 ```
 
 
+<br>
+<br>
+<br>
+<br>
 
-### ¿Cómo se emiten eventos con emit?
+**¿Cómo se emiten eventos con emit?**
 
 Los eventos permiten que
 un componente hijo envíe información al padre.
@@ -195,7 +224,26 @@ En el padre:
 
 
 
-### Hooks utilizados
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+**Hooks utilizados**
 
 
 

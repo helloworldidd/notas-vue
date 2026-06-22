@@ -4,9 +4,12 @@
 
 ---
 
-## 1. Instalacion
+<br>
+<br>
 
-```
+**Instalacion**
+
+```sh
 npm create vue@latest
 
 cd nombre-proyecto
@@ -25,13 +28,10 @@ npm install -D json-server
 
 
 
+<br>
+<br>
 
-
-
-
----
-
-## 2. Estructura
+**Estructura**
 
 ```txt
 src/
@@ -60,10 +60,12 @@ src/
 
 
 
+<br>
+<br>
+<br>
+<br>
 
----
-
-## 3. Crear API falsa
+**Crear API falsa**
 
 En la raíz del proyecto crea **db.json**
 
@@ -94,11 +96,15 @@ En la raíz del proyecto crea **db.json**
 }
 ```
 
+<br>
+
 Ejecutar API:
 
 ```bash
 npx json-server db.json
 ```
+
+<br>
 
 La API queda en:
 
@@ -119,11 +125,19 @@ http://localhost:3000/frameworks
 
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
-## 4. Instancia única de Axios
+**Instancia única de Axios**
+
+<br>
+<br>
 
 src/api/api.js
 
@@ -155,11 +169,12 @@ export default api
 
 
 
----
+<br>
+<br>
 
-## 5. Store de autenticación
+Store de autenticación
 
-src/stores/authStore.js`
+src/stores/authStore.js
 
 ```js
 import { defineStore } from "pinia";
@@ -264,10 +279,14 @@ Contraseña: 123456
 
 
 
----
+<br>
+<br>
+<br>
 
+<br>
+<br>
 
-## 6. Store de frameworks
+Store de frameworks
 
 src/stores/frameworksStore.js
 
@@ -329,9 +348,10 @@ export const useFrameworksStore = defineStore("frameworks", () => {
 
 
 
----
-
-## 7. main.js
+<br>
+<br>
+<br>
+<br>
 
 src/main.js
 
@@ -387,9 +407,14 @@ app.mount('#app')
 
 
 
----
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### 8. Router con ruta protegida
+Router con ruta protegida
 
 src/router/index.js
 
@@ -462,9 +487,11 @@ export default router;
 
 
 
----
 
-## 9. Vista Login
+<br>
+<br>
+<br>
+<br>
 
 src/views/LoginView.vue
 
@@ -542,9 +569,10 @@ const iniciarSesion = async () => {
 
 
 
----
-
-## 10. Vista Dashboard
+<br>
+<br>
+<br>
+<br>
 
 src/views/DashboardView.vue
 
@@ -618,9 +646,10 @@ const cerrarSesion = () => {
 
 
 
----
-
-## 11. App.vue
+<br>
+<br>
+<br>
+<br>
 
 src/App.vue
 
@@ -662,10 +691,12 @@ src/App.vue
 
 
 
+<br>
+<br>
+<br>
+<br>
 
----
-
-## 12. Probar
+**Probar**
 
 1. Levantar Vue: `npm run dev`
 2. En otra terminal levantar API: `npx json-server db.json`
@@ -711,12 +742,15 @@ Debe redirigir a:
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-
----
-
-## Ficha explicativa breve
+**explicación**
 
 
 La lógica asincrónica se trabaja en las actions porque allí se concentran los procesos como login, llamadas a APIs o validaciones. De esta forma, las vistas no se llenan de lógica y solo llaman funciones del store.
@@ -726,3 +760,6 @@ El estado centralizado en Pinia permite compartir información entre componentes
 El guard de navegación de Vue Router revisa antes de entrar a una ruta si esta necesita autenticación. Si la ruta tiene meta.requiresAuth y el usuario no está autenticado, lo redirige al login.
 
 Las vistas no deberían conectarse directamente a Axios porque eso duplica lógica y hace más difícil mantener el proyecto. Lo correcto es que Axios viva en una instancia única y que las peticiones se manejen desde las actions del store.
+
+
+
