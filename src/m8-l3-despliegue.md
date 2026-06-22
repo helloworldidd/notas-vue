@@ -1,317 +1,462 @@
-# Despliegue 
-_Implementación de portafolio_
-
-
-[INDICE]
+## Despliegue
 
 
 
 
-## 1. GitHub como portafolio técnico
 
-Hoy en desarrollo web **GitHub funciona como una vitrina profesional**.
+---
 
-Es el lugar donde otras personas pueden ver:
+## Índice
 
-```text
-tu código
-tus proyectos
-cómo trabajas
-cómo documentas
+
+- [Deployment](#deployment)
+- [Plataformas](#plataformas)
+- [Tips GitHub](#tips-gitHub)
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## Deployment
+
+> El despliegue es el proceso de publicar una aplicación o sitio web para que pueda ser accesible por otras personas a través de internet.
+
+<br>
+<br>
+
+### El proceso
+
+> Durante el desarrollo, una aplicación funciona de manera local en el computador del desarrollador.
+
+Por ejemplo:
+
+```txt
+http://localhost:5173
 ```
 
-GitHub permite **alojar código y colaborar usando Git**. 
+Sin embargo, otras personas no pueden acceder a esa dirección.
 
-
-
-
-
-
-## 2. Buenas prácticas en GitHub
-
-Para que GitHub funcione como portafolio profesional se recomienda:
-
-#### Nombres claros de repositorios
-
-```
-proyecto-clima
-todo-app-vue
-portafolio-personal
-```
-
-Evitar nombres como:
-```
-prueba
-test123
-nuevo-proyecto
-```
-
-
-
-#### README claro
-
-Cada repositorio debería tener un archivo:
-
-```text
-README.md
-```
-
-Debe incluir:
-
-```text
-nombre del proyecto
-descripción
-tecnologías utilizadas
-cómo ejecutar el proyecto
-capturas o demo
-```
-
-Esto ayuda a que cualquier persona **entienda el proyecto rápidamente**.
-
-
-
-#### Usar topics o etiquetas
-
-Las etiquetas permiten que tu proyecto sea **más fácil de encontrar**.
+Para que el proyecto esté disponible públicamente, debe ser desplegado en un servidor o plataforma de hosting.
 
 Ejemplo:
 
-```text
-vue
-javascript
-frontend
-api
-portfolio
+```txt
+Computador del desarrollador
+        ↓
+      Build
+        ↓
+Servidor / Hosting
+        ↓
+Internet
+        ↓
+Usuarios
 ```
 
 
 
-#### Código limpio y estructura ordenada
 
-El repositorio debe mostrar:
 
-```text
-estructura clara
-código organizado
-nombres comprensibles
+<br>
+
+<br>
+<br>
+<br>
+
+### Tipos
+
+Existen distintas formas de desplegar una aplicación dependiendo de la tecnología utilizada.
+
+
+<br>
+
+#### Sitios estáticos
+
+Son aplicaciones compuestas principalmente por:
+
+* HTML
+* CSS
+* JavaScript
+
+No requieren un servidor propio para ejecutarse.
+
+Ejemplos:
+
+* Landing pages
+* Portafolios
+* Sitios corporativos
+* Aplicaciones Vue o React compiladas
+
+Plataformas comunes:
+
+* GitHub Pages
+* Netlify
+* Vercel
+* Cloudflare Pages
+
+
+
+
+<br>
+<br>
+
+#### Aplicaciones Frontend
+
+Corresponden a proyectos desarrollados con frameworks modernos como:
+
+* Vue
+* React
+* Angular
+* Svelte
+
+Generalmente se compilan para generar archivos estáticos antes de ser publicados.
+
+Plataformas comunes:
+
+* Vercel
+* Netlify
+* Cloudflare Pages
+
+
+<br>
+<br>
+
+#### Aplicaciones Backend
+
+Son aplicaciones que ejecutan lógica de negocio en un servidor.
+
+Ejemplos:
+
+* APIs REST
+* Autenticación
+* Gestión de usuarios
+* Procesamiento de datos
+
+Tecnologías comunes:
+
+* Node.js
+* Express
+* PHP
+* Laravel
+* Django
+* Spring Boot
+* .NET
+
+Plataformas comunes:
+
+* Railway
+* Render
+* Fly.io
+* Heroku
+
+
+
+
+
+
+<br>
+<br>
+
+#### Aplicaciones Full Stack
+
+Combinan frontend, backend y base de datos.
+
+Ejemplo:
+
+```txt
+Vue
+  ↓
+API Express
+  ↓
+PostgreSQL
 ```
 
-Esto refleja **buenas prácticas de desarrollo**. 
+Plataformas comunes:
 
-## 3. Perfil de GitHub atractivo
+* Railway
+* Render
+* Firebase
+* Supabase
+* Vercel + Supabase
 
-GitHub permite personalizar el perfil.
 
-Una buena práctica es crear un repositorio especial llamado:
 
-```text
-README
+<br>
+<br>
+
+#### CMS
+
+> Content Management System
+> Permiten crear y administrar sitios web sin desarrollar toda la aplicación desde cero.
+
+Ejemplos:
+
+* WordPress
+* Webflow
+* Wix
+
+Normalmente se despliegan en:
+
+* Hosting compartido
+* VPS
+* WordPress Hosting
+* Cloud Hosting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<br><br>
+<br><br>
+<br><br>
+
+### Servicios
+
+Durante un despliegue moderno pueden participar varios servicios:
+
+```txt
+Repositorio
+└─ GitHub
+
+Frontend
+└─ Vercel
+
+Backend
+└─ Railway
+
+Base de Datos
+└─ PostgreSQL
+
+Dominio
+└─ midominio.com
 ```
 
-Este repositorio se usa para **mostrar información en tu perfil**.
+ -->
 
-Puede incluir:
 
-```text
-quién eres
-qué tecnologías usas
-proyectos destacados
-links importantes
-```
 
-También puedes **fijar proyectos importantes** usando:
 
-```text
-Pinned projects
-```
 
-Esto ayuda a mostrar **tus mejores trabajos primero**. 
 
 
 
 
 
 
-## 4. Hosting y despliegue de proyectos
 
-El **hosting** permite publicar un sitio web o aplicación en internet.
 
-Es decir, tu proyecto deja de estar solo en tu computador y pasa a estar **disponible online**.
 
 
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-## 5. Servicios gratuitos de hosting
+---
 
-#### Para proyectos Front-End
+## Plataformas
 
-```text
-Netlify
-Vercel
-GitHub Pages
-```
 
-Permiten desplegar sitios HTML, CSS, JS o frameworks como Vue o React.
 
+<br>
+<br>
 
 
-#### Para proyectos Full-Stack
+### Tabla de plataformas
 
-Algunas plataformas que permiten backend:
+| Plataforma | Tipo | Ideal para | Tecnologías comunes | Base de datos incluida | Plan gratuito | Dificultad |
+|------------|--------|------------|---------------------|----------------------|----------------|------------|
+| GitHub Pages | Frontend | Portafolios y sitios estáticos | HTML, CSS, JS, Vite | ❌ | ✅ | ⭐ |
+| Netlify | Frontend | Sitios web y SPA | Vue, React, Angular, Vite | ❌ | ✅ | ⭐ |
+| Vercel | Frontend / Full Stack | Aplicaciones modernas | Vue, React, Next.js, Nuxt | ❌ | ✅ | ⭐ |
+| Cloudflare Pages | Frontend | Sitios estáticos y SPA | Vue, React, Astro, Vite | ❌ | ✅ | ⭐ |
+| Firebase Hosting | Frontend | Aplicaciones conectadas a Firebase | Vue, React, Angular | Firestore | ✅ | ⭐⭐ |
+| Railway | Backend / Full Stack | APIs y aplicaciones completas | Node.js, Express, NestJS | PostgreSQL, MySQL | ✅ | ⭐⭐ |
+| Render | Backend / Full Stack | APIs y servicios web | Node.js, Python, PHP | PostgreSQL | ✅ | ⭐⭐ |
+| Fly.io | Backend | Aplicaciones distribuidas | Node.js, Go, Python | ❌ | ✅ | ⭐⭐⭐ |
+| Heroku | Backend | APIs y aplicaciones web | Node.js, Java, Python | Complementos | ⚠️ Limitado | ⭐⭐ |
+| Supabase | Backend as a Service | Aplicaciones con autenticación y datos | Vue, React, Angular | PostgreSQL | ✅ | ⭐⭐ |
+| WordPress Hosting | CMS | Blogs y sitios corporativos | WordPress | MySQL | Depende | ⭐ |
+| Wix | CMS | Sitios sin programación | Constructor visual | Interna | ✅ | ⭐ |
+| Webflow | CMS | Sitios visuales profesionales | Constructor visual | Interna | ⚠️ Limitado | ⭐⭐ |
 
-```text
-Render
-Railway
-Cyclic
-Fly.io
-```
+<br>
+<br>
 
+### Comparación rápida
 
+| Necesidad                       | Plataforma recomendada |
+| ------------------------------- | ---------------------- |
+| Portafolio HTML/CSS/JS          | GitHub Pages           |
+| Proyecto Vue 3                  | Vercel o Netlify       |
+| Proyecto React                  | Vercel                 |
+| Proyecto Nuxt                   | Vercel                 |
+| API Node.js                     | Railway o Render       |
+| Base de datos PostgreSQL        | Supabase o Railway     |
+| Firebase completo               | Firebase Hosting       |
+| Sitio WordPress                 | Hosting WordPress      |
+| Sitio sin programar             | Wix o Webflow          |
+| Proyecto Full Stack             | Vercel + Supabase      |
+| Proyecto Full Stack con Express | Railway + PostgreSQL   |
 
-#### Servicios de base de datos
 
-```text
-Supabase
-Firebase
-MongoDB Atlas
-```
 
-Estos servicios permiten manejar **bases de datos en la nube**. 
+<br>
+<br>
 
+### Ejemplos reales
 
+<br>
 
+**Portafolio Frontend**
+**Flujo**: GitHub ➡️ Vercel ➡️ Internet
+**Tecnologías**: HTML, CSS, JavaScript, Vue 3
 
+<br>
 
-## 6. Ejemplos de despliegue
+**Aplicación Full Stack**
+- **flujo**: Vue➡️Express➡️PostgreSQL
+- **Despliegue**:
+    - Frontend ➡️ Vercel
+    - Backend ➡️ Railway
+    - Base de Datos ➡️ PostgreSQL
 
-Dependiendo del tipo de proyecto, se pueden usar distintos formatos.
 
-#### UX/UI
+<br>
 
-```text
-Behance
-Notion
-PDF interactivo
-```
+**Aplicación con Firebase**
+- **flujo** Vue➡️Firebase Auth➡️Firestore
+- **Despliegue**:
+    - Frontend ➡️ Firebase Hosting
+    - Backend ➡️ Firebase Functions
+    - Base de Datos ➡️ Firestore
 
 
+<br>
+<br>
 
-#### Front-End
+### Proceso mas facil
 
-```text
-subir carpeta build
-deploy en Netlify o Vercel
-```
+- **Repositorio** → GitHub
+- **Frontend** → Vercel
+- **Backend** → Firebase o Supabase
+- **Base de Datos** → Firestore o PostgreSQL
 
 
 
-#### Full-Stack Python
 
-```text
-FastAPI + PostgreSQL
-deploy en Render
-```
 
 
 
-#### Full-Stack Java
 
-```text
-deploy en Railway o Heroku
-```
 
 
 
-#### Full-Stack Node.js
 
-```text
-Cyclic + MongoDB Atlas
-```
 
 
 
-#### Android
 
-```text
-subir APK
-GitHub
-Google Drive
-```
 
-Esto permite **mostrar aplicaciones funcionando sin necesidad de instalar nada**. 
 
-## 7. YouTube como vitrina profesional
 
-Otra forma de mostrar proyectos es mediante **videos técnicos**.
 
-YouTube permite:
 
-```text
-mostrar el proyecto funcionando
-explicar decisiones técnicas
-demostrar habilidades de comunicación
-```
 
-Esto puede marcar una diferencia en postulaciones técnicas.
 
 
 
 
 
 
-## 8. Cómo crear un video técnico
 
-Se pueden usar herramientas como:
 
-```text
-OBS Studio
-Clipchamp
-Loom
-```
 
-El video debería incluir:
 
-```text
-nombre del proyecto
-objetivo
-tecnologías utilizadas
-flujo de uso del sistema
-```
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-## 9. Buenas prácticas para videos
+---
 
-```text
-duración: 2 a 5 minutos
-hablar claro y natural
-mostrar el proyecto funcionando
-agregar subtítulos si es posible
-```
+## Tips GitHub
 
-El video puede agregarse en:
+<br>
 
-```text
-portafolio
-README
-CV
-LinkedIn
-```
+- [ ] Nombres claros de repositorios
 
-## Idea clave del módulo
+    por ejemplo:
+    - proyecto-clima
+    - todo-app-vue
+    - portafolio-personal
 
-Un buen portafolio **no solo muestra código**.
+    Evitar nombres como:
+    - prueba
+    - test123
+    - nuevo-proyecto
+    
+<br>
 
-También debe mostrar:
+- [ ] README claro
 
-```text
-proyectos funcionando
-documentación clara
-deploy online
-capacidad de explicar el proyecto
-```
+    incluir:
+    - nombre del proyecto
+    - descripción
+    - tecnologías utilizadas
+    - cómo ejecutar el proyecto
+    - capturas o demo
 
-Esto demuestra **competencias técnicas y comunicación profesional**. 
+<br>
 
+- [ ] Usar topics o etiquetas
+    Las etiquetas permiten que
+    sea más fácil:
+    - vue
+    - javascript
+    - frontend
+    - api
+    - portfolio
 
+<br>
+
+- [ ] Código limpio y estructura ordenada
+
+    mostrar:
+    - estructura clara
+    - código organizado
+    - nombres comprensibles
 

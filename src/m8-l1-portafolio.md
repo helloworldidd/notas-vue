@@ -1,96 +1,67 @@
+
 # Portafolio
 
 
-
-## 1. Portafolio
-
-### 1.1. Qué es
-
-Un **portafolio** es una colección organizada de trabajos que demuestra:
-
-```text
-habilidades
-conocimientos
-experiencia
-proyectos desarrollados
-```
-
-En el mundo tecnológico el portafolio funciona como **evidencia real de lo que sabes hacer**.
-
-### 2.1. Porqué es importante
-
-Un portafolio permite:
-
-- mostrar proyectos reales
-- demostrar habilidades técnicas
-- diferenciarse de otros candidatos
-- reforzar credibilidad profesional
+- [Que es](#que-es)
+- [Buenas prácticas](#buenas-prácticas)
+- [Tecnologías](tecnologías)
+- [Estructura](estructura)
 
 
-En el mundo TI **la práctica es tan importante como la teoría**, por lo que mostrar proyectos es fundamental. 
 
-### 1.3. Buenas prácticas para crear un portafolio
-
-Al crear un portafolio es recomendable seguir algunas buenas prácticas.
-
-- Calidad sobre cantidad: 2 a 4 proyectos bien presentados
-```
-
-### Cada proyecto debe incluir
-
-```text
-nombre del proyecto
-descripción breve
-tecnologías utilizadas
-capturas de pantalla o demo
-enlace al código o repositorio
-```
-
-### 1.4 Diseño del portafolio
-
-```text
-claro
-accesible
-responsive
-fácil de navegar
-```
-
-También es recomendable mostrar **diversidad de proyectos** según el perfil.
-
-Ejemplo:
-
-```text
-frontend
-backend
-API
-integración de servicios
-```
-
-Mantener el portafolio **actualizado** es clave para procesos de selección. 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
-# 4. ¿Qué es una buena práctica?
+## Que es
 
-Una **buena práctica** es un conjunto de métodos o técnicas que permiten realizar una actividad de forma eficiente.
+**Que es un portafolio**
+- Es una recopilación organizada de
+    - proyectos
+    - aplicaciones
+    - diseños
+    - desarrollos
+    - soluciones realizadas
 
-En desarrollo de software colaborativo sirven para:
-
-```text
-mantener consistencia entre equipos
-mejorar la calidad del código
-facilitar mantenimiento
-```
-
-Las buenas prácticas permiten que los proyectos sean **más sostenibles en el tiempo**. 
-
----
-
-# 5. Herramientas para publicar tu portafolio
-
-Existen varias herramientas para compartir proyectos.
+    
+**Objetivo**
+- Demostrar
+    - conocimientos
+    - habilidades técnicas
+    - experiencia
+    - ejemplos concretos
 
 
+**Importancia**
+- Permite evidenciar las capacidades técnicas más allá de un currículum.
+
+    - mostrar proyectos
+    - tecnologías dominadas
+    - experiencia práctica
+    - capacidad para resolver problemas.
+    - trabajo con clientes
+    
+    
+
+<br>
+
+**Clave**
+
+>Un buen portafolio
+>no solo muestra código
+>
+>También debe mostrar:
+>
+> - proyectos funcionando
+> - documentación clara
+> - deploy online
+> - capacidad de explicar el proyecto
+> - todo breve(textos, esquemas, videos, etc)
 
 
 
@@ -102,147 +73,451 @@ Existen varias herramientas para compartir proyectos.
 
 
 
-## 2. Repositorios
 
-```text
-GitHub
-GitLab
-Bitbucket
-```
 
-Permiten:
 
-```text
-guardar código
-versionar proyectos
-colaborar con otros desarrolladores
-mostrar tu trabajo
-```
 
----
 
-## Hosting de proyectos
 
-Para publicar tu sitio o aplicaciones:
 
-```text
-GitHub Pages
-Netlify
-Vercel
-Heroku
-DigitalOcean
-```
 
-Estas plataformas permiten **poner tu proyecto online** para que otras personas puedan verlo. 
 
----
 
-# 6. ¿Qué es un repositorio?
 
-Un **repositorio** es un espacio donde se almacenan y organizan proyectos digitales.
 
-Puede contener:
 
-```text
-código
-documentación
-datasets
-software
-```
 
-En desarrollo web se utilizan principalmente repositorios basados en **Git**.
 
-Ejemplos:
 
-```text
-GitHub
-GitLab
-Bitbucket
-```
 
-Muchos desarrolladores usan estos repositorios como **carta de presentación profesional**. 
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
-# 7. GitHub
+## Buenas prácticas
 
-**GitHub** es una plataforma de desarrollo colaborativo basada en Git.
+1. **Seleccionar proyectos relevantes**
+    Incluir 2 a 4 trabajos que representen las habilidades y conocimientos más importantes para el perfil profesional que se desea proyectar.
 
-Permite:
+1. **Mantener el contenido actualizado**
+    Agregar nuevos proyectos y eliminar aquellos que ya no representen el nivel actual de experiencia o conocimientos.
 
-```text
-control de versiones
-trabajo en equipo
-publicación de proyectos
-gestión de código
-```
+1. **Explicar cada proyecto**
+    Describir brevemente el objetivo, las tecnologías utilizadas, el rol desempeñado y los resultados obtenidos.
 
-También permite publicar sitios web mediante:
+1. **Cuidar el diseño y la presentación**
+    Un portafolio ordenado, visualmente atractivo y fácil de navegar genera una mejor experiencia para quienes lo revisan.
 
-```text
-GitHub Pages
-```
+1. **Mostrar variedad de habilidades**
+    Incluir distintos tipos de proyectos permite demostrar versatilidad y capacidad para enfrentar diferentes desafíos.
 
-Esto es muy útil para crear **portafolios personales de desarrollo**.
+1. **Incorporar enlaces funcionales**
+    Cuando sea posible, agregar enlaces a repositorios, demostraciones o sitios web para facilitar la revisión del trabajo realizado.
+
+1. **Destacar tecnologías utilizadas**
+    Indicar claramente los lenguajes, frameworks, herramientas y metodologías empleadas en cada proyecto.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
-# 8. ¿Qué es el hosting?
 
-El **hosting** es el servicio que permite que un sitio web esté disponible en internet.
+## Herramientas
 
-Es decir:
+<br>
+<br>
 
-```text
-un espacio en servidores
-donde se ejecuta tu aplicación
-y los usuarios pueden acceder a ella
+### Repositorios
+
+- **GitHub**: Plataforma para alojar código fuente, gestionar versiones mediante Git y colaborar en proyectos de software.
+- **GitLab**: Alternativa a GitHub que incorpora herramientas de integración y despliegue continuo (CI/CD).
+- **Bitbucket**: Servicio de repositorios orientado especialmente a equipos que trabajan con herramientas de Atlassian.
+
+<br>
+<br>
+
+### Frontend Hosting
+
+- **GitHub Pages**: Hosting gratuito para sitios estáticos desarrollados con HTML, CSS y JavaScript.
+- **Netlify**: Plataforma para desplegar aplicaciones frontend modernas con integración automática desde GitHub.
+- **Vercel**: Hosting optimizado para frameworks como Vue, React, Next.js y Nuxt.
+- **Cloudflare Pages**: Servicio de despliegue rápido para sitios estáticos con CDN global.
+
+<br>
+<br>
+
+### Backend Hosting
+
+- **Railway**: Plataforma para desplegar APIs, servidores Node.js, bases de datos y aplicaciones Full Stack.
+- **Render**: Permite alojar aplicaciones backend, APIs REST y servicios web.
+- **Fly.io**: Plataforma para desplegar aplicaciones cercanas geográficamente a los usuarios.
+- **Heroku**: Servicio tradicional para desplegar aplicaciones web y APIs.
+- **Firebase Functions**: Permite ejecutar código backend sin administrar servidores.
+
+<br>
+<br>
+
+### Backend as a Service (BaaS)
+
+- **Firebase**: Plataforma de Google que incluye autenticación, base de datos, almacenamiento y hosting.
+- **Supabase**: Alternativa open source a Firebase basada en PostgreSQL.
+- **Appwrite**: Plataforma que proporciona autenticación, bases de datos y almacenamiento.
+- **PocketBase**: Backend ligero que integra base de datos, autenticación y API en una sola herramienta.
+
+<br>
+<br>
+
+### Bases de Datos
+
+<br>
+
+#### Relacionales (SQL)
+
+- **PostgreSQL**: Base de datos relacional muy utilizada en aplicaciones modernas.
+- **MySQL**: Uno de los motores de bases de datos más populares del mundo.
+- **MariaDB**: Variante open source de MySQL.
+
+
+#### No Relacionales (NoSQL)
+
+- **MongoDB Atlas**: Servicio cloud para MongoDB.
+- **Firebase Firestore**: Base de datos NoSQL en tiempo real de Google.
+- **Redis**: Base de datos en memoria utilizada para caché y alto rendimiento.
+
+<br>
+<br>
+
+### Diseño y UX/UI
+
+- **Figma**: Herramienta líder para diseño de interfaces y prototipos.
+- **Penpot**: ALternativa a Figma
+- **Canva**: Plataforma sencilla para crear recursos gráficos.
+- **Miro**: Herramienta colaborativa para diagramas, flujos y wireframes.
+
+
+<br>
+<br>
+
+### Documentación
+
+- **Notion**: Plataforma para documentar proyectos, procesos y aprendizajes.
+- **Markdown**: Lenguaje ligero para crear documentación técnica.
+- **GitHub Wiki**: Sistema de documentación integrado en los repositorios.
+- **Storybook**: Herramienta para documentar componentes frontend.
+
+<br>
+<br>
+
+### APIs y Testing
+
+- **Postman**: Herramienta para probar y documentar APIs.
+- **Insomnia**: Alternativa a Postman para pruebas de APIs.
+- **Swagger / OpenAPI**: Estándar para documentar servicios web.
+- **Hoppscotch**: Cliente web para pruebas rápidas de APIs.
+
+<br>
+<br>
+
+### Video y Demostraciones
+
+- **YouTube**: Permite publicar demostraciones y recorridos de proyectos.
+- **Loom**: Herramienta para grabar explicaciones rápidas de aplicaciones.
+- **Vimeo**: Plataforma para alojar videos profesionales.
+- **OBS Studio**: Software para grabar demostraciones y tutoriales.
+
+<br>
+<br>
+
+### Marca Profesional
+
+- **LinkedIn**: Red profesional para mostrar experiencia, proyectos y certificaciones.
+- **Portfolio Web Personal**: Sitio propio que centraliza toda la información profesional.
+- **Behance**: Plataforma para mostrar proyectos visuales y de diseño.
+- **Dribbble**: Comunidad orientada a diseño de interfaces y productos digitales.
+
+
+<br>
+<br>
+
+### Gestión de Proyectos
+
+- **Trello**: Herramienta visual basada en tableros Kanban.
+- **Jira**: Plataforma utilizada en equipos ágiles y proyectos de software.
+- **Asana**: Sistema para gestión de tareas y equipos.
+- **ClickUp**: Plataforma integral para planificación y seguimiento de proyectos.
+
+<br>
+<br>
+
+### Integración Continua y DevOps
+
+- **GitHub Actions**: Automatización de pruebas y despliegues desde GitHub.
+- **GitLab CI/CD**: Integración y despliegue continuo incorporado en GitLab.
+- **Docker**: Herramienta para empaquetar aplicaciones en contenedores.
+- **Docker Hub**: Repositorio de imágenes Docker.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## Tecnologías
+
+<br>
+<br>
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- TypeScript
+- Vue.js
+- React
+- Angular
+- Nuxt
+- Next.js
+- Bootstrap
+- Tailwind CSS
+
+<br>
+<br>
+
+#### Backend
+
+- Node.js
+- Express.js
+- NestJS
+- PHP
+- Laravel
+- Python
+- Django
+- FastAPI
+- Java
+- Spring Boot
+- .NET
+
+<br>
+<br>
+
+#### Bases de Datos
+
+- PostgreSQL
+- MySQL
+- MongoDB
+- Firestore
+- Redis
+
+
+<br>
+<br>
+
+#### Control de Versiones
+
+- Git
+- GitHub
+- GitLab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## Estructura
+
+> Mientras más evidencia real exista
+>(código, demos, documentación y capturas),
+>
+> mayor valor tendrá el portafolio para reclutadores
+
+**Incluir:**
+
+* Información personal y perfil profesional.
+* Proyectos con descripción y capturas.
+* Código fuente disponible en GitHub.
+* Aplicaciones desplegadas en Vercel, Netlify o GitHub Pages.
+* Tecnologías utilizadas en cada proyecto.
+* Diseños o prototipos realizados en Figma.
+* Uso de APIs, bases de datos o servicios backend.
+* README con instrucciones de instalación y uso.
+* Perfil de LinkedIn actualizado.
+* Formulario o medios de contacto.
+* Certificaciones, cursos o logros relevantes.
+
+
+**Estructura**
+
+```txt
+Portafolio Web
+│
+├─ Inicio
+│  ├─ Presentación personal
+│  ├─ Tecnologías dominadas
+│  └─ Información de contacto
+│
+├─ Proyectos
+│  ├─ Proyecto 1
+│  │  ├─ Demo online
+│  │  ├─ Código fuente
+│  │  ├─ Tecnologías utilizadas
+│  │  └─ Capturas de pantalla
+│  │
+│  ├─ Proyecto 2
+│  └─ Proyecto 3
+│
+├─ Sobre mí
+│  ├─ Formación
+│  ├─ Experiencia
+│  └─ Certificaciones
+│
+└─ Contacto
+   ├─ LinkedIn
+   ├─ GitHub
+   └─ Correo electrónico
 ```
 
-El hosting permite que:
+```
+Tecnologías utilizadas
 
-```text
-sitios web
-aplicaciones web
-proyectos
+Frontend
+├─ HTML
+├─ CSS
+├─ JavaScript
+├─ Vue 3
+├─ Vite
+└─ Bootstrap / Tailwind
+
+Backend
+├─ Firebase
+├─ Supabase
+├─ Node.js
+└─ Express
+
+Base de Datos
+├─ Firestore
+├─ PostgreSQL
+└─ MongoDB
+
+Repositorio
+└─ GitHub
+
+Hosting Frontend
+├─ Vercel
+├─ Netlify
+└─ GitHub Pages
+
+Diseño
+├─ Figma
+└─ Canva
+
+Documentación
+├─ README.md
+└─ Manual de usuario
+
+Difusión Profesional
+├─ LinkedIn
+├─ Sitio web personal
+└─ YouTube (demos)
 ```
 
-puedan ser accesibles desde cualquier navegador. 
-
-
-## 9. Hosting
-
-- **GitHub Pages** permite publicar sitios web directamente desde un repositorio.
-    - gratis
-    - integrado con GitHub
-    - ideal para portafolios
-
-- **Netlify** Plataforma moderna para desplegar aplicaciones web. Permite:
-    - deploy automático
-    - integración con Git
-    - CI/CD
-
-- **Heroku** Permite desplegar aplicaciones web completas, incluyendo backend.
-
-- **DigitalOcean** Plataforma de infraestructura cloud para aplicaciones más complejas. 
-
-
-## 1. Redes profesionales
-
-Además del portafolio web, es recomendable mostrar tu trabajo en redes profesionales.
-
-Ejemplos:
-
-- **Stack Overflow** comunidad donde desarrolladores comparten soluciones técnicas. Permite:
-    - resolver dudas
-    - compartir conocimiento
-    - mostrar experiencia técnica
-
-
-- **YouTube** muchos desarrolladores publican:
-    - demos de proyectos
-    - tutoriales
-    - presentaciones técnicas
-    - Esto puede complementar tu portafolio. 
 
 
