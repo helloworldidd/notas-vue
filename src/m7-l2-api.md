@@ -365,12 +365,11 @@ En proyectos Vue modernos, Axios suele ser la opción más utilizada debido a su
 
 
 ```js
-import axios from 'axios';
+const response = await fetch(
+  'https://jsonplaceholder.typicode.com/users'
+);
 
-const { data: usuarios } =
-  await axios.get(
-    'https://jsonplaceholder.typicode.com/users'
-  );
+const usuarios = await response.json();
 
 console.log(usuarios);
 ```
