@@ -4,52 +4,67 @@ _router_
 
 
 
+<br>
+<br>
+
+### Indíce
+
+- [Vue-Router](#vue-router)
+  - [Instalación](#instalación)
+  - [Crear router](#crear-router)
+  - [Crear vistas](#crear-vistas)
+  - [Conectar en main.js](#conectar-en-mainjs)
+  - [Crear menú en App.vue](#crear-menú-en-appvue)
+
+
+- [Tipos de Rutas](#tipos-de-rutas)
+  - [Rutas estáticas](#rutas-estáticas)
+  - [Rutas dinámicas](#rutas-dinámicas)
+  - [Rutas anidadas](#rutas-anidadas)
+
+
+- [Direcciones](#direcciones)
+  - [Pasar props según ruta](#pasar-props-según-ruta)
+  - [Redirecciones](#redirecciones)
+  - [Alias](#alias)
+  - [Ruta 404](#ruta-404)
+
+
+- [Transiciones](#transiciones)
+  - [Transiciones entre rutas](#transiciones-entre-rutas)
+  - [Transiciones para rutas dinámicas](#transiciones-para-rutas-dinámicas)
+  - [Transiciones por ruta](#transicionesd-por-ruta)
+  - [Usando Animate.css](#usando-animatecss)
+
+
+- [Extras](#extras)
+  - [Scroll suave a una sección](#scroll-suave-a-una-sección)
+  - [Menú lateral simple](#menú-lateral-simple)
+
+
+
+<br>
+<br>
+
 ---
 
-## Indíce
+## Vue Router
 
-- [Instalación](#instalación)
-- [Crear router](#crear-router)
-- [Crear vistas](#crear-vistas)
-- [Conectar en main.js](#conectar-en-mainjs)
-- [Crear menú en App.vue](#crear-menú-en-appvue)
+> Vue Router permite crear navegación entre páginas dentro de una SPA.
+
+<br>
 <br>
 
-- [Rutas estáticas](#rutas-estáticas)
-- [Rutas dinámicas](#rutas-dinámicas)
-- [Rutas anidadas](#rutas-anidadas)
-<br>
-
-- [Pasar props según ruta](#pasar-props-según-ruta)
-- [Redirecciones](#redirecciones)
-- [Alias](#alias)
-- [Ruta 404](#ruta-404)
-<br>
-
-- [Transiciones entre rutas](#transiciones-entre-rutas)
-- [Transiciones para rutas dinámicas](#transiciones-para-rutas-dinámicas)
-- [Transiciones por ruta](#transicionesd-por-ruta)
-- [Usando Animate.css](#usando-animatecss)
-<br>
-
-- [1. Scroll suave a una sección](#1-scroll-suave-a-una-sección)
-- [2. Menú lateral simple](#2-menú-lateral-simple)
-
-
-
----
-
-## Instalación
-
-Vue Router permite crear navegación entre páginas dentro de una SPA.
+### Instalación
 
 ```sh
 npm install vue-router
 ```
 
----
+<br>
+<br>
 
-## Crear router
+### Crear router
 
 Crear:
 
@@ -82,9 +97,10 @@ const router = createRouter({
 export default router;
 ```
 
----
+<br>
+<br>
 
-## Crear vistas
+### Crear vistas
 
 ```txt
 src/views/HomeView.vue
@@ -106,9 +122,10 @@ src/views/AboutView.vue
 </template>
 ```
 
----
+<br>
+<br>
 
-## Conectar en main.js
+### Conectar en main.js
 
 ```js
 import { createApp } from "vue";
@@ -121,9 +138,10 @@ createApp(App)
   .mount("#app");
 ```
 
----
+<br>
+<br>
 
-## Crear menú en App.vue
+### Crear menú en App.vue
 
 ```vue
 <template>
@@ -137,9 +155,37 @@ createApp(App)
 </template>
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
-## Rutas estáticas
+## Tipos de Rutas
+
+...
+
+<br>
+<br>
+
+### Rutas estáticas
 
 Son rutas fijas.
 
@@ -159,9 +205,10 @@ Ejemplos:
 /servicios
 ```
 
----
+<br>
+<br>
 
-## Rutas dinámicas
+### Rutas dinámicas
 
 Sirven cuando una parte de la URL cambia.
 
@@ -219,9 +266,10 @@ o
 ```
 
 
----
+<br>
+<br>
 
-## Rutas anidadas
+### Rutas anidadas
 
 Sirven para tener rutas dentro de otras rutas.
 
@@ -267,9 +315,39 @@ En `DashboardView.vue` debe ir:
 </template>
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
-## Pasar props según ruta
+## Direcciones
+
+<br>
+<br>
+
+### Pasar props según ruta
 
 En vez de leer con `useRoute()`, puedes pasar parámetros como props.
 
@@ -297,9 +375,10 @@ defineProps({
 
 Esto es más limpio porque el componente no depende directamente del router.
 
----
+<br>
+<br>
 
-## Redirecciones
+### Redirecciones
 
 Sirven para mandar una ruta a otra.
 
@@ -322,9 +401,10 @@ Vue lo manda a:
 /
 ```
 
----
+<br>
+<br>
 
-## Alias
+### Alias
 
 Sirve para que una misma ruta tenga otro nombre.
 
@@ -348,9 +428,10 @@ Entonces estas dos URLs muestran lo mismo:
 
 
 
----
+<br>
+<br>
 
-## Ruta 404
+### Ruta 404
 
 Sirve para páginas no encontradas.
 
@@ -423,9 +504,23 @@ src/views/NotFoundView.vue
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
-## Transiciones entre rutas
+## Transiciones
+
+
+
+<br>
+<br>
+
+### Transiciones entre rutas
 Las transiciones permiten animar el cambio entre páginas de una SPA.
 
 
@@ -1061,9 +1156,22 @@ nav a.anidacion{
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## Extras
 
 
-## 1. Scroll suave a una sección
+<br>
+<br>
+
+### Scroll suave a una sección
 
 ```vue
 <script setup>
@@ -1115,10 +1223,13 @@ const irASeccion = (id) => {
 
 
 
+<br>
+<br>
+
+### Menú lateral simple
 
 
-## 2. Menú lateral simple
-
+```vue
 <script setup>
 import { ref } from 'vue';
 
@@ -1189,7 +1300,6 @@ const abierto = ref(false);
   text-decoration: none;
 }
 </style>
-
-
+```
 
 

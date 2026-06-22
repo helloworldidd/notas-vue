@@ -10,6 +10,15 @@ _v-model_
 - [Formulario Objeto](#formulario-objeto)
 - [Formulario Object Full](#formulario-object-full)
 
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Formulario Simple
@@ -46,6 +55,12 @@ const enviarFormulario = () => {
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
@@ -80,6 +95,12 @@ const enviarFormulario = () => {
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 

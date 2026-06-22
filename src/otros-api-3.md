@@ -1,7 +1,0 @@
-Supabase
-
-mongo db
-
-firebase
-
-

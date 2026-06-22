@@ -1,6 +1,6 @@
 #  Enlace de Datos
 
-_(data binding)_
+data binding
 
 
 
@@ -23,6 +23,14 @@ _(data binding)_
 
 
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ##  Interpolación
@@ -40,10 +48,23 @@ const mensaje = "Hola 😎";
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
-## Directiva `v-bind`
+## Directivas
+
+...
+
+<br>
+<br>
+
+### Directiva `v-bind`
 
 ```vue
 <script setup>
@@ -58,9 +79,10 @@ const mensaje = "Hola 😎";
 
 
 
----
+<br>
+<br>
 
-## Directiva `v-model`
+### Directiva `v-model`
 (Two-way binding)
 
 
@@ -85,9 +107,10 @@ const mensaje = ref("Hola");
 
 
 
----
+<br>
+<br>
 
-## Directiva `v-for`
+### Directiva `v-for`
 
 ```vue
 <script setup>
@@ -111,9 +134,10 @@ const frutas = [
 
 
 
----
+<br>
+<br>
 
-## Directiva `v-if`
+### Directiva `v-if`
 mostrar o ocultar HTML según una condición 🚀
 
 ```vue
@@ -144,9 +168,10 @@ const mostrar = true
 
 
 
----
+<br>
+<br>
 
-## Directiva `v-show`
+### Directiva `v-show`
 También muestra u oculta elementos.
 La diferencia es que: v-show usa CSS
 
@@ -171,11 +196,13 @@ const mostrar = true
 
 
 
----
+<br>
+<br>
 
-## Directiva `v-on`
+### Directiva `v-on`
 Escucha eventos.
 
+```vue
 <template>
 <button @click="saludar">
     Click :)
@@ -187,16 +214,18 @@ function saludar() {
   alert("Hola Vue 🚀")
 }
 </script>
+```
 
 
 
 
+<br>
+<br>
 
----
-
-## Directiva `v-text`
+### Directiva `v-text`
 Inserta texto.
 
+```vue
 <template>
 <p v-text="mensaje"></p>
 </template>
@@ -204,15 +233,17 @@ Inserta texto.
 <script setup>
 const mensaje = "Hola :)"
 </script>
+```
 
 
 
+<br>
+<br>
 
----
-
-## Directiva `v-html`
+### Directiva `v-html`
 Inserta HTML real.
 
+```vue
 <template>
 <div v-html="html"></div>
 </template>
@@ -220,18 +251,19 @@ Inserta HTML real.
 <script setup>
 const html = "<h1>Hola 🚀</h1>"
 </script>
+```
 
 
 
 
 
+<br>
+<br>
 
----
-
-## Directiva `v-cloak`
+### Directiva `v-cloak`
 Oculta contenido hasta que Vue cargue.
 
-
+```vue
 <template>
 <h1 v-cloak>
     {{ mensaje }}
@@ -241,14 +273,16 @@ Oculta contenido hasta que Vue cargue.
 <script setup>
 const mensaje = "Hola 😎"
 </script>
+```
 
 
+<br>
+<br>
 
----
-
-## Directiva `v-once`
+### Directiva `v-once`
 Renderiza SOLO una vez.
 
+```vue
 <template>
 <h1 v-once>
     {{ mensaje }}
@@ -258,3 +292,4 @@ Renderiza SOLO una vez.
 <script setup>
 const mensaje = "Hola 🚀"
 </script>
+```

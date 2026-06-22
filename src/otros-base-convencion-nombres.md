@@ -6,9 +6,18 @@
 
 - [Guía](#guía)
 - [Resumen Convención](#resumen-convención)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Guía
+
 Mantener una convención ayuda a que el proyecto sea más fácil de leer y mantener.
 
 1.  **Componentes en general** usar **PascalCase**:
@@ -100,6 +109,14 @@ Mantener una convención ayuda a que el proyecto sea más fácil de leer y mante
     ```vue
     <UserForm @login-success="onLogin" />
     ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ---
 

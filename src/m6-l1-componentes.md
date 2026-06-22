@@ -10,6 +10,12 @@
 - [Estructura](#estructura)
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
@@ -33,6 +39,12 @@ npm run dev
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
@@ -48,9 +60,12 @@ https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets
 
 
 
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
@@ -58,7 +73,25 @@ https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets
 
 
 - **index.html**
-- **main.js**
+
+```html
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+```
+
+- src/**main.js**
+
 ```vue
 import './assets/sass/main.scss'
 
@@ -69,7 +102,7 @@ createApp(App).mount('#app')
 ```
 
 
-- **App.js**
+- src/**App.js**
 
 ```vue
 <script setup>

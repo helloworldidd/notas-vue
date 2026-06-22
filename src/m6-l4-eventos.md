@@ -1,6 +1,6 @@
 # Eventos y Modificadores
 
-_(Events y modifiers)_
+Events y modifiers
 
 
 --- 
@@ -62,6 +62,12 @@ _(Events y modifiers)_
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
@@ -93,12 +99,33 @@ const mostrarAlerta = () => {
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Eventos básicos
 
-### Click
+<br>
+<br>
 
+**Click**
 ```vue
 <button @click="mostrarAlerta">
   Click
@@ -107,8 +134,10 @@ const mostrarAlerta = () => {
 
 
 
-### Doble Click
+<br>
+<br>
 
+**Doble Click**
 ```vue
 <button @dblclick="mostrarAlerta">
   Doble Click
@@ -117,8 +146,10 @@ const mostrarAlerta = () => {
 
 
 
-### Mouse Enter
+<br>
+<br>
 
+**Mouse Enter**
 Cuando el cursor entra al elemento.
 
 ```vue
@@ -129,8 +160,10 @@ Cuando el cursor entra al elemento.
 
 
 
-### Mouse Leave
+<br>
+<br>
 
+**Mouse Leave**
 Cuando el cursor sale.
 
 ```vue
@@ -141,8 +174,10 @@ Cuando el cursor sale.
 
 
 
-### Mouse Over
+<br>
+<br>
 
+**Mouse Over**
 Se activa al entrar sobre el elemento o alguno de sus hijos.
 
 ```vue
@@ -153,8 +188,10 @@ Se activa al entrar sobre el elemento o alguno de sus hijos.
 
 
 
-### Mouse Out
+<br>
+<br>
 
+**Mouse Out**
 Se activa al salir del elemento o alguno de sus hijos.
 
 ```vue
@@ -165,8 +202,10 @@ Se activa al salir del elemento o alguno de sus hijos.
 
 
 
-### Wheel
+<br>
+<br>
 
+**Wheel**
 Detecta la rueda del mouse.
 
 ```vue
@@ -176,12 +215,24 @@ Detecta la rueda del mouse.
 ```
 
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Eventos de formularios
 
-### Input
 
+
+<br>
+<br>
+
+**Input**
 Se ejecuta mientras escribes.
 
 ```vue
@@ -189,9 +240,10 @@ Se ejecuta mientras escribes.
 ```
 
 
+<br>
+<br>
 
-### Change
-
+**Change**
 Se ejecuta cuando el valor cambia y el input pierde foco.
 
 ```vue
@@ -199,9 +251,10 @@ Se ejecuta cuando el valor cambia y el input pierde foco.
 ```
 
 
+<br>
+<br>
 
-### Focus
-
+**Focus**
 Cuando el input recibe foco.
 
 ```vue
@@ -209,9 +262,10 @@ Cuando el input recibe foco.
 ```
 
 
+<br>
+<br>
 
-### Blur
-
+**Blur**
 Cuando el input pierde foco.
 
 ```vue
@@ -219,9 +273,10 @@ Cuando el input pierde foco.
 ```
 
 
+<br>
+<br>
 
-### Submit
-
+**Submit**
 Cuando se envía un formulario.
 
 ```vue
@@ -231,11 +286,29 @@ Cuando se envía un formulario.
 ```
 
 
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Eventos de teclado
 
-### Keydown
+<br>
+<br>
+
+**Keydown**
 
 Cuando una tecla se presiona.
 
@@ -245,8 +318,10 @@ Cuando una tecla se presiona.
 
 
 
-### Keyup
+<br>
+<br>
 
+**Keyup**
 Cuando una tecla se suelta.
 
 ```vue
@@ -255,7 +330,10 @@ Cuando una tecla se suelta.
 
 
 
-### Enter
+<br>
+<br>
+
+**Enter**
 
 ```vue
 <input @keyup.enter="mostrarAlerta"/>
@@ -263,7 +341,10 @@ Cuando una tecla se suelta.
 
 
 
-### ESC
+<br>
+<br>
+
+**ESC**
 
 ```vue
 <input @keydown.esc="mostrarAlerta"/>
@@ -271,7 +352,10 @@ Cuando una tecla se suelta.
 
 
 
-### TAB
+<br>
+<br>
+
+**TAB**
 
 ```vue
 <input @keydown.tab="mostrarAlerta"/>
@@ -279,7 +363,10 @@ Cuando una tecla se suelta.
 
 
 
-### SPACE
+<br>
+<br>
+
+**SPACE**
 
 ```vue
 <input @keydown.space="mostrarAlerta"/>
@@ -287,7 +374,10 @@ Cuando una tecla se suelta.
 
 
 
-### DELETE
+<br>
+<br>
+
+**DELETE**
 
 ```vue
 <input @keydown.delete="mostrarAlerta"/>
@@ -295,7 +385,10 @@ Cuando una tecla se suelta.
 
 
 
-### Flechas
+<br>
+<br>
+
+**Flechas**
 
 ```vue
 <input @keydown.up="accion"/>
@@ -313,11 +406,30 @@ Cuando una tecla se suelta.
 
 
 
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Teclas modificadoras
 
-### CTRL
+<br>
+<br>
+
+**CTRL**
 
 ```vue
 <input @keydown.ctrl="accion"/>
@@ -325,7 +437,10 @@ Cuando una tecla se suelta.
 
 
 
-### SHIFT
+<br>
+<br>
+
+**SHIFT**
 
 ```vue
 <input @keydown.shift="accion"/>
@@ -333,7 +448,10 @@ Cuando una tecla se suelta.
 
 
 
-### ALT
+<br>
+<br>
+
+**ALT**
 
 ```vue
 <input @keydown.alt="accion"/>
@@ -341,10 +459,11 @@ Cuando una tecla se suelta.
 
 
 
-### META
+<br>
+<br>
 
+**META**
 Windows = tecla Windows
-
 Mac = Command
 
 ```vue
@@ -359,11 +478,33 @@ Mac = Command
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 ## Combinaciones de teclas
 
-### CTRL + K
+<br>
+<br>
+
+**CTRL + K**
 
 ```vue
 <input @keydown.ctrl.k="accion"/>
@@ -371,7 +512,10 @@ Mac = Command
 
 
 
-### CTRL + ENTER
+<br>
+<br>
+
+**CTRL + ENTER**
 
 ```vue
 <input @keydown.ctrl.enter="accion"/>
@@ -379,7 +523,10 @@ Mac = Command
 
 
 
-### SHIFT + ENTER
+<br>
+<br>
+
+**SHIFT + ENTER**
 
 ```vue
 <input @keydown.shift.enter="accion"/>
@@ -387,7 +534,10 @@ Mac = Command
 
 
 
-### ALT + ENTER
+<br>
+<br>
+
+**ALT + ENTER**
 
 ```vue
 <input @keydown.alt.enter="accion"/>
@@ -395,12 +545,47 @@ Mac = Command
 
 
 
-### CTRL + SHIFT + K
+<br>
+<br>
+
+**CTRL + SHIFT + K**
 
 ```vue
 <input @keydown.ctrl.shift.k="accion"/>
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
@@ -410,7 +595,10 @@ Los modificadores alteran el comportamiento normal de un evento.
 
 
 
-### .prevent
+<br>
+<br>
+
+**.prevent**
 
 Evita el comportamiento por defecto.
 
@@ -429,7 +617,10 @@ event.preventDefault();
 
 
 
-### .stop
+<br>
+<br>
+
+**.stop**
 
 Evita que el evento siga propagándose.
 
@@ -441,7 +632,10 @@ Evita que el evento siga propagándose.
 
 
 
-### .once
+<br>
+<br>
+
+**.once**
 
 Se ejecuta solo una vez.
 
@@ -453,7 +647,10 @@ Se ejecuta solo una vez.
 
 
 
-### .capture
+<br>
+<br>
+
+**.capture**
 
 Captura el evento antes de que llegue a los hijos.
 
@@ -474,7 +671,10 @@ BOTON
 
 
 
-### .self
+<br>
+<br>
+
+**.self**
 
 Solo se ejecuta si haces click directamente en el elemento.
 
@@ -485,7 +685,10 @@ Solo se ejecuta si haces click directamente en el elemento.
 
 
 
-### .passive
+<br>
+<br>
+
+**.passive**
 
 Mejora rendimiento en eventos de scroll.
 
@@ -509,12 +712,21 @@ Mejora rendimiento en eventos de scroll.
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ---
 
 ## Eventos especiales del mouse
 
-### Click izquierdo
+<br>
+<br>
+
+**Click izquierdo**
 
 ```vue
 <button @click.left="accion">
@@ -523,7 +735,10 @@ Mejora rendimiento en eventos de scroll.
 
 
 
-### Click derecho
+<br>
+<br>
+
+**Click derecho**
 
 ```vue
 <button @click.right.prevent="accion">
@@ -532,7 +747,10 @@ Mejora rendimiento en eventos de scroll.
 
 
 
-### Click rueda del mouse
+<br>
+<br>
+
+**Click rueda del mouse**
 
 ```vue
 <button @click.middle="accion">
@@ -541,7 +759,10 @@ Mejora rendimiento en eventos de scroll.
 
 
 
-### Context Menu
+<br>
+<br>
+
+**Context Menu**
 
 Click derecho.
 
@@ -552,11 +773,46 @@ Click derecho.
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ---
 
 ## Resumen rápido
 
-### Eventos más usados
+<br>
+<br>
+
+**Eventos más usados**
 
 ```js
 @click
@@ -569,7 +825,10 @@ Click derecho.
 @keyup
 ```
 
-### Teclas más usadas
+<br>
+<br>
+
+**Teclas más usadas**
 
 ```js
 .enter
@@ -579,7 +838,10 @@ Click derecho.
 .delete
 ```
 
-### Modificadores más usados
+<br>
+<br>
+
+**Modificadores más usados**
 
 ```js
 .prevent
@@ -590,7 +852,10 @@ Click derecho.
 .passive
 ```
 
-### Mouse
+<br>
+<br>
+
+**Mouse**
 
 ```js
 @click.left
