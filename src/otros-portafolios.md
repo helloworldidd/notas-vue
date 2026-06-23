@@ -6,7 +6,6 @@ si
 - https://anniebombanie.com/
 - https://robbowen.digital/
 - https://nichol-vuejs.vercel.app/
-- https://timmyomahony.com/
 
 
 
@@ -14,6 +13,7 @@ si
 
 
 "tal vez no"
+- https://timmyomahony.com/
 - https://olaolu.dev/shelf
 - https://lynnandtonic.com/
 - https://giftegwuenu.com/
