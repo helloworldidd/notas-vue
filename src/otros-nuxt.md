@@ -1,10 +1,15 @@
-# Nuxt
+# Nuxt: Página estándar con componentes
 
-> Nuxt es un framework basado en Vue que permite crear aplicaciones web modernas con rutas automáticas, componentes, layouts, páginas y también backend dentro del mismo proyecto.
+> Nuxt es un framework basado en Vue que permite crear aplicaciones web modernas usando una estructura ordenada de carpetas, rutas automáticas, componentes y archivos reutilizables.
 
-Nuxt usa una estructura de carpetas con convenciones para automatizar tareas comunes del desarrollo. :contentReference[oaicite:0]{index=0}
+En este ejemplo crearemos una página estándar con:
 
-
+```txt
+Header
+Hero
+Contenido principal
+Footer
+```
 
 
 
@@ -29,98 +34,31 @@ Nuxt usa una estructura de carpetas con convenciones para automatizar tareas com
 
 ---
 
-## 1. Requisitos
-
-Antes de crear el proyecto necesitas tener instalado:
+## 1. Crear proyecto
 
 ```bash
-node -v
-npm -v
+npm create nuxt@latest mi-pagina-nuxt
 ```
 
-Si ambos comandos muestran una versión, puedes continuar.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 2. Crear el proyecto
-
-En la terminal ejecuta:
+Entrar al proyecto:
 
 ```bash
-npm create nuxt@latest mi-proyecto-nuxt
+cd mi-pagina-nuxt
 ```
 
-Este comando crea un nuevo proyecto Nuxt desde cero. :contentReference[oaicite:1]{index=1}
-
-Luego entra a la carpeta:
-
-```bash
-cd mi-proyecto-nuxt
-```
-
-Instala las dependencias:
+Instalar dependencias:
 
 ```bash
 npm install
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 3. Levantar el servidor local
-
-Ejecuta:
+Levantar servidor:
 
 ```bash
 npm run dev
 ```
 
-Luego abre el navegador en:
+Abrir:
 
 ```txt
 http://localhost:3000
@@ -140,8 +78,6 @@ http://localhost:3000
 
 
 
-
-
 <br>
 <br>
 <br>
@@ -151,29 +87,24 @@ http://localhost:3000
 
 ---
 
-## 4. Estructura básica del proyecto
+## 2. Estructura del proyecto
 
-Una estructura simple puede verse así:
+Crearemos esta estructura:
 
 ```txt
-mi-proyecto-nuxt/
+mi-pagina-nuxt/
 ├── app/
 │   ├── app.vue
 │   ├── pages/
-│   │   ├── index.vue
-│   │   └── productos.vue
+│   │   └── index.vue
 │   └── components/
-│       └── ProductCard.vue
+│       ├── AppHeader.vue
+│       ├── HeroSection.vue
+│       └── AppFooter.vue
 │
-├── public/
 ├── nuxt.config.ts
-├── package.json
-└── README.md
+└── package.json
 ```
-
-Nuxt organiza el proyecto usando carpetas especiales, como `pages`, `components`, `layouts` y `server`. :contentReference[oaicite:2]{index=2}
-
-
 
 
 
@@ -198,7 +129,7 @@ Nuxt organiza el proyecto usando carpetas especiales, como `pages`, `components`
 
 ---
 
-## 5. Archivo principal: `app.vue`
+## 3. Archivo principal `app.vue`
 
 Ruta:
 
@@ -211,19 +142,27 @@ Código:
 ```vue
 <template>
   <div>
-    <h1>Mi primera app con Nuxt</h1>
-
-    <nav>
-      <NuxtLink to="/">Inicio</NuxtLink>
-      <NuxtLink to="/productos">Productos</NuxtLink>
-    </nav>
+    <AppHeader />
 
     <NuxtPage />
+
+    <AppFooter />
   </div>
 </template>
 ```
 
-`<NuxtPage />` permite mostrar las páginas creadas dentro de la carpeta `pages`. :contentReference[oaicite:3]{index=3}
+`app.vue` funciona como la base general de la aplicación.
+
+Aquí colocamos elementos que se repiten en todas las páginas, por ejemplo:
+
+```txt
+Header
+Footer
+Menú
+Layout general
+```
+
+`<NuxtPage />` es el espacio donde Nuxt muestra la página actual.
 
 
 
@@ -250,285 +189,188 @@ Código:
 
 ---
 
-## 6. Crear una página de inicio
+## 4. Crear el Header
 
 Ruta:
 
 ```txt
-app/pages/index.vue
+app/components/AppHeader.vue
 ```
 
 Código:
 
 ```vue
 <template>
-  <section>
-    <h2>Inicio</h2>
-    <p>Bienvenido a mi proyecto en Nuxt.</p>
-  </section>
-</template>
-```
-
-Nuxt crea rutas automáticamente desde los archivos dentro de `pages`. Por ejemplo, `index.vue` se transforma en `/`. :contentReference[oaicite:4]{index=4}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 7. Crear una página de productos
-
-Ruta:
-
-```txt
-app/pages/productos.vue
-```
-
-Código:
-
-```vue
-<script setup>
-const productos = [
-  {
-    id: 1,
-    nombre: 'Mouse',
-    precio: 10000
-  },
-  {
-    id: 2,
-    nombre: 'Teclado',
-    precio: 15000
-  },
-  {
-    id: 3,
-    nombre: 'Monitor',
-    precio: 120000
-  }
-]
-</script>
-
-<template>
-  <section>
-    <h2>Productos</h2>
-
-    <ul>
-      <li v-for="producto in productos" :key="producto.id">
-        {{ producto.nombre }} - ${{ producto.precio }}
-      </li>
-    </ul>
-  </section>
-</template>
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 8. Crear un componente
-
-Ruta:
-
-```txt
-app/components/ProductCard.vue
-```
-
-Código:
-
-```vue
-<script setup>
-defineProps({
-  producto: {
-    type: Object,
-    required: true
-  }
-})
-</script>
-
-<template>
-  <article>
-    <h3>{{ producto.nombre }}</h3>
-    <p>Precio: ${{ producto.precio }}</p>
-  </article>
-</template>
-```
-
-Nuxt importa automáticamente los componentes que están dentro de la carpeta `components`. :contentReference[oaicite:5]{index=5}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 9. Usar el componente en la página
-
-Actualizar:
-
-```txt
-app/pages/productos.vue
-```
-
-Código:
-
-```vue
-<script setup>
-const productos = [
-  {
-    id: 1,
-    nombre: 'Mouse',
-    precio: 10000
-  },
-  {
-    id: 2,
-    nombre: 'Teclado',
-    precio: 15000
-  },
-  {
-    id: 3,
-    nombre: 'Monitor',
-    precio: 120000
-  }
-]
-</script>
-
-<template>
-  <section>
-    <h2>Productos</h2>
-
-    <ProductCard
-      v-for="producto in productos"
-      :key="producto.id"
-      :producto="producto"
-    />
-  </section>
-</template>
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 10. Agregar estilos simples
-
-Ruta:
-
-```txt
-app/app.vue
-```
-
-Código:
-
-```vue
-<template>
-  <div class="layout">
-    <h1>Mi primera app con Nuxt</h1>
+  <header class="header">
+    <h1>Mi sitio Nuxt</h1>
 
     <nav>
-      <NuxtLink to="/">Inicio</NuxtLink>
-      <NuxtLink to="/productos">Productos</NuxtLink>
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Contacto</a>
     </nav>
-
-    <NuxtPage />
-  </div>
+  </header>
 </template>
 
-<style>
-.layout {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 32px;
-  font-family: Arial, sans-serif;
+<style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #ddd;
 }
 
 nav {
   display: flex;
   gap: 16px;
-  margin-bottom: 24px;
 }
 
 a {
-  color: #42b883;
+  color: #00a67d;
+  text-decoration: none;
+}
+</style>
+```
+
+Este componente representa la parte superior de la página.
+
+Nuxt importa automáticamente los componentes dentro de la carpeta `components`, por eso podemos usar:
+
+```vue
+<AppHeader />
+```
+
+sin escribir `import AppHeader from ...`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## 5. Crear el Hero
+
+Ruta:
+
+```txt
+app/components/HeroSection.vue
+```
+
+Código:
+
+```vue
+<template>
+  <section class="hero">
+    <p class="tag">Desarrollo Web</p>
+
+    <h2>Hello Nuxt 🚀</h2>
+
+    <p>
+      Esta es una página estándar creada con Nuxt, Vue y componentes reutilizables.
+    </p>
+
+    <button>Conocer más</button>
+  </section>
+</template>
+
+<style scoped>
+.hero {
+  padding: 80px 24px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.tag {
+  color: #00a67d;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 48px;
+  margin: 16px 0;
+}
+
+button {
+  margin-top: 24px;
+  padding: 12px 20px;
+  border: none;
+  background: #00a67d;
+  color: white;
+  cursor: pointer;
+}
+</style>
+```
+
+El componente `HeroSection` será la sección principal visible al entrar al sitio.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## 6. Crear el Footer
+
+Ruta:
+
+```txt
+app/components/AppFooter.vue
+```
+
+Código:
+
+```vue
+<template>
+  <footer class="footer">
+    <p>© 2026 - Mi sitio Nuxt</p>
+  </footer>
+</template>
+
+<style scoped>
+.footer {
+  padding: 24px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  color: #666;
 }
 </style>
 ```
@@ -547,8 +389,6 @@ a {
 
 
 
-
-
 <br>
 <br>
 <br>
@@ -558,60 +398,7 @@ a {
 
 ---
 
-## 11. Crear una API interna simple
-
-Nuxt también permite crear endpoints backend dentro del proyecto.
-
-Ruta:
-
-```txt
-server/api/saludo.js
-```
-
-Código:
-
-```js
-export default defineEventHandler(() => {
-  return {
-    mensaje: 'Hola desde la API de Nuxt'
-  }
-})
-```
-
-La carpeta `server/` permite registrar rutas API y lógica backend dentro de Nuxt. :contentReference[oaicite:6]{index=6}
-
-La API queda disponible en:
-
-```txt
-http://localhost:3000/api/saludo
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-## 12. Consumir la API desde una página
+## 7. Crear la página principal
 
 Ruta:
 
@@ -622,18 +409,228 @@ app/pages/index.vue
 Código:
 
 ```vue
-<script setup>
-const { data } = await useFetch('/api/saludo')
-</script>
-
 <template>
-  <section>
-    <h2>Inicio</h2>
-    <p>{{ data.mensaje }}</p>
-  </section>
+  <main>
+    <HeroSection />
+
+    <section class="content">
+      <h2>Servicios</h2>
+
+      <div class="grid">
+        <article>
+          <h3>Diseño UI</h3>
+          <p>Creación de interfaces claras, modernas y fáciles de usar.</p>
+        </article>
+
+        <article>
+          <h3>Desarrollo Frontend</h3>
+          <p>Construcción de sitios usando Vue, Nuxt, HTML, CSS y JavaScript.</p>
+        </article>
+
+        <article>
+          <h3>Optimización Web</h3>
+          <p>Mejoras de estructura, rendimiento y experiencia de usuario.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</template>
+
+<style scoped>
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+article {
+  padding: 24px;
+  border: 1px solid #ddd;
+}
+</style>
+```
+
+Esta es una página estándar.
+
+Tiene:
+
+```txt
+Hero
+Título
+Sección de servicios
+Tarjetas de contenido
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## 8. Interacción entre archivos
+
+En Nuxt los archivos se relacionan de forma automática por la estructura de carpetas.
+
+```txt
+app.vue
+  usa NuxtPage
+
+pages/index.vue
+  se muestra dentro de NuxtPage
+
+components/AppHeader.vue
+  se usa como <AppHeader />
+
+components/HeroSection.vue
+  se usa como <HeroSection />
+
+components/AppFooter.vue
+  se usa como <AppFooter />
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## 9. ¿Qué se exporta?
+
+En componentes Vue con `<script setup>`, normalmente no escribimos:
+
+```js
+export default {}
+```
+
+Antes en Vue se usaba mucho:
+
+```vue
+<script>
+export default {
+  name: 'AppHeader'
+}
+</script>
+```
+
+Pero en Vue 3 y Nuxt moderno usamos:
+
+```vue
+<script setup>
+</script>
+```
+
+Esto simplifica el código.
+
+El componente se exporta automáticamente.
+
+Por eso este archivo:
+
+```txt
+components/AppHeader.vue
+```
+
+puede usarse directamente así:
+
+```vue
+<AppHeader />
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+
+## 10. ¿Qué se importa?
+
+En Vue normal muchas veces haríamos esto:
+
+```vue
+<script setup>
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
+</script>
+```
+
+Pero en Nuxt no es necesario para componentes dentro de:
+
+```txt
+app/components/
+```
+
+Nuxt los autoimporta.
+
+Por eso en `app.vue` podemos escribir:
+
+```vue
+<template>
+  <div>
+    <AppHeader />
+    <NuxtPage />
+    <AppFooter />
+  </div>
 </template>
 ```
 
+sin importar manualmente.
+
 
 
 
@@ -659,19 +656,45 @@ const { data } = await useFetch('/api/saludo')
 
 ---
 
-## 13. Convenciones recomendadas
+## 11. Flujo de funcionamiento
+
+Cuando entras a:
 
 ```txt
-Componentes: ProductCard.vue
-Páginas: productos.vue / index.vue
-Carpetas: components, pages, layouts, server
-Variables: camelCase
-Constantes: MAYÚSCULAS
+http://localhost:3000
 ```
 
-En Vue y Nuxt conviene mantener nombres claros para componentes, vistas, servicios y composables, porque ayuda a ordenar mejor el proyecto. :contentReference[oaicite:7]{index=7}
+Nuxt busca la página:
 
+```txt
+app/pages/index.vue
+```
 
+Luego la muestra dentro de:
+
+```vue
+<NuxtPage />
+```
+
+que está en:
+
+```txt
+app/app.vue
+```
+
+El flujo queda así:
+
+```txt
+URL /
+  ↓
+app/pages/index.vue
+  ↓
+<NuxtPage />
+  ↓
+app/app.vue
+  ↓
+Pantalla final
+```
 
 
 
@@ -696,39 +719,24 @@ En Vue y Nuxt conviene mantener nombres claros para componentes, vistas, servici
 
 ---
 
-## 14. Comandos principales
+## 12. Resultado final
 
-```bash
-npm create nuxt@latest mi-proyecto-nuxt
+El navegador mostrará una página con:
+
+```txt
+Mi sitio Nuxt
+Inicio Servicios Contacto
+
+Hello Nuxt 🚀
+Esta es una página estándar creada con Nuxt...
+
+Servicios
+Diseño UI
+Desarrollo Frontend
+Optimización Web
+
+© 2026 - Mi sitio Nuxt
 ```
-
-Crea el proyecto.
-
-```bash
-cd mi-proyecto-nuxt
-```
-
-Entra a la carpeta.
-
-```bash
-npm install
-```
-
-Instala las dependencias.
-
-```bash
-npm run dev
-```
-
-Levanta el servidor local.
-
-```bash
-npm run build
-```
-
-Genera la versión de producción.
-
-
 
 
 
@@ -753,21 +761,23 @@ Genera la versión de producción.
 
 ---
 
-## 15. Resumen final
+## 13. Resumen
 
-Nuxt permite trabajar con Vue, pero agrega varias ventajas:
+En este ejemplo aprendimos que:
 
-- rutas automáticas
-- componentes auto importados
-- layouts reutilizables
-- server/API integrada
-- estructura más ordenada
-- mejor preparación para proyectos grandes
+- `app.vue` contiene la estructura general.
+- `pages/index.vue` crea la ruta `/`.
+- `<NuxtPage />` muestra la página actual.
+- `components/` guarda partes reutilizables.
+- Nuxt autoimporta los componentes.
+- En `<script setup>` no se usa `export default`.
+- La página se arma conectando componentes.
 
 En resumen:
 
 ```txt
-Vue crea la interfaz.
-Nuxt organiza la aplicación completa.
+app.vue organiza.
+pages define rutas.
+components divide la interfaz.
+Nuxt conecta todo automáticamente.
 ```
-
