@@ -1,8 +1,9 @@
 #  Enlace de Datos
 
-data binding
+Data Binding
 
 
+<br>
 
 ---
 
@@ -21,14 +22,6 @@ data binding
   - [v-cloak](#directiva-v-cloak)
   - [v-once](#directiva-v-once)
 
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -293,3 +286,7 @@ Renderiza SOLO una vez.
 const mensaje = "Hola 🚀"
 </script>
 ```
+
+
+
+## ★

@@ -2,6 +2,8 @@
 # Consumo de APIs
 
 
+<br>
+
 ---
 
 ## Índice
@@ -20,11 +22,6 @@
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -799,6 +796,5 @@ Permite usar:
 <br>
 
 [tutorial firebase](./otros-api-firebase.md)
-
 
 ## ★

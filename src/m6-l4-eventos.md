@@ -3,7 +3,9 @@
 Events y modifiers
 
 
---- 
+<br>
+
+---
 
 ## Índice
 
@@ -62,11 +64,6 @@ Events y modifiers
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -865,3 +862,5 @@ Click derecho.
 @mouseenter
 @mouseleave
 ```
+
+## ★

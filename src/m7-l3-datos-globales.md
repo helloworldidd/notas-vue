@@ -1,8 +1,10 @@
 # Datos Globales
 
---- 
+<br>
 
-## Indíce
+---
+
+## Índice
 
   * [Qué es Pinia](#que-es-pinia)
   * [Pinia vs Vuex](#pinia-vs-vuex)
@@ -23,6 +25,7 @@
   * [Rutas Protegidas](#rutas-protegidas)
 
 
+<br>
 
 ---
 
@@ -2742,7 +2745,6 @@ const authStore = useAuthStore()
   </nav>
 </template>
 ```
-
 
 
 ## ★

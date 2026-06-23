@@ -1,34 +1,29 @@
 # Despliegue
 
 
-
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 ---
 
 ## Índice
 
-
 - [Deployment](#deployment)
+    + [El proceso](#el-proceso)
+    + [Tipos](#Tipos)
+        + [Sitios estáticos](#sitios-estáticos)
+        + [Aplicaciones Frontend](#aplicaciones-frontend)
+        + [Aplicaciones Backend](#aplicaciones-backend)
+        + [Aplicaciones Full Stack](#aplicaciones-full-stack)
+        + [CMS](#cms)
 - [Plataformas](#plataformas)
+    + [Tabla de plataformas](#tabla-de-plataformas)
+    + [Comparación rápida](#comparación-rápida)
+    + [Ejemplos reales](#ejemplos-reales)
+    + [Proceso mas facil](#proceso-mas-facil)
 - [Tips GitHub](#tips-gitHub)
 
 
 
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -466,3 +461,5 @@ Dominio
     - código organizado
     - nombres comprensibles
 
+
+## ★

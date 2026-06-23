@@ -1,6 +1,8 @@
 # Formularios
 
-_v-model_
+v-model
+
+<br>
 
 ---
 
@@ -12,12 +14,6 @@ _v-model_
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ---
 
@@ -223,5 +219,4 @@ button {
 ```
 
 
-
-
+## ★

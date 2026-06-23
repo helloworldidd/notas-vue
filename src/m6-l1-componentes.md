@@ -1,6 +1,8 @@
 # Inicialización
 
 
+<br>
+
 ---
 
 ## Índice
@@ -9,12 +11,6 @@
 - [Extenciones](#extenciones)
 - [Estructura](#estructura)
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -117,3 +113,5 @@ createApp(App).mount('#app')
 
 </style>
 ```
+
+## ★

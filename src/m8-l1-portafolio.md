@@ -2,18 +2,19 @@
 # Portafolio
 
 
+
+<br>
+
+---
+
+## Índice
+
+
 - [Que es](#que-es)
 - [Buenas prácticas](#buenas-prácticas)
-- [Tecnologías](tecnologías)
-- [Estructura](estructura)
+- [Tecnologías](#tecnologías)
+- [Estructura](#estructura)
 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -223,6 +224,7 @@
 - **Firebase Firestore**: Base de datos NoSQL en tiempo real de Google.
 - **Redis**: Base de datos en memoria utilizada para caché y alto rendimiento.
 
+<br>
 <br>
 <br>
 
@@ -520,4 +522,4 @@ Difusión Profesional
 ```
 
 
-
+## ★

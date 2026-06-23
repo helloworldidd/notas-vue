@@ -1,13 +1,12 @@
 # Rutas
 
-_router_
-
-
+Router
 
 <br>
-<br>
 
-### Indíce
+---
+
+## Índice
 
 - [Vue-Router](#vue-router)
   - [Instalación](#instalación)
@@ -43,7 +42,6 @@ _router_
 
 
 
-<br>
 <br>
 
 ---
@@ -1302,4 +1300,4 @@ const abierto = ref(false);
 </style>
 ```
 
-
+## ★

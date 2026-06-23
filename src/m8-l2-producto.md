@@ -1,19 +1,6 @@
 # Producto
 
 
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -26,20 +13,6 @@
 * [Ajustes](#ajustes)
 * [Checklist de entrega](#checklist-de-entrega)
 
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ---
@@ -231,3 +204,7 @@ Antes de cerrar el proyecto, verificar:
 * [ ] Información de contacto disponible.
 
 > Un proyecto bien entregado refleja profesionalismo, organización y buenas prácticas de desarrollo.
+
+
+
+## ★

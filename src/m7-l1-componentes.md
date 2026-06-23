@@ -1,9 +1,12 @@
 # Componentes
+
 > Los componentes son la base de Vue. Permiten dividir una aplicación en piezas pequeñas, reutilizables e independientes, facilitando la organización, mantenimiento y escalabilidad del código.
 
---- 
+<br>
 
-## Indíce
+---
+
+## Índice
 
 * [Componetización](#componetización)
 * [Paso de Datos](#paso-de-datos)
@@ -39,7 +42,7 @@
 
 
 
-
+<br>
 
 ---
 
@@ -1354,6 +1357,5 @@ const color = ref('blue');
 
 </template>
 ```
-
 
 ## ★

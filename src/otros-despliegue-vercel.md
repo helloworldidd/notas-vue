@@ -25,7 +25,7 @@ npm install
 npm run build
       ↓
 Sitio actualizado
-````
+```
 
 ---
 

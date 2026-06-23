@@ -1,12 +1,13 @@
 # Pruebas
 
+<br>
+
 ---
 
 ## Índice
 
 
 
-<br>
 
 * [Las pruebas](#las-pruebas)
   + [Grupos](#grupos)
@@ -40,14 +41,8 @@
   + [Test unitario con Test Doubles](#test-unitario-con-test-doubles)
 
 
+<br>
   
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 ---
 
 ## Las Pruebas
@@ -2469,7 +2464,6 @@ La prueba debe finalizar sin errores y validar que la función guarda el usuario
 
 <br>
 <br>
-
 
 
 ## ★
