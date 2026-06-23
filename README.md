@@ -49,8 +49,12 @@
    - https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
 1. **Ejercicio M7-L2**
    - https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
-1. Test unitario y componente
+1. Test unitario y de componente
    - https://github.com/helloworldidd/p87-vue-test1
+1. Test de ntegracion
+   - https://github.com/helloworldidd/p88-vue-test3
+1. Test E2E
+   - https://github.com/helloworldidd/p89-vue-test3
 
 ---
 
