@@ -3,16 +3,11 @@
 
 
 
-<br>
-<br>
-<br>
-<br>
+
 <br>
 <br>
 
----
-
-## Estructura
+Estructura
 
 ```txt
 src/
@@ -24,9 +19,12 @@ src/
 └── utils/
     └── validarEmail.js
 ```
----
 
-## LoginForm.vue
+
+<br>
+<br>
+
+LoginForm.vue
 
 ```vue
 <script setup>
@@ -100,9 +98,14 @@ function enviarFormulario() {
 </template>
 ```
 
----
 
-## LoginForm.spec.js
+
+<br>
+<br>
+<br>
+<br>
+
+LoginForm.spec.js
 
 ```js
 import { describe, it, expect } from 'vitest'
@@ -195,17 +198,31 @@ describe('LoginForm', () => {
 })
 ```
 
----
 
-## Instalación
+
+
+
+<br>
+<br>
+
+
+**Probar el test**
+<br>
+<br>
+
+
+Instalación
 
 ```bash
 npm install -D vitest @vue/test-utils jsdom
 ```
 
----
 
-## package.json
+
+<br>
+<br>
+
+package.json
 
 ```json
 {
@@ -217,66 +234,68 @@ npm install -D vitest @vue/test-utils jsdom
 }
 ```
 
----
+<br>
+<br>
 
-## Explicación para la ficha
+Ejecutar 
 
-### Comportamientos probados
-
-* Render inicial del formulario.
-* Estado deshabilitado del botón.
-* Validación del correo electrónico.
-* Habilitación del botón cuando los datos son válidos.
-* Visualización del mensaje de error.
-* Emisión del evento `submit`.
-* Limpieza del password después del envío.
-
-### Uso de Vue Test Utils
-
-Se utilizó:
-
-```js
-mount()
+```bash
+npm run test
 ```
 
-para montar el componente.
 
-```js
-setValue()
-```
+<br>
+<br>
+<br>
+<br>
 
-para simular escritura del usuario.
+**Explicación para la ficha**
 
-```js
-trigger()
-```
 
-para simular el envío del formulario.
 
-```js
-emitted()
-```
 
-para verificar los eventos emitidos por el componente.
+1. Comportamientos probados
+    * Render inicial del formulario.
+    * Estado deshabilitado del botón.
+    * Validación del correo electrónico.
+    * Habilitación del botón cuando los datos son válidos.
+    * Visualización del mensaje de error.
+    * Emisión del evento `submit`.
+    * Limpieza del password después del envío.
+    <br>
+    <br>
 
-### Contratos observables
+1. Uso de Vue Test Utils
 
-Las pruebas verifican lo que el usuario puede observar:
+    Se utilizó:
 
-* Inputs visibles.
-* Mensajes de error.
-* Estado del botón.
-* Evento emitido.
+    * `mount()` para montar el componente.
+    * `setValue()` para simular escritura del usuario.
+    * `trigger()` para simular el envío del formulario.
+    * `emitted()` para verificar los eventos emitidos por el componente.
+    <br>
+    <br>
 
-No se prueban variables internas ni detalles de implementación.
+3. Contratos observables
 
-### Mocks y Stubs
+    Las pruebas verifican lo que el usuario puede observar:
 
-En esta solución no fueron necesarios porque el componente:
+    * Inputs visibles.
+    * Mensajes de error.
+    * Estado del botón.
+    * Evento emitido.
 
-* No consume APIs.
-* No usa Router.
-* No tiene componentes hijos.
+    No se prueban variables internas ni detalles de implementación.
+<br>
+<br>
 
-Por lo tanto, la unidad de prueba ya se encuentra completamente aislada. 
+3. Mocks y Stubs
+
+    En esta solución no fueron necesarios porque el componente:
+
+    * No consume APIs.
+    * No usa Router.
+    * No tiene componentes hijos.
+
+    Por lo tanto, la unidad de prueba ya se encuentra completamente aislada. 
 

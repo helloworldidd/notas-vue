@@ -1,12 +1,5 @@
 # Ejemplo M7 L4
 
----
-
-
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 
@@ -16,11 +9,11 @@
 npm install -D vitest @vue/test-utils jsdom
 ```
 
-
 en una terminal 
 ```bash
 npm run dev
 ```
+
 en otra  terminal 
 ```bash
 npm run test
