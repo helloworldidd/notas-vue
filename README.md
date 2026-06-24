@@ -63,6 +63,8 @@
 1. [ejemplo-ejercicio-m7-l1.md](./src/ejemplo-ejercicio-m7-l1.md)
 1. [ejemplo-ejercicio-m7-l2.md](./src/ejemplo-ejercicio-m7-l2.md)
 1. [ejemplo-ejercicio-m7-l3.md](./src/ejemplo-ejercicio-m7-l3.md)
+1. [ejemplo-ejercicio-m7-l4.md](./src/ejemplo-ejercicio-m7-l4.md)
+1. [ejemplo-ejercicio-m7-l4_mock](./src/ejemplo-ejercicio-m7-l4_mock.md)
 
 ---
 
