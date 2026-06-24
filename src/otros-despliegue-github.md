@@ -1,27 +1,33 @@
-# GitHub Pages sin Integración Continua (CI/CD)
+# Despliegue GitHub Pages + Integración Continua (CI/CD)
 
-## Objetivo
-
-Publicar una aplicación Vue + Vite en GitHub Pages realizando el proceso de compilación manualmente, sin utilizar GitHub Actions.
 
 ---
 
-## ¿Qué significa sin CI/CD?
+## Objetivo
 
-En este enfoque, GitHub no ejecuta automáticamente el proceso de build.
+Publicar una aplicación Vue + Vite en GitHub Pages utilizando GitHub Actions para automatizar el despliegue cada vez que se realice un `git push`.
 
-El desarrollador debe generar manualmente la versión final de la aplicación y luego subirla al repositorio.
+---
+
+## ¿Qué es GitHub Pages?
+
+GitHub Pages es un servicio gratuito de GitHub que permite publicar sitios web estáticos directamente desde un repositorio.
+
+Al combinarlo con GitHub Actions podemos crear un flujo de Integración Continua (CI/CD):
 
 ```txt
 Desarrollador
       ↓
-npm run build
+git push
       ↓
-dist/
+GitHub Actions
+      ↓
+npm install
+npm run build
       ↓
 GitHub Pages
       ↓
-Sitio publicado
+Sitio actualizado
 ```
 
 ---
@@ -47,7 +53,7 @@ Instalar dependencias:
 npm install
 ```
 
-Ejecutar localmente:
+Probar localmente:
 
 ```bash
 npm run dev
@@ -55,61 +61,23 @@ npm run dev
 
 ---
 
-## 2. Configurar Vite
-
-Editar:
-
-```txt
-vite.config.js
-```
-
-Agregar el nombre del repositorio:
-
-```javascript
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-export default defineConfig({
-  plugins: [vue],
-  base: '/mi-proyecto/'
-})
-```
-
-Donde:
-
-```txt
-mi-proyecto
-```
-
-corresponde al nombre del repositorio de GitHub.
-
----
-
-## 3. Generar el build
-
-Ejecutar:
-
-```bash
-npm run build
-```
-
-Se generará una carpeta:
-
-```txt
-dist/
-```
-
-Esta carpeta contiene la versión lista para producción.
-
----
-
-## 4. Crear repositorio en GitHub
+## 2. Crear repositorio en GitHub
 
 Inicializar Git:
 
 ```bash
 git init
+```
+
+Agregar archivos:
+
+```bash
 git add .
+```
+
+Primer commit:
+
+```bash
 git commit -m "primer commit"
 ```
 
@@ -123,51 +91,113 @@ git push -u origin main
 
 ---
 
-## 5. Publicar la carpeta dist
+## 3. Configurar Vite
 
-Instalar la herramienta:
-
-```bash
-npm install -D gh-pages
-```
-
-Agregar un script en:
-
-```json
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "deploy": "gh-pages -d dist"
-  }
-}
-```
-
----
-
-## 6. Desplegar
-
-Generar el build:
-
-```bash
-npm run build
-```
-
-Publicar:
-
-```bash
-npm run deploy
-```
-
-Se creará automáticamente una rama:
+Editar:
 
 ```txt
-gh-pages
+vite.config.js
+```
+
+Agregar el nombre del repositorio en `base`.
+
+Ejemplo:
+
+Repositorio:
+
+```txt
+vue-portafolio
+```
+
+Configuración:
+
+```javascript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue],
+  base: '/vue-portafolio/'
+})
+```
+
+⚠️ Si no se configura correctamente, los archivos CSS y JavaScript no cargarán al publicar.
+
+---
+
+## 4. Crear workflow de GitHub Actions
+
+Crear carpetas:
+
+```txt
+.github/
+└── workflows/
+    └── deploy.yml
 ```
 
 ---
 
-## 7. Activar GitHub Pages
+## 5. Archivo deploy.yml
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+---
+
+## 6. Activar GitHub Pages
 
 Ir al repositorio:
 
@@ -176,73 +206,117 @@ Settings
 → Pages
 ```
 
+En:
+
+```txt
+Source
+```
+
 Seleccionar:
 
 ```txt
-Deploy from a branch
-```
-
-Luego:
-
-```txt
-Branch: gh-pages
-Folder: /
+GitHub Actions
 ```
 
 Guardar.
 
 ---
 
-## 8. Acceder al sitio
+## 7. Realizar un nuevo push
 
-Después de algunos minutos estará disponible en:
+Cada modificación:
+
+```bash
+git add .
+git commit -m "actualizacion"
+git push
+```
+
+disparará automáticamente:
 
 ```txt
-https://usuario.github.io/mi-proyecto/
+npm install
+npm run build
+deploy
 ```
 
 ---
 
-## Actualizaciones
+## 8. Revisar el proceso
 
-Cada vez que modifiques el proyecto debes ejecutar nuevamente:
+En GitHub:
 
-```bash
-npm run build
-npm run deploy
+```txt
+Actions
 ```
 
-GitHub Pages actualizará el sitio con la nueva versión.
+Podrás ver:
+
+```txt
+✓ Checkout
+✓ Install
+✓ Build
+✓ Deploy
+```
+
+Si todo sale bien aparecerá una URL similar a:
+
+```txt
+https://usuario.github.io/vue-portafolio/
+```
+
+---
+
+## Estructura final
+
+```txt
+proyecto/
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+│
+├── src/
+├── public/
+├── vite.config.js
+├── package.json
+└── README.md
+```
 
 ---
 
 ## Ventajas
 
-* Configuración sencilla
-* No requiere GitHub Actions
-* Ideal para proyectos pequeños
-* Permite comprender el proceso de build
+* Gratuito
+* Integración Continua real
+* Automatización del despliegue
+* Ideal para portafolios
+* Ideal para proyectos Vue y React
+* Permite aprender CI/CD profesional
 
 ---
 
-## Desventajas
+## Comparación rápida
 
-* El despliegue es manual
-* Hay que ejecutar build en cada actualización
-* No existe automatización
-
----
-
-## Comparación
-
-| Método                 | Build      | Deploy     |
-| ---------------------- | ---------- | ---------- |
-| GitHub Pages Manual    | Manual     | Manual     |
-| GitHub Pages + Actions | Automático | Automático |
-| Vercel                 | Automático | Automático |
+| Característica             | GitHub Pages | Vercel        |
+| -------------------------- | ------------ | ------------- |
+| Gratis                     | ✅            | ✅             |
+| Integración con GitHub     | ✅            | ✅             |
+| Configuración inicial      | Media        | Muy simple    |
+| CI/CD automático           | ✅            | ✅             |
+| Ideal para aprender DevOps | ✅            | ⚠️ Más oculto |
+| Facilidad de uso           | ⭐⭐⭐          | ⭐⭐⭐⭐⭐         |
 
 ### Conclusión
 
-GitHub Pages sin CI/CD es una buena opción para proyectos pequeños o para comprender cómo funciona el proceso de compilación y publicación.
+Para aprender cómo funciona realmente un pipeline de despliegue:
 
-Sin embargo, en proyectos reales suele preferirse GitHub Actions o Vercel para automatizar completamente el despliegue.
+```txt
+GitHub Pages + GitHub Actions
+```
+
+Para publicar rápido y sin preocuparse de la configuración:
+
+```txt
+Vercel
+```

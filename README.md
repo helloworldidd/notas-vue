@@ -114,6 +114,15 @@
 
 1. [otros-api-firebase.md](./src/otros-api-firebase.md)
 
+<br>
+
+1. [otros-portafolios.md](./src/otros-portafolios.md)
+<br>
+
+1. [otros-despliegue-github.md](./src/otros-despliegue-github.md)
+1. [otros-despliegue-vercel.md](./src/otros-despliegue-github.md)
+1. [otros-env.md](./src/otros-env.md)
+
 ---
 
 ## Aprendizaje **REACT.js**
