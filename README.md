@@ -119,6 +119,8 @@
 <br>
 
 1. [otros-portafolios.md](./src/otros-portafolios.md)
+1. [otros-cv.md](./src/otros-cv.md)
+
 <br>
 
 1. [otros-despliegue-github.md](./src/otros-despliegue-github.md)
