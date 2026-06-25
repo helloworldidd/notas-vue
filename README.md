@@ -100,7 +100,7 @@
 1. [ejemplo-ejercicio-m7-l3.md](./src/ejemplo-ejercicio-m7-l3.md)
 1. [ejemplo-ejercicio-m7-l4.md](./src/ejemplo-ejercicio-m7-l4.md)
 1. [ejemplo-ejercicio-m7-l4_mock](./src/ejemplo-ejercicio-m7-l4_mock.md)
-1. [ejemplo-portafolio-m7](./src/ejemplo-portafolio-m7)
+1. [ejemplo-portafolio-m7.md](./src/ejemplo-portafolio-m7.md)
 
 **Ejemplos Ejecicios M8**
 
