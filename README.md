@@ -77,6 +77,18 @@
 1. Test E2E
    - https://github.com/helloworldidd/p89-vue-test3
 
+1. Trabajo de Portafolio1 - Landing page html css sass
+   - https://github.com/helloworldidd/
+
+1. Trabajo de Portafolio 2 - js
+   - https://github.com/helloworldidd/
+
+1. Trabajo de Portafolio 3- Vue
+   - https://github.com/helloworldidd/
+
+1. Construccion de Portafolio
+   - https://github.com/helloworldidd/
+
 ---
 
 ## Ejemplos
