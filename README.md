@@ -77,18 +77,18 @@
 1. Test E2E
    - https://github.com/helloworldidd/p89-vue-test3
 
-1. Trabajo de Portafolio1 - Landing page html css sass
-   - https://github.com/helloworldidd/
+1. Trabajo de Portafolio 1 - landing agencia digital
+   - https://github.com/helloworldidd/p92-landing-agencia-digital
 
-1. Trabajo de Portafolio 2 - js
-   - https://github.com/helloworldidd/
+1. Trabajo de Portafolio 2 - expense tracker
+   - https://github.com/helloworldidd/p93-expense-tracker
 
-1. Trabajo de Portafolio 3- Vue
-   - https://github.com/helloworldidd/
+1. Trabajo de Portafolio 3 - movie explorer
+   - https://github.com/helloworldidd/p94-movie-explorer
 
-1. Construccion de Portafolio
-   - https://github.com/helloworldidd/
-
+1. Construcción de Portafolio
+   - https://github.com/helloworldidd/p95-portafolio
+   
 ---
 
 ## Ejemplos
@@ -175,6 +175,8 @@
 1. [otros-despliegue-github.md](./src/otros-despliegue-github.md)
 1. [otros-despliegue-vercel.md](./src/otros-despliegue-github.md)
 1. [otros-env.md](./src/otros-env.md)
+
+<br>
 
 ---
 
