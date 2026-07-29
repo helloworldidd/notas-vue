@@ -5,89 +5,39 @@
 ## Repositorios
 
 **Módulo 6**
-
-1. Directivas y sass
-   - https://github.com/helloworldidd/p67-app-demo
-
-1. Rutas
-   - https://github.com/helloworldidd/p68-vue-rutas
-
-1. Estructura
-   - https://github.com/helloworldidd/p69-vue-base
-
-1. Props, v-if, v-for, v-model, forms, @sumit y @click
-   - https://github.com/helloworldidd/p70-vue-form-events
-
-1. Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit
-   - https://github.com/helloworldidd/p71-vue-events
-
-1. **Ejercicio M6-L1**
-   - https://github.com/helloworldidd/e-m6-l1
-
-1. Eventos, Modificadores y **Ejercicio M6-L4 parcial**
-   - https://github.com/helloworldidd/p72-vue-events-modifiers
-
-1. Rutas + imagen logo y cangrejo
-   - https://github.com/helloworldidd/p73-vue-routes
+|-|-|-|
+|-|-|-|
+| 1. | Directivas y sass |    https://github.com/helloworldidd/p67-app-demo
+| 2. | Rutas |    https://github.com/helloworldidd/p68-vue-rutas
+| 3. | Estructura |    https://github.com/helloworldidd/p69-vue-base
+| 4. | Props, v-if, v-for, v-model, forms, @sumit y @click |    https://github.com/helloworldidd/p70-vue-form-events
+| 5. | Eventos y PopUp, @click, @mouseover, @input, @keydown, @submit |    https://github.com/helloworldidd/p71-vue-events
+| 6. | **Ejercicio M6-L1** |    https://github.com/helloworldidd/e-m6-l1
+| 7. | Eventos, Modificadores y **Ejercicio M6-L4 parcial** |    https://github.com/helloworldidd/p72-vue-events-modifiers
+| 8. | Rutas + imagen logo y cangrejo |    https://github.com/helloworldidd/p73-vue-routes
 
 **Módulo 7**
-
-1. Componetización + Props
-   - https://github.com/helloworldidd/p75-vue-components
-
-1. **Ejercicios M6-L1 M6-L2 M6-L3 M6-L4 M6-L5**
-   - https://github.com/helloworldidd/p76-vue-ejercicios-m6
-
-1. Formato, Ref, Reactive, Computed, Watch, DefineProps, DefineEmits
-   - https://github.com/helloworldidd/p77-vue-components
-
-1. Slots y component
-   - https://github.com/helloworldidd/p78
-
-1. Web General (prettier lint router)
-   - https://github.com/helloworldidd/p79-vue-general
-
-1. Formulario firebase
-   - https://github.com/helloworldidd/p80-vue-firebase
-
-1. **Ejercicios M7-L1 M7-L2**
-   - https://github.com/helloworldidd/p81-vue-ejercicios-m7
-
-1. Rutas y detalles
-   - https://github.com/helloworldidd/p82-vue-rutas-detalles
-
-1. Estados Globales
-   - https://github.com/helloworldidd/p83-vue-estado-global
-
-1. CRUD con MockAPI
-   - https://github.com/helloworldidd/p84-vue-mockapi
-
-1. **Ejercicio M7-L3**
-   - https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
-
-1. **Ejercicio M7-L2**
-   - https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
-
-1. Test unitario y de componente
-   - https://github.com/helloworldidd/p87-vue-test1
-
-1. Test de ntegracion
-   - https://github.com/helloworldidd/p88-vue-test3
-
-1. Test E2E
-   - https://github.com/helloworldidd/p89-vue-test3
-
-1. Trabajo de Portafolio 1 - landing agencia digital
-   - https://github.com/helloworldidd/p92-landing-agencia-digital
-
-1. Trabajo de Portafolio 2 - expense tracker
-   - https://github.com/helloworldidd/p93-expense-tracker
-
-1. Trabajo de Portafolio 3 - movie explorer
-   - https://github.com/helloworldidd/p94-movie-explorer
-
-1. Construcción de Portafolio
-   - https://github.com/helloworldidd/p95-portafolio
+|-|-|-|
+|-|-|-|
+| 9. | Componetización + Props |    https://github.com/helloworldidd/p75-vue-components
+| 10. | **Ejercicios M6-L1 M6-L2 M6-L3 M6-L4 M6-L5** |    https://github.com/helloworldidd/p76-vue-ejercicios-m6
+| 11. | Formato, Ref, Reactive, Computed, Watch, DefineProps, DefineEmits |    https://github.com/helloworldidd/p77-vue-components
+| 12. | Slots y component |    https://github.com/helloworldidd/p78
+| 13. | Web General (prettier lint router) |    https://github.com/helloworldidd/p79-vue-general
+| 14. | Formulario firebase |    https://github.com/helloworldidd/p80-vue-firebase
+| 15. | **Ejercicios M7-L1 M7-L2** |    https://github.com/helloworldidd/p81-vue-ejercicios-m7
+| 16. | Rutas y detalles |    https://github.com/helloworldidd/p82-vue-rutas-detalles
+| 17. | Estados Globales |    https://github.com/helloworldidd/p83-vue-estado-global
+| 18. | CRUD con MockAPI |    https://github.com/helloworldidd/p84-vue-mockapi
+| 19. | **Ejercicio M7-L3** |    https://github.com/helloworldidd/p85-vue-ejercicio-m7-l3
+| 20. | **Ejercicio M7-L2** |    https://github.com/helloworldidd/p86-vue-ejercicio-m7-l2
+| 21. | Test unitario y de componente |    https://github.com/helloworldidd/p87-vue-test1
+| 22. | Test de ntegracion |    https://github.com/helloworldidd/p88-vue-test3
+| 23. | Test E2E |    https://github.com/helloworldidd/p89-vue-test3
+| 24. | Trabajo de Portafolio 1 - landing agencia digital |    https://github.com/helloworldidd/p92-landing-agencia-digital
+| 25. | Trabajo de Portafolio 2 - expense tracker |    https://github.com/helloworldidd/p93-expense-tracker
+| 26. | Trabajo de Portafolio 3 - movie explorer |    https://github.com/helloworldidd/p94-movie-explorer
+| 27. | Construcción de Portafolio |    https://github.com/helloworldidd/p95-portafolio
    
 ---
 
@@ -112,6 +62,41 @@
 ---
 
 ## Lecciones
+
+**Lecciones Módulo 1**
+1. [m1-l1-perfil.md](./src/m1-l1-perfil.md)
+1. [m1-l2-curricula.md](./src/m1-l2-curricula.md)
+1. [m1-13-metodologia.md](./src/m1-13-metodologia.md)
+
+**Lecciones Módulo 2**
+1. [m2-l1-desarrollo_web.md](./src/m2-l1-desarrollo_web.md)
+1. [m2-l2-html.md](./src/m2-l2-html.md)
+1. [m2-l3-css.md](./src/m2-l3-css.md)
+1. [m2-l4-bootstrap.md](./src/m2-l4-bootstrap.md)
+1. [m2-l5-javascript.md](./src/m2-l5-javascript.md)
+1. [m2-l6-jquery.md](./src/m2-l6-jquery.md)
+1. [m2-l7-git.md](./src/m2-l7-git.md)
+
+**Lecciones Módulo 3**
+1. [m3-l1-proceso_desarrollo.md](./src/m3-l1-proceso_desarrollo.md)
+1. [m3-l2-css_metodologias.md](./src/m3-l2-css_metodologias.md)
+1. [m3-l3-css_preprocesadores.md](./src/m3-l3-css_preprocesadores.md)
+1. [m3-l4-css_layout.md](./src/m3-l4-css_layout.md)
+1. [m3-l5-css_componentes_bootstrap.md](./src/m3-l5-css_componentes_bootstrap.md)
+
+**Lecciones Módulo 4**
+1. [m4-l1-js_bases.md](./src/m4-l1-js_bases.md)
+1. [m4-l2-js_variables.md](./src/m4-l2-js_variables.md)
+1. [m4-l3-js_estructuras.md](./src/m4-l3-js_estructuras.md)
+1. [m4-l4-js_funciones.md](./src/m4-l4-js_funciones.md)
+1. [m4-l5-js_objetos.md](./src/m4-l5-js_objetos.md)
+
+**Lecciones Módulo 5**
+1. [m5-l1-js_poo.md](./src/m5-l1-js_poo.md)
+1. [m5-l2-js_es6.md](./src/m5-l2-js_es6.md)
+1. [m5-l3-js_dom.md](./src/m5-l3-js_dom.md)
+1. [m5-l4-js_asincronia.md](./src/m5-l4-js_asincronia.md)
+1. [m5-l5-js_apis.md](./src/m5-l5-js_apis.md)
 
 **Lecciones Módulo 6**
 
